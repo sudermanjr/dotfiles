@@ -4,9 +4,6 @@ syntax on
 "Don't beep, use a visual signal
 set visualbell
 
-"Enable the mouse
-set mouse=a
-
 "Make the command window two rows
 set cmdheight=2
 
