@@ -33,3 +33,13 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
+
+#Sudo stuff
+if [ -x '/usr/bin/sudo' ];then                     
+  alias sudo='sudo -E'                             
+  alias sbash='sudo -E bash'                       
+  alias lvs='sudo lvs'                             
+  alias vgs='sudo vgs'                             
+  alias pvs='sudo pvs'
+  export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
+fi                                                 
