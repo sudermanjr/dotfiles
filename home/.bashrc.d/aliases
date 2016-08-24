@@ -38,8 +38,5 @@ alias dockerclean='dockercleanc || true && dockercleani'
 if [ -x '/usr/bin/sudo' ];then                     
   alias sudo='sudo -E'                             
   alias sbash='sudo -E bash'                       
-  alias lvs='sudo lvs'                             
-  alias vgs='sudo vgs'                             
-  alias pvs='sudo pvs'
   export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 fi                                                 
