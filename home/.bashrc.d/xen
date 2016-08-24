@@ -1,0 +1,8 @@
+# Xen Aliases
+if [[ -x '/usr/sbin/xm' && -a '/etc/xen/xend-config.sxp' ]];then
+  alias xm='sudo /usr/sbin/xm'
+  alias xl=xm
+elif [ -x '/usr/sbin/xl' ];then
+  alias xm='sudo /usr/sbin/xl'
+  alias xm=xl
+fi
