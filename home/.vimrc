@@ -14,3 +14,6 @@ set number
 set shiftwidth=3
 set softtabstop=3
 set expandtab
+
+"Turn on pathogen
+execute pathogen#infect()
