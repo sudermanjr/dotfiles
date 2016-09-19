@@ -1,6 +1,7 @@
 #Disk space
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
+alias ducks='du -cms * | sort -n'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
