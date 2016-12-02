@@ -40,4 +40,5 @@ if [ -x '/usr/bin/sudo' ];then
   alias sudo='sudo -E'                             
   alias sbash='sudo -E bash'                       
   export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
-fi                                                 
+fi
+
