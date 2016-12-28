@@ -1,7 +1,7 @@
 #Disk space
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
-alias ducks='du -cms * | sort -n'
+alias ducks='du -cmsx * | sort -n'
 
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls).
@@ -36,9 +36,56 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 alias dockerclean='dockercleanc || true && dockercleani'
 
 #Sudo stuff
-if [ -x '/usr/bin/sudo' ];then                     
-  alias sudo='sudo -E'                             
-  alias sbash='sudo -E bash'                       
+if [ -x '/usr/bin/sudo' ];then
+  alias sudo='sudo -E'
+  alias sbash='sudo -E bash'
   export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin
 fi
 
+
+fleet_stop_destroy() {
+  local unit_file="${1}"
+  if ! fleetctl list-units | awk '{print $1}' | grep -q "${unit_file}"; then
+    echo "Error: Looks like the unit file doesn't exist"
+  else
+    fleetctl stop "${unit_file}"
+    fleetctl destroy "${unit_file}"
+  fi
+}
+fleet_load_start() {
+  local unit_file="${1}"
+  if fleetctl list-units | awk '{print $1}' | grep -q "${unit_file}"; then
+    echo "Error: Looks like the unit file exist"
+  else
+    fleetctl load "${unit_file}"
+    fleetctl start "${unit_file}"
+    sleep 2
+    if fleetctl list-units | grep "${unit_file}" | grep -q failed; then
+      fleetctl journal "${unit_file}"
+    else
+      echo "Winning!!!"
+    fi
+
+  fi
+}
+
+fleetctl_stop_start () {
+  local unit_file="${1}"
+  if !  fleetctl list-units | awk '{print $1}' | grep -q "${unit_file}"; then
+    echo "Error: Looks like the unit does not exist"
+  else
+    fleetctl stop  "${unit_file}"
+    fleetctl start "${unit_file}"
+    sleep 2
+    if fleetctl list-units | grep "${unit_file}" | grep -q failed; then
+      fleetctl journal "${unit_file}"
+    else
+      echo "Winning!!!"
+    fi
+
+  fi
+}
+
+export FLEETCTL_TUNNEL=finf-coreos01.ecovate.com:22
+alias fld=fleet_stop_destroy
+alias fls=fleet_load_start
