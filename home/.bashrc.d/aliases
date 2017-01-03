@@ -3,23 +3,6 @@ alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
 alias ducks='du -cmsx * | sort -n'
 
-#-------------------------------------------------------------
-# The 'ls' family (this assumes you use a recent GNU ls).
-#-------------------------------------------------------------
-# Add colors for filetype and  human-readable sizes by default on 'ls':
-alias ls='ls -h --color'
-alias lx='ls -lXB'         #  Sort by extension.
-alias lk='ls -lSr'         #  Sort by size, biggest last.
-alias lt='ls -ltr'         #  Sort by date, most recent last.
-alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
-alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
-
-# The ubiquitous 'll': directories first, with alphanumeric sorting:
-alias ll="ls -lv --group-directories-first"
-alias lm='ll |more'        #  Pipe through 'more'
-alias lr='ll -R'           #  Recursive ls.
-alias la='ll -A'           #  Show hidden files.
-alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
 
 ###########  DOCKER  ##############
@@ -69,7 +52,7 @@ fleet_load_start() {
   fi
 }
 
-fleetctl_stop_start () {
+fleet_stop_start () {
   local unit_file="${1}"
   if !  fleetctl list-units | awk '{print $1}' | grep -q "${unit_file}"; then
     echo "Error: Looks like the unit does not exist"
@@ -89,3 +72,4 @@ fleetctl_stop_start () {
 export FLEETCTL_TUNNEL=finf-coreos01.ecovate.com:22
 alias fld=fleet_stop_destroy
 alias fls=fleet_load_start
+alias flr=fleet_stop_start
