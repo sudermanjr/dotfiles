@@ -31,3 +31,5 @@ nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Paste toggle shortcut
 set pastetoggle=<F2>
+
+colo industry
