@@ -6,4 +6,4 @@ if [[ -d ${HOME}/.bashrc.d ]]; then
 fi
 
 homeshick --quiet refresh
-homeschick link dotfiles
+homeshick link dotfiles
