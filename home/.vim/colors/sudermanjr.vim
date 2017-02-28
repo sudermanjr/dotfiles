@@ -1,6 +1,6 @@
 " Vim color file
 
-set background=Grey
+set background=light
 
 if version > 580
 	hi clear
@@ -62,7 +62,7 @@ hi Conditional guifg=#27408b guibg=NONE guisp=NONE gui=bold ctermfg=18 ctermbg=N
 hi StorageClass guifg=#27408b guibg=NONE guisp=NONE gui=bold ctermfg=18 ctermbg=NONE cterm=bold
 hi Todo guifg=#000000 guibg=#ffff00 guisp=#ffff00 gui=bold ctermfg=NONE ctermbg=11 cterm=bold
 hi Special guifg=#27408b guibg=NONE guisp=NONE gui=NONE ctermfg=18 ctermbg=NONE cterm=NONE
-hi LineNr guifg=#828c95 guibg=#bbbbbb guisp=#bbbbbb gui=bold ctermfg=246 ctermbg=250 cterm=bold
+hi LineNr guifg=#000000 guibg=#bbbbbb guisp=#bbbbbb gui=bold ctermfg=256 ctermbg=250 cterm=bold
 hi StatusLine guifg=#829db9 guibg=#000000 guisp=#000000 gui=bold ctermfg=103 ctermbg=NONE cterm=bold
 hi Label guifg=#8b4726 guibg=NONE guisp=NONE gui=bold,underline ctermfg=88 ctermbg=NONE cterm=bold,underline
 hi PMenuSel guifg=#000000 guibg=#ffff00 guisp=#ffff00 gui=NONE ctermfg=NONE ctermbg=11 cterm=NONE
