@@ -1,3 +1,5 @@
+alias gpg='gpg1'
+
 #Disk space
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
