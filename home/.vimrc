@@ -13,8 +13,8 @@ set cmdheight=2
 set number
 
 "Set tab to three spaces
-set shiftwidth=3
-set softtabstop=3
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 filetype plugin indent on
