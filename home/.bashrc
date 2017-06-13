@@ -5,5 +5,3 @@ if [[ -d ${HOME}/.bashrc.d ]]; then
   unset dotd
 fi
 
-homeshick --quiet refresh
-homeshick link dotfiles
