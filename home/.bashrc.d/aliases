@@ -3,7 +3,7 @@ alias gpg='gpg1'
 #Disk space
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
-alias ducks='du -cmsx * | sort -n'
+alias ducks='du -cmxhs * --exclude=/home --exclude=/proc --exclude=/mnt | sort -h'
 
 
 

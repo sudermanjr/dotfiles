@@ -19,6 +19,8 @@ set expandtab
 
 filetype plugin indent on
 
+colorscheme sudermanjr
+
 " This will make F6 remove all tailing white spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -31,6 +33,3 @@ nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Paste toggle shortcut
 set pastetoggle=<F2>
-
-colorscheme sudermanjr
-
