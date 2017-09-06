@@ -1,4 +1,3 @@
-alias gpg='gpg1'
 alias gethome='homeshick --quiet refresh 0 && homeshick link dotfiles'
 #Disk space
 alias du='du -kh'    # Makes a more readable output.
