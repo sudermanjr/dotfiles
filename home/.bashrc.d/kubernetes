@@ -1,0 +1,2 @@
+alias kubedash="kubectl get po -n=kube-system | grep dashboard | awk '{print \$1}' | xargs -I %  kubectl port-forward % 9090 -n=kube-system"
+alias k='kubectl'

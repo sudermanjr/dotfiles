@@ -75,5 +75,3 @@ alias fld=fleet_stop_destroy
 alias fls=fleet_load_start
 alias flr=fleet_stop_start
 
-##### KUBERNETES ######
-alias kubedash="kubectl get po -n=kube-system | grep dashboard | awk '{print \$1}' | xargs -I %  kubectl port-forward % 9090 -n=kube-system"
