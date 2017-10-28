@@ -5,3 +5,7 @@ if [[ -d ${HOME}/.bashrc.d ]]; then
   unset dotd
 fi
 
+export PATH=~/.local/bin:$PATH
+
+homeshick --quiet refresh
+homeshick link dotfiles

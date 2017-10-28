@@ -19,6 +19,8 @@ set expandtab
 
 filetype plugin indent on
 
+colorscheme sudermanjr
+
 " This will make F6 remove all tailing white spaces:
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -36,4 +38,3 @@ au BufReadPost Jenkinsfile set syntax=groovy
 au BufReadPost Jenkinsfile set filetype=groovy
 
 colorscheme sudermanjr
-
