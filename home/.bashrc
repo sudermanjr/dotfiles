@@ -6,6 +6,3 @@ if [[ -d ${HOME}/.bashrc.d ]]; then
 fi
 
 export PATH=~/.local/bin:$PATH
-
-homeshick --quiet refresh
-homeshick link dotfiles

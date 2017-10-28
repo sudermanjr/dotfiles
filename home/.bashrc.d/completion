@@ -9,6 +9,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
 #Use history for up and down arrow
 #bind '"\e[A": history-search-backward'
 #bind '"\e[B": history-search-forward'
