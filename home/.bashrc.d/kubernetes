@@ -5,7 +5,7 @@ source <( kubectl completion bash)
 
 
 NORMAL=$(tput sgr0)
-YELLOW=$(tput setaf 3)
+YELLOW=$(tput setaf 4)
 
 _kube_ps1() {
   local K8S_CONTEXT=$(kubectl config current-context 2> /dev/null || '')
