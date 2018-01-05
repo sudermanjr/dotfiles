@@ -1,0 +1,1 @@
+[[ $- = *i* ]] && source ~/.homesick/repos/liquidprompt/liquidprompt

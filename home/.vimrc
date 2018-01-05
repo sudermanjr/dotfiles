@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 "Turn on syntax highliting
 syntax on
 
@@ -38,3 +40,7 @@ au BufReadPost Jenkinsfile set syntax=groovy
 au BufReadPost Jenkinsfile set filetype=groovy
 
 colorscheme sudermanjr
+
+map <leader>b :Gblame<cr>
+map <leader>d :Gdiff<cr>
+map <leader>t :NERDTreeToggle<cr>
