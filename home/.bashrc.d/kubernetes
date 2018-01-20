@@ -1,4 +1,16 @@
-alias kubedash="kubectl get po -n=kube-system | grep dashboard | awk '{print \$1}' | xargs -I %  kubectl port-forward % 9090 -n=kube-system"
+set_kube_current_ns() {
+  if [ -z "${1}" ]; then
+    echo "You didn't specify, so I choose sudermanjr"
+    ns="sudermanjr"
+    kubectl config set-context $(kubectl config current-context) --namespace=$ns
+    return
+  fi
+    ns="${1}"
+    kubectl config set-context $(kubectl config current-context) --namespace=$ns
+    return
+}
+alias kns=set_kube_current_ns
+alias kubedash="kubectl get po -n=kube-system | grep dashboard | awk '{print \$1}' | xargs -I %  kubectl port-forward % 8001 -n=kube-system"
 alias k=kubectl
 
 source <( kubectl completion bash)
