@@ -25,12 +25,12 @@
 [submodule "home/.tmux/plugins/tmux-net-speed"]
 	path = home/.tmux/plugins/tmux-net-speed
 	url = git@github.com:tmux-plugins/tmux-net-speed.git
-[submodule "home/.tmux/plugins/tmux-sidebar"]
-	path = home/.tmux/plugins/tmux-sidebar
-	url = git@github.com:tmux-plugins/tmux-sidebar.git
 [submodule "home/.tmux/plugins/tmux-continuum"]
 	path = home/.tmux/plugins/tmux-continuum
 	url = git@github.com:tmux-plugins/tmux-continuum.git
 [submodule "home/.tmux/plugins/tmux-resurrect"]
 	path = home/.tmux/plugins/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
+[submodule "home/.vim/bundle/vim-tmux"]
+	path = home/.vim/bundle/vim-tmux
+	url = git://github.com/tmux-plugins/vim-tmux.git
