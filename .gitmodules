@@ -13,3 +13,6 @@
 [submodule "home/.tmux/plugins/tmux-mem-cpu-load"]
 	path = home/.tmux/plugins/tmux-mem-cpu-load
 	url = git@github.com:thewtex/tmux-mem-cpu-load.git
+[submodule "home/.tmux/plugins/tmux-copycat"]
+	path = home/.tmux/plugins/tmux-copycat
+	url = git@github.com:tmux-plugins/tmux-copycat.git
