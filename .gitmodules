@@ -22,3 +22,6 @@
 [submodule "home/.tmux/plugins/tmux-prefix-highlight"]
 	path = home/.tmux/plugins/tmux-prefix-highlight
 	url = git@github.com:tmux-plugins/tmux-prefix-highlight.git
+[submodule "home/.tmux/plugins/tmux-net-speed"]
+	path = home/.tmux/plugins/tmux-net-speed
+	url = git@github.com:tmux-plugins/tmux-net-speed.git
