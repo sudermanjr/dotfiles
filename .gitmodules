@@ -16,3 +16,6 @@
 [submodule "home/.tmux/plugins/tmux-copycat"]
 	path = home/.tmux/plugins/tmux-copycat
 	url = git@github.com:tmux-plugins/tmux-copycat.git
+[submodule "home/.tmux/plugins/tmux-battery"]
+	path = home/.tmux/plugins/tmux-battery
+	url = git@github.com:tmux-plugins/tmux-battery.git
