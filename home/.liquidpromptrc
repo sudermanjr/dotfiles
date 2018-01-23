@@ -153,7 +153,7 @@ LP_TIME_ANALOG=0
 LP_ENABLE_TITLE=1
 
 # Enable Title for screen and byobu
-LP_ENABLE_SCREEN_TITLE=1
+LP_ENABLE_SCREEN_TITLE=0
 
 # Use different colors for the different hosts you SSH to
 LP_ENABLE_SSH_COLORS=1

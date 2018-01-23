@@ -7,3 +7,9 @@
 [submodule "home/.vim/bundle/nerdcommenter"]
 	path = home/.vim/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "home/.tmux/plugins/tpm"]
+	path = home/.tmux/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
+[submodule "home/.tmux/plugins/tmux-mem-cpu-load"]
+	path = home/.tmux/plugins/tmux-mem-cpu-load
+	url = git@github.com:thewtex/tmux-mem-cpu-load.git
