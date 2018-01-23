@@ -19,3 +19,6 @@
 [submodule "home/.tmux/plugins/tmux-battery"]
 	path = home/.tmux/plugins/tmux-battery
 	url = git@github.com:tmux-plugins/tmux-battery.git
+[submodule "home/.tmux/plugins/tmux-prefix-highlight"]
+	path = home/.tmux/plugins/tmux-prefix-highlight
+	url = git@github.com:tmux-plugins/tmux-prefix-highlight.git
