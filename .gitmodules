@@ -25,3 +25,6 @@
 [submodule "home/.tmux/plugins/tmux-net-speed"]
 	path = home/.tmux/plugins/tmux-net-speed
 	url = git@github.com:tmux-plugins/tmux-net-speed.git
+[submodule "home/.tmux/plugins/tmux-sidebar"]
+	path = home/.tmux/plugins/tmux-sidebar
+	url = git@github.com:tmux-plugins/tmux-sidebar.git
