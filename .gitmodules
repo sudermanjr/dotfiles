@@ -31,3 +31,6 @@
 [submodule "home/.tmux/plugins/tmux-resurrect"]
 	path = home/.tmux/plugins/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
+[submodule "home/.tmux/plugins/tmux-kube"]
+	path = home/.tmux/plugins/tmux-kube
+	url = git@github.com:sudermanjr/tmux-kube.git
