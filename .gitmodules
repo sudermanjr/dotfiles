@@ -7,30 +7,3 @@
 [submodule "home/.vim/bundle/nerdcommenter"]
 	path = home/.vim/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
-[submodule "home/.tmux/plugins/tpm"]
-	path = home/.tmux/plugins/tpm
-	url = git@github.com:tmux-plugins/tpm.git
-[submodule "home/.tmux/plugins/tmux-mem-cpu-load"]
-	path = home/.tmux/plugins/tmux-mem-cpu-load
-	url = git@github.com:thewtex/tmux-mem-cpu-load.git
-[submodule "home/.tmux/plugins/tmux-copycat"]
-	path = home/.tmux/plugins/tmux-copycat
-	url = git@github.com:tmux-plugins/tmux-copycat.git
-[submodule "home/.tmux/plugins/tmux-battery"]
-	path = home/.tmux/plugins/tmux-battery
-	url = git@github.com:tmux-plugins/tmux-battery.git
-[submodule "home/.tmux/plugins/tmux-prefix-highlight"]
-	path = home/.tmux/plugins/tmux-prefix-highlight
-	url = git@github.com:tmux-plugins/tmux-prefix-highlight.git
-[submodule "home/.tmux/plugins/tmux-net-speed"]
-	path = home/.tmux/plugins/tmux-net-speed
-	url = git@github.com:tmux-plugins/tmux-net-speed.git
-[submodule "home/.tmux/plugins/tmux-continuum"]
-	path = home/.tmux/plugins/tmux-continuum
-	url = git@github.com:tmux-plugins/tmux-continuum.git
-[submodule "home/.tmux/plugins/tmux-resurrect"]
-	path = home/.tmux/plugins/tmux-resurrect
-	url = git@github.com:tmux-plugins/tmux-resurrect.git
-[submodule "home/.tmux/plugins/tmux-kube"]
-	path = home/.tmux/plugins/tmux-kube
-	url = git@github.com:sudermanjr/tmux-kube.git
