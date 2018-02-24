@@ -12,7 +12,11 @@ set cmdheight=2
 "Line numbers on
 set number
 
-"Set tab to three spaces
+"Show tabs
+set list
+set listchars=tab:>-
+
+"Set tab to four spaces
 set shiftwidth=4
 set softtabstop=4
 set expandtab

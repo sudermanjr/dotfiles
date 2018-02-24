@@ -6,3 +6,6 @@ if [[ -d ${HOME}/.bashrc.d ]]; then
 fi
 
 export PATH=~/.local/bin:$PATH
+
+# added by travis gem
+[ -f /Users/andrew.suderman/.travis/travis.sh ] && source /Users/andrew.suderman/.travis/travis.sh
