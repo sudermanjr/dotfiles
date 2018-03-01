@@ -7,3 +7,6 @@
 [submodule "home/.vim/bundle/nerdcommenter"]
 	path = home/.vim/bundle/nerdcommenter
 	url = git@github.com:scrooloose/nerdcommenter.git
+[submodule "home/.vim/bundle/nginx.vim"]
+	path = home/.vim/bundle/nginx.vim
+	url = git@github.com:chr4/nginx.vim.git
