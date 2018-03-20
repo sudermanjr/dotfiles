@@ -83,4 +83,7 @@ cleanup_commands() {
 
   echo "Cleaning homebrew..."
   brew cleanup
+
+  echo "Cleaning up brew cask"
+  brew cask cleanup
 }
