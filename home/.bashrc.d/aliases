@@ -70,8 +70,17 @@ fleet_stop_start () {
   fi
 }
 
-export FLEETCTL_TUNNEL=finf-coreos01.ecovate.com:22
 alias fld=fleet_stop_destroy
 alias fls=fleet_load_start
 alias flr=fleet_stop_start
 
+
+alias clean=cleanup_commands
+
+cleanup_commands() {
+  echo "Cleaning up docker..."
+  docker system prune -af
+
+  echo "Cleaning homebrew..."
+  brew cleanup
+}
