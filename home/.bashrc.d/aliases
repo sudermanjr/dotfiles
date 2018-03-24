@@ -86,4 +86,12 @@ cleanup_commands() {
 
   echo "Cleaning up brew cask"
   brew cask cleanup
+
+  echo "Cleaninup up AWS ENV"
+  unset AWS_DEFAULT_REGION
+  unset AWS_SECRET_ACCESS_KEY
+  unset AWS_REGION
+  unset AWS_ACCESS_KEY_ID
+  unset AWS_SESSION_TOKEN
+
 }
