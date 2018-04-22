@@ -9,3 +9,5 @@ export PATH=~/.local/bin:$PATH
 
 # added by travis gem
 [ -f /Users/andrew.suderman/.travis/travis.sh ] && source /Users/andrew.suderman/.travis/travis.sh
+
+complete -C /usr/local/bin/vault vault
