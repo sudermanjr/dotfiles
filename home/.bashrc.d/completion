@@ -16,3 +16,15 @@ fi
 #Use history for up and down arrow
 #bind '"\e[A": history-search-backward'
 #bind '"\e[B": history-search-forward'
+
+
+## Add tab completion for bash completion 2
+if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+  source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+  source /etc/bash_completion;
+fi;
+
+# Git clone completion for my repos
+# https://github.com/asottile/all-repos
+eval "$(all-repos-complete -C ~/.../all-repos.json --bash)"
