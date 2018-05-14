@@ -4,3 +4,5 @@
 	signingkey = 9C9CAE7EC2133DB7
 [commit]
 	gpgsign = true
+[core]
+	excludesfile = /Users/asuderma/.gitignore_global
