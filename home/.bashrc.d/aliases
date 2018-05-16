@@ -102,3 +102,7 @@ get_colors() {
       printf "\x1b[38;5;${i}mcolour${i}\x1b[0m\n"
   done
 }
+
+# Git stuff
+alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse"
+
