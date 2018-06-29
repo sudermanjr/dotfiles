@@ -1,3 +1,4 @@
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 if [[ -d ${HOME}/.bashrc.d ]]; then
   while read dotd; do
     source "${dotd}"

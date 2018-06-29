@@ -1,23 +1,12 @@
-alias gethome='homeshick --quiet refresh 0 && homeshick link dotfiles'
+# set aliases
+alias d=docker
+alias g=git
+alias k=kubectl
+
 #Disk space
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
 alias ducks='du -cmxhs * --exclude=/home --exclude=/proc --exclude=/mnt | sort -h'
-
-
-
-###########  DOCKER  ##############
-# Kill all running containers.
-alias dockerkillall='docker kill $(docker ps -q)'
-
-# Delete all stopped containers.
-alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
-
-# Delete all untagged images.
-alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
-
-# Delete all stopped containers and untagged images.
-alias dockerclean='dockercleanc || true && dockercleani'
 
 #Sudo stuff
 if [ -x '/usr/bin/sudo' ];then
@@ -60,48 +49,3 @@ alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse"
 
 # Flush DNS Cache on OSX
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
-
-# Alias completion from https://brbsix.github.io/2015/11/23/perform-tab-completion-for-aliases-in-bash/
-alias_completion(){
-    # keep global namespace clean
-    local cmd completion
-
-    # determine first word of alias definition
-    # NOTE: This is really dirty. Is it possible to use
-    #       readline's shell-expand-line or alias-expand-line?
-    cmd=$(alias "$1" | sed 's/^alias .*='\''//;s/\( .\+\|'\''\)//')
-
-    # determine completion function
-    completion=$(complete -p "$1" 2>/dev/null)
-
-    # run _completion_loader only if necessary
-    [[ -n $completion ]] || {
-
-        # load completion
-        _completion_loader "$cmd"
-
-        # detect completion
-        completion=$(complete -p "$cmd" 2>/dev/null)
-    }
-
-    # ensure completion was detected
-    [[ -n $completion ]] || return 1
-
-    # configure completion
-    eval "$(sed "s/$cmd\$/$1/" <<<"$completion")"
-}
-
-# set aliases
-alias d=docker
-alias g=git
-alias k=kubectl
-
-# aliases to load completion for
-aliases=(d g k)
-
-for a in "${aliases[@]}"; do
-    alias_completion "$a"
-done
-
-# clean up after ourselves
-unset a aliases
