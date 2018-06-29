@@ -1,3 +1,6 @@
+LP_PS1_PREFIX="\[$CLUSTER\]"
+LP_PS1_POSTFIX=""
+
 
 ####################################
 # LIQUID PROMPT CONFIGURATION FILE #
