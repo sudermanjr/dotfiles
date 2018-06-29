@@ -27,54 +27,6 @@ if [ -x '/usr/bin/sudo' ];then
 fi
 
 
-fleet_stop_destroy() {
-  local unit_file="${1}"
-  if ! fleetctl list-units | awk '{print $1}' | grep -q "${unit_file}"; then
-    echo "Error: Looks like the unit file doesn't exist"
-  else
-    fleetctl stop "${unit_file}"
-    fleetctl destroy "${unit_file}"
-  fi
-}
-fleet_load_start() {
-  local unit_file="${1}"
-  if fleetctl list-units | awk '{print $1}' | grep -q "${unit_file}"; then
-    echo "Error: Looks like the unit file exist"
-  else
-    fleetctl load "${unit_file}"
-    fleetctl start "${unit_file}"
-    sleep 2
-    if fleetctl list-units | grep "${unit_file}" | grep -q failed; then
-      fleetctl journal "${unit_file}"
-    else
-      echo "Winning!!!"
-    fi
-
-  fi
-}
-
-fleet_stop_start () {
-  local unit_file="${1}"
-  if !  fleetctl list-units | awk '{print $1}' | grep -q "${unit_file}"; then
-    echo "Error: Looks like the unit does not exist"
-  else
-    fleetctl stop  "${unit_file}"
-    fleetctl start "${unit_file}"
-    sleep 2
-    if fleetctl list-units | grep "${unit_file}" | grep -q failed; then
-      fleetctl journal "${unit_file}"
-    else
-      echo "Winning!!!"
-    fi
-
-  fi
-}
-
-alias fld=fleet_stop_destroy
-alias fls=fleet_load_start
-alias flr=fleet_stop_start
-
-
 alias clean=cleanup_commands
 
 cleanup_commands() {
@@ -106,3 +58,50 @@ get_colors() {
 # Git stuff
 alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse"
 
+# Flush DNS Cache on OSX
+alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
+
+# Alias completion from https://brbsix.github.io/2015/11/23/perform-tab-completion-for-aliases-in-bash/
+alias_completion(){
+    # keep global namespace clean
+    local cmd completion
+
+    # determine first word of alias definition
+    # NOTE: This is really dirty. Is it possible to use
+    #       readline's shell-expand-line or alias-expand-line?
+    cmd=$(alias "$1" | sed 's/^alias .*='\''//;s/\( .\+\|'\''\)//')
+
+    # determine completion function
+    completion=$(complete -p "$1" 2>/dev/null)
+
+    # run _completion_loader only if necessary
+    [[ -n $completion ]] || {
+
+        # load completion
+        _completion_loader "$cmd"
+
+        # detect completion
+        completion=$(complete -p "$cmd" 2>/dev/null)
+    }
+
+    # ensure completion was detected
+    [[ -n $completion ]] || return 1
+
+    # configure completion
+    eval "$(sed "s/$cmd\$/$1/" <<<"$completion")"
+}
+
+# set aliases
+alias d=docker
+alias g=git
+alias k=kubectl
+
+# aliases to load completion for
+aliases=(d g k)
+
+for a in "${aliases[@]}"; do
+    alias_completion "$a"
+done
+
+# clean up after ourselves
+unset a aliases

@@ -4,8 +4,5 @@ set_kube_current_ns()
 }
 alias kns=set_kube_current_ns
 alias kdash="kubectl get po -n=kube-system | grep dashboard | awk '{print \$1}' | xargs -I %  kubectl port-forward % 8001 -n=kube-system"
-alias kwatch="watch kubectl get ds,deploy,po,svc,ing,cm,pvc,secret,cronjob"
+alias kwatch="watch kubectl get ds,deploy,hpa,po,svc,ing,cm"
 alias kwatchistio="watch kubectl get ds,deploy,po,svc,ing,cm,pvc,secret,cronjob,routerule"
-alias k=kubectl
-
-source <( kubectl completion bash)

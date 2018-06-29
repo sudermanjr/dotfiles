@@ -32,3 +32,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
+
+# Add the go bin path to my path
+export PATH="$PATH:$HOME/go/bin"
