@@ -1,6 +1,17 @@
-LP_PS1_PREFIX="\[$CLUSTER\]"
-LP_PS1_POSTFIX=""
+LP_PS1_PREFIX="${BOLD}"
+if [ ! -z $PROJECT ]; then
+    LP_PS1_PREFIX="$LP_PS1_PREFIX\[\][\[\]\[\]${BOLD_RED}$PROJECT "
+fi
 
+if [ ! -z $INVENTORY ]; then
+    LP_PS1_PREFIX="$LP_PS1_PREFIX$INVENTORY "
+fi
+
+if [ ! -z $CLUSTER ]; then
+    LP_PS1_PREFIX="$LP_PS1_PREFIX$(echo $CLUSTER | sed 's/\..*//')${NO_COL}\[\]\[\]] "
+fi
+
+LP_PS1_POSTFIX=""
 
 ####################################
 # LIQUID PROMPT CONFIGURATION FILE #
@@ -9,7 +20,7 @@ LP_PS1_POSTFIX=""
 # If you want to use different themes and features,
 # you can load the corresponding files here:
 #source ~/.config/liquidprompt/nojhan.theme
-#LP_PS1_FILE=~/.config/liquidprompt/nojhan.ps1
+LP_PS1_FILE=~/.liquid.ps1
 
 #############
 # BEHAVIOUR #
@@ -36,7 +47,7 @@ LP_ENABLE_SHORTEN_PATH=1
 # The maximum percentage of the screen width used to display the path before
 # removing the center portion of the path and replacing with '...'.
 # Recommended value is 35
-LP_PATH_LENGTH=25
+LP_PATH_LENGTH=15
 
 # The number of directories (including '/') to keep at the beginning of a
 # shortened path.
@@ -153,10 +164,10 @@ LP_TIME_ANALOG=0
 # recommended value is 0
 # See LP_TITLE_OPEN and LP_TITLE_CLOSE to change escape characters to adapt this
 # feature to your specific terminal.
-LP_ENABLE_TITLE=1
+LP_ENABLE_TITLE=0
 
 # Enable Title for screen and byobu
-LP_ENABLE_SCREEN_TITLE=0
+LP_ENABLE_SCREEN_TITLE=1
 
 # Use different colors for the different hosts you SSH to
 LP_ENABLE_SSH_COLORS=1
