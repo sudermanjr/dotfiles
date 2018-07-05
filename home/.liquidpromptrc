@@ -1,3 +1,5 @@
+source ~/.liquid.theme
+
 LP_PS1_PREFIX="${BOLD}"
 if [ ! -z $PROJECT ]; then
     LP_PS1_PREFIX="$LP_PS1_PREFIX\[\][\[\]\[\]${BOLD_RED}$PROJECT "
