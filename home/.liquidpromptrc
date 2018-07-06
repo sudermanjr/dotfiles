@@ -1,16 +1,12 @@
 source ~/.liquid.theme
 
-LP_PS1_PREFIX="${BOLD}"
 if [ ! -z $PROJECT ]; then
-    LP_PS1_PREFIX="$LP_PS1_PREFIX\[\][\[\]\[\]${BOLD_RED}$PROJECT "
-fi
-
-if [ ! -z $INVENTORY ]; then
+    LP_PS1_PREFIX="${BOLD}$LP_PS1_PREFIX\[\][\[\]\[\]${BOLD_RED}$PROJECT "
     LP_PS1_PREFIX="$LP_PS1_PREFIX$INVENTORY "
 fi
 
 if [ ! -z $CLUSTER ]; then
-    LP_PS1_PREFIX="$LP_PS1_PREFIX$(echo $CLUSTER | sed 's/\..*//')${NO_COL}\[\]\[\]] "
+    LP_PS1_PREFIX="$LP_PS1_PREFIX$(echo $CLUSTER | sed 's/\..*//')${NO_COL}\[\]\[\]]"
 fi
 
 LP_PS1_POSTFIX=""
@@ -49,12 +45,12 @@ LP_ENABLE_SHORTEN_PATH=1
 # The maximum percentage of the screen width used to display the path before
 # removing the center portion of the path and replacing with '...'.
 # Recommended value is 35
-LP_PATH_LENGTH=15
+LP_PATH_LENGTH=0
 
 # The number of directories (including '/') to keep at the beginning of a
 # shortened path.
 # Recommended value is 2
-LP_PATH_KEEP=1
+LP_PATH_KEEP=0
 
 # Determine if the hostname should always be displayed, even if not connecting
 # through network.
@@ -82,7 +78,7 @@ LP_PERCENTS_ALWAYS=1
 # Use the permissions feature and display a red ':' before the prompt to show
 # when you don't have write permission to the current directory.
 # Recommended value is 1
-LP_ENABLE_PERM=1
+LP_ENABLE_PERM=0
 
 # Enable the proxy detection feature.
 # Recommended value is 1
@@ -94,11 +90,11 @@ LP_ENABLE_JOBS=1
 
 # Enable the load feature.
 # Recommended value is 1
-LP_ENABLE_LOAD=0
+LP_ENABLE_LOAD=1
 
 # Enable the battery feature.
 # Recommended value is 1
-LP_ENABLE_BATT=0
+LP_ENABLE_BATT=1
 
 # Enable the 'sudo credentials' feature.
 # Be warned that this may pollute the syslog if you don't have sudo
@@ -169,7 +165,7 @@ LP_TIME_ANALOG=0
 LP_ENABLE_TITLE=0
 
 # Enable Title for screen and byobu
-LP_ENABLE_SCREEN_TITLE=1
+LP_ENABLE_SCREEN_TITLE=0
 
 # Use different colors for the different hosts you SSH to
 LP_ENABLE_SSH_COLORS=1
