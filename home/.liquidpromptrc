@@ -1,7 +1,7 @@
 source ~/.liquid.theme
 
 if [ ! -z $PROJECT ]; then
-    LP_PS1_PREFIX="${BOLD}$LP_PS1_PREFIX\[\][\[\]\[\] ${BOLD_RED}$PROJECT "
+    LP_PS1_PREFIX="$LP_PS1_PREFIX\[\][\[\]\[\]${BOLD_RED}$PROJECT "
     LP_PS1_PREFIX="$LP_PS1_PREFIX$INVENTORY "
 fi
 

@@ -2,6 +2,9 @@
 #######################################
 # LIQUID PROMPT DEFAULT TEMPLATE FILE #
 #######################################
+if [ ! -z $LP_ERR ]; then
+    LP_ERR="$LP_ERR ✘"
+fi
 
 # Available features:
 # LP_BATT battery
@@ -27,7 +30,6 @@
 
 # Remember that most features come with their corresponding colors,
 # see the README.
-
 # add time, jobs, load and battery
 LP_PS1="${LP_PS1_PREFIX}${LP_TIME}${LP_BATT}${LP_LOAD}${LP_JOBS}"
 
