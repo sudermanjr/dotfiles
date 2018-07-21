@@ -1,9 +1,10 @@
-
 #######################################
 # LIQUID PROMPT DEFAULT TEMPLATE FILE #
 #######################################
 if [ ! -z $LP_ERR ]; then
     LP_ERR="$LP_ERR ✘"
+else
+    LP_ERR=" ✓"
 fi
 
 # Available features:
