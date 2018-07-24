@@ -10,3 +10,6 @@
 [submodule "home/.vim/bundle/nginx.vim"]
 	path = home/.vim/bundle/nginx.vim
 	url = git@github.com:chr4/nginx.vim.git
+[submodule "home/.vim/pack/default/start/vim-polyglot"]
+	path = home/.vim/pack/default/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
