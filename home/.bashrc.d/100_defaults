@@ -40,4 +40,4 @@ export PATH="$PATH:$HOME/go/bin"
 export COLOREDLOGS_LOG_LEVEL=DEBUG
 export COLOREDLOGS_LOG_FORMAT='%(asctime)s  %(name)s[%(process)d] %(levelname)8s  %(message)s'
 #export COLOREDLOGS_FIELD_STYLES="{'asctime': {'color': 'green'}, 'hostname': {'color': 'magenta'}, 'levelname': {'color': 'red', 'bold': True}, 'name': {'color': 'blue'}, 'programname': {'color': 'cyan'}}"
-export COLOREDLOGS_FIELD_STYLES='asctime=green;levelname=250,bold;programname=cyan;name=blue'
+export COLOREDLOGS_FIELD_STYLES='asctime=green;levelname=250;programname=cyan;name=blue'
