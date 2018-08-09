@@ -33,6 +33,7 @@ brew "gnupg", link: false
 brew "godep"
 brew "graphviz"
 brew "hashcat"
+brew "htop"
 brew "inetutils"
 brew "jenv"
 brew "jq"
