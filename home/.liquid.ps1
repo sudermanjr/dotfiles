@@ -8,7 +8,7 @@ else
 fi
 
 if [ ! -z $PROJECT ]; then
-    LP_PS1_PREFIX="${LP_BRACKET_OPEN}${BLUE}$PROJECT ${YELLOW}$INVENTORY ${RED}$(echo $CLUSTER | sed 's/\..*//') ${NC}$(kgetns)${LP_BRACKET_CLOSE}"
+    LP_PS1_PREFIX="${LP_BRACKET_OPEN}${BLUE}$PROJECT $INVENTORY ${GREEN}$(echo $CLUSTER | sed 's/\..*//') $(kgetns)${LP_BRACKET_CLOSE}"
 else
     LP_PS1_PREFIX=""
 fi
