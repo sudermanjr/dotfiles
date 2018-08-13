@@ -9,3 +9,33 @@ alias kdash="kubectl get po -n=kube-system | grep dashboard | awk '{print \$1}' 
 alias kwatch="watch kubectl get ds,deploy,hpa,po,svc,ing,cm"
 alias kwatchistio="watch kubectl get ds,deploy,po,svc,ing,cm,pvc,secret,cronjob,routerule"
 alias kgetall="kubectl api-resources --verbs=list --namespaced -o name | xargs -L 1 -I {} kubectl get {} --show-kind --ignore-not-found"
+
+kc() {
+  kubectl -n "${namespace}" $@
+}
+
+generate_kubeconfig_from_sa() {
+  namespace="$1"
+  serviceaccount="$2"
+
+  sa_secret_name=$(kc get serviceaccount "${serviceaccount}" -o 'jsonpath={.secrets[0].name}')
+
+  context_name="$(kubectl config current-context)"
+  kubeconfig_old="${KUBECONFIG}"
+  cluster_name="$(kubectl config view -o "jsonpath={.contexts[?(@.name==\"${context_name}\")].context.cluster}")"
+  server_name="$(kubectl config view -o "jsonpath={.clusters[?(@.name==\"${cluster_name}\")].cluster.server}")"
+  cacert="$(kc get secret "${sa_secret_name}" -o "jsonpath={.data.ca\.crt}" | base64 --decode)"
+  token="$(kc get secret "${sa_secret_name}" -o "jsonpath={.data.token}" | base64 --decode)"
+
+  export KUBECONFIG="$(mktemp)"
+  kubectl config set-credentials "${serviceaccount}" --token="${token}" >/dev/null
+  ca_crt="$(mktemp)"; echo "${cacert}" > ${ca_crt}
+  kubectl config set-cluster "${cluster_name}" --server="${server_name}" --certificate-authority="$ca_crt" --embed-certs >/dev/null
+  kubectl config set-context "${cluster_name}" --cluster="${cluster_name}" --user="${serviceaccount}" >/dev/null
+  kubectl config use-context "${cluster_name}" >/dev/null
+
+  KUBECONFIG_DATA=$(cat "${KUBECONFIG}")
+  rm ${KUBECONFIG}
+  echo "${KUBECONFIG_DATA}"
+  export KUBECONFIG="${kubeconfig_old}"
+}
