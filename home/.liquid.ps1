@@ -7,6 +7,13 @@ else
     LP_ERR=" ✓"
 fi
 
+if [ ! -z $PROJECT ]; then
+    LP_PS1_PREFIX="${LP_BRACKET_OPEN}${BLUE}$PROJECT ${YELLOW}$INVENTORY ${RED}$(echo $CLUSTER | sed 's/\..*//') ${NC}$(kgetns)${LP_BRACKET_CLOSE}"
+else
+    LP_PS1_PREFIX=""
+fi
+
+
 # Available features:
 # LP_BATT battery
 # LP_LOAD load
