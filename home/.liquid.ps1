@@ -2,13 +2,15 @@
 # LIQUID PROMPT DEFAULT TEMPLATE FILE #
 #######################################
 if [ ! -z $LP_ERR ]; then
-    LP_ERR="$LP_ERR ✘"
+    LP_ERR="\n$LP_ERR ✘"
 else
-    LP_ERR=" ✓"
+    LP_ERR="\n✓"
 fi
 
 if [ ! -z $PROJECT ]; then
-    LP_PS1_PREFIX="${LP_BRACKET_OPEN}${BLUE}$PROJECT $INVENTORY ${GREEN}$(echo $CLUSTER | sed 's/\..*//') $(kgetns)${LP_BRACKET_CLOSE}"
+    if [ ! -z $CLUSTER ]; then
+      LP_PS1_PREFIX="${LP_BRACKET_OPEN}${BLUE}$PROJECT $INVENTORY ${GREEN}$(echo $CLUSTER | sed 's/\..*//') $(kgetns)${LP_BRACKET_CLOSE}"
+    fi
 else
     LP_PS1_PREFIX=""
 fi
