@@ -1,7 +1,0 @@
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# History settings
-HISTSIZE=5000
-HISTFILESIZE=10000
-HISTCONTROL=ignoredups:erasedups
