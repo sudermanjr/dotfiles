@@ -1,15 +1,15 @@
 [submodule "home/.vim/bundle/vim-fugitive"]
 	path = home/.vim/bundle/vim-fugitive
-	url = https://github.com:tpope/vim-fugitive.git
+	url = https://github.com/tpope/vim-fugitive.git
 [submodule "home/.vim/bundle/nerdtree"]
 	path = home/.vim/bundle/nerdtree
-	url = https://github.com:scrooloose/nerdtree.git
+	url = https://github.com/scrooloose/nerdtree.git
 [submodule "home/.vim/bundle/nerdcommenter"]
 	path = home/.vim/bundle/nerdcommenter
-	url = https://github.com:scrooloose/nerdcommenter.git
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "home/.vim/bundle/nginx.vim"]
 	path = home/.vim/bundle/nginx.vim
-	url = https://github.com:chr4/nginx.vim.git
+	url = https://github.com/chr4/nginx.vim.git
 [submodule "home/.vim/pack/default/start/vim-polyglot"]
 	path = home/.vim/pack/default/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
