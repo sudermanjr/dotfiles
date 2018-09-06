@@ -44,3 +44,8 @@ export COLOREDLOGS_FIELD_STYLES='asctime=green;levelname=250;programname=cyan;na
 
 # Add a special bin path
 export PATH=$PATH:~/bin
+
+# Add linuxbrew if it's there
+if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
+    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
+fi
