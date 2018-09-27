@@ -49,3 +49,7 @@ alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse"
 
 # Flush DNS Cache on OSX
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
+
+# Asciicast2gif
+# https://github.com/asciinema/asciicast2gif
+alias asciicast2gif='docker run --env DEBUG=1 --rm -v $PWD:/data asciinema/asciicast2gif'

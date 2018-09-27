@@ -9,12 +9,11 @@ fi
 
 if [ ! -z $PROJECT ]; then
     if [ ! -z $CLUSTER ]; then
-      LP_PS1_PREFIX="${LP_BRACKET_OPEN}${BLUE}$PROJECT $INVENTORY ${GREEN}$(echo $CLUSTER | sed 's/\..*//') $(kgetns)${LP_BRACKET_CLOSE}"
+      LP_PS1_PREFIX="${LP_BRACKET_OPEN}${BLUE}$PROJECT $INVENTORY ${GREEN}$(echo $CLUSTER | sed 's/\..*//') $(kgetns) ${LP_BRACKET_CLOSE}"
     fi
 else
-    LP_PS1_PREFIX=""
+    LP_PS1_PREFIX="${LP_BRACKET_OPEN} ${BLUE}$(kubectl config current-context) ${GREEN} $(kgetns) ${LP_BRACKET_CLOSE}"
 fi
-
 
 # Available features:
 # LP_BATT battery
