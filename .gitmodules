@@ -13,3 +13,6 @@
 [submodule "home/.vim/pack/default/start/vim-polyglot"]
 	path = home/.vim/pack/default/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
+[submodule "home/.vim/bundle/vim-jsonnet"]
+	path = home/.vim/bundle/vim-jsonnet
+	url = https://github.com/google/vim-jsonnet

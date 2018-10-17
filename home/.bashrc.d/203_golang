@@ -1,0 +1,4 @@
+gotest() {
+    go test -v --bench . --benchmem --coverprofile cover.out
+    go tool cover -html=cover.out -o cover.html
+}
