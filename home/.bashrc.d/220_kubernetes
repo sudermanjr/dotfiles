@@ -39,3 +39,8 @@ generate_kubeconfig_from_sa() {
   echo "${KUBECONFIG_DATA}"
   export KUBECONFIG="${kubeconfig_old}"
 }
+
+## Krew
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
