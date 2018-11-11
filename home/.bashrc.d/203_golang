@@ -1,3 +1,5 @@
+export GOPATH=~/go
+
 gotest() {
     printf "Linter:\n"
     golint
