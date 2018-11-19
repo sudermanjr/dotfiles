@@ -53,3 +53,6 @@ alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper
 # Asciicast2gif
 # https://github.com/asciinema/asciicast2gif
 alias asciicast2gif='docker run --env DEBUG=1 --rm -v $PWD:/data asciinema/asciicast2gif'
+
+# Weather
+alias weather="curl wttr.in"
