@@ -2,6 +2,7 @@
 alias d=docker
 alias g=git
 alias k=kubectl
+complete -o default -F __start_kubectl k
 
 #Disk space
 alias du='du -kh'    # Makes a more readable output.
