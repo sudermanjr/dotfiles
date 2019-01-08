@@ -47,7 +47,7 @@ get_colors() {
 }
 
 # Git stuff
-alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse"
+alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse | tail"
 
 # Flush DNS Cache on OSX
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
@@ -58,3 +58,6 @@ alias asciicast2gif='docker run --env DEBUG=1 --rm -v $PWD:/data asciinema/ascii
 
 # Weather
 alias weather="curl wttr.in"
+
+# Gist the current dir
+alias gist_dir='gist --skip-empty $(ls ./)'

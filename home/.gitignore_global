@@ -1,2 +1,4 @@
+.coverage
+*.idea
 .pre-commit-config.yaml
 *.swp

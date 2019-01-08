@@ -45,3 +45,32 @@ generate_kubeconfig_from_sa() {
 
 ## Krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# Kubesec
+kubesec ()
+{
+    local FILE="${1:-}";
+    [[ ! -f "${FILE}" ]] && {
+        echo "kubesec: ${FILE}: No such file" >&2;
+        return 1
+    };
+    curl --silent \
+      --compressed \
+      --connect-timeout 5 \
+      -F file=@"${FILE}" \
+      https://kubesec.io/
+}
+
+kdebug ()
+{
+  kubectl create ns sudermanjr-debug
+  kubectl -n sudermanjr-debug apply -f ~/repos/sudermanjr/utilities/utility-deploy.yaml
+}
+
+helmversion ()
+{
+  export TILLER_NAMESPACE=$(kubectl get deploy --all-namespaces | grep tiller | awk {'print $1}')
+  export TILLER_IMAGE=$(kubectl get deploy tiller-deploy -oyaml -n "$TILLER_NAMESPACE" | yq r - spec.template.spec.containers[0].image)
+  export TILLER_VERSION=$(cut -d ":" -f 2 <<< "$TILLER_IMAGE" | sed 's/v//g')
+  brew switch kubernetes-helm $TILLER_VERSION
+}
