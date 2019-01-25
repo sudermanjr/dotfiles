@@ -2,9 +2,9 @@
 # LIQUID PROMPT DEFAULT TEMPLATE FILE #
 #######################################
 if [ ! -z $LP_ERR ]; then
-    LP_ERR="\n$LP_ERR ✘"
+    LP_ERR="\n$LP_ERR ✘ "
 else
-    LP_ERR="\n✓"
+    LP_ERR="\n✔ "
 fi
 
 if [ ! -z $PROJECT ]; then
