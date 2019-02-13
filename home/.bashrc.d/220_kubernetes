@@ -1,6 +1,8 @@
 alias k=kubectl
 complete -o default -F __start_kubectl k
 
+alias kx=kubectx
+
 set_kube_current_ns()
 {
   kubectl config set-context $(kubectl config current-context) --namespace="${1:-sudermanjr}"
