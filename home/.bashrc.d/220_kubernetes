@@ -1,16 +1,11 @@
 alias k=kubectl
 complete -o default -F __start_kubectl k
 
+alias kns=kubens
 alias kx=kubectx
 
-set_kube_current_ns()
-{
-  kubectl config set-context $(kubectl config current-context) --namespace="${1:-sudermanjr}"
-}
-alias kns=kubens
 alias kgetns="kubectl config get-contexts | grep $(kubectl config current-context) | awk '{print \$5}' | tr -d '\n'"
 
-alias kdash="kubectl get po -n=kube-system | grep dashboard | awk '{print \$1}' | xargs -I %  kubectl port-forward % 8001 -n=kube-system"
 alias kwatch="watch kubectl get ds,deploy,hpa,po,svc,ing,cm"
 alias kwatchistio="watch kubectl get ds,deploy,po,svc,ing,cm,pvc,secret,cronjob,routerule"
 alias kgetall="kubectl api-resources --verbs=list --namespaced -o name | xargs -L 1 -I {} kubectl get {} --show-kind --ignore-not-found"
