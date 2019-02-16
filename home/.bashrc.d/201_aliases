@@ -78,7 +78,23 @@ echo | \
 precommitinit() {
   cp ~/.pre-commit-config.default.yaml $(git rev-parse --show-toplevel)/.pre-commit-config.yaml
   pre-commit install -f
+}
 
+genload() {
+  echo "Loading $TARGET"
+  k6 run ~/load.js --vus=10 --max=100 --duration=0
 }
 
 alias ds_store_clean="find . -name '.DS_Store' -type f -delete"
+alias testenv=". ~/.venv/test/bin/activate"
+
+random_word() {
+  perl -e '$dict = "/usr/share/dict/words"; $bytes= -s $dict; open IN, $dict;seek(IN,rand($bytes-11),0);$_=<IN>;$_=<IN>;print'
+}
+
+newenv() {
+  name=$(random_word)
+  virtualenv ~/.venv/"$name"
+  . ~/.venv/"$name"/bin/activate
+}
+
