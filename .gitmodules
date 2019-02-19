@@ -16,3 +16,6 @@
 [submodule "home/.vim/bundle/vim-jsonnet"]
 	path = home/.vim/bundle/vim-jsonnet
 	url = https://github.com/google/vim-jsonnet
+[submodule "home/.vim/bundle/emmet-vim"]
+	path = home/.vim/bundle/emmet-vim
+	url = git@github.com:mattn/emmet-vim.git

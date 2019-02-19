@@ -65,3 +65,8 @@ kdebug ()
 }
 
 export KUBECONFIG=~/.kube/config
+
+castatus() {
+  ca_ns=$(kubectl get cm --all-namespaces | grep cluster-autoscaler-status | awk '{print $1}')
+  kubectl get cm cluster-autoscaler-status -ojsonpath='{.data.status}' -n $ca_ns
+}
