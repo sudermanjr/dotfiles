@@ -64,6 +64,11 @@ kdebug ()
   kubectl -n sudermanjr-debug apply -f ~/repos/sudermanjr/utilities/utility-deploy.yaml
 }
 
+kdebugclean ()
+{
+  kubectl delete ns sudermanjr-debug
+}
+
 export KUBECONFIG=~/.kube/config
 
 castatus() {

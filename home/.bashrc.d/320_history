@@ -5,3 +5,6 @@ shopt -s histappend
 HISTSIZE=5000
 HISTFILESIZE=10000
 HISTCONTROL=ignoredups:erasedups
+
+# Timestamps
+export HISTTIMEFORMAT="%d/%m/%y %T "

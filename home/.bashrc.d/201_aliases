@@ -98,3 +98,4 @@ newenv() {
   . ~/.venv/"$name"/bin/activate
 }
 
+alias google='googler -n5 --np'
