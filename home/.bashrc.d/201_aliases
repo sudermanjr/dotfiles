@@ -99,3 +99,5 @@ newenv() {
 }
 
 alias google='googler -n5 --np'
+
+alias tf=terraform

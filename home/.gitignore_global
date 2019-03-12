@@ -1,4 +1,11 @@
+.scannerwork/
 .coverage
 *.idea
 .pre-commit-config.yaml
 *.swp
+.vscode
+sonar-project.properties
+coverage.xml
+pytest-report.xml
+golint-report.out
+govet-report.out
