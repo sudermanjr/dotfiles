@@ -10,6 +10,7 @@ export GBT_CARS='CustomRO,  Kubectl, Git, PyVirtEnv, Status, Sign'
 
 # Prompt sign
 export GBT_CAR_SIGN_USER_TEXT='🔥'
+export GBT_CAR_SIGN_USER_TEXT='Ʌ̊'
 export GBT_CAR_SIGN_WRAP='0'
 
 # Git
