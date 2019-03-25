@@ -1,0 +1,30 @@
+# https://github.com/jtyr/gbt
+
+# Main config
+export PS1='$(gbt $?)'
+export TERM='xterm-256color'
+export VIRTUAL_ENV_DISABLE_PROMPT='1'
+
+# List of cars
+export GBT_CARS='CustomRO,  Kubectl, Git, PyVirtEnv, Status, Sign'
+
+# Prompt sign
+export GBT_CAR_SIGN_USER_TEXT='🔥'
+export GBT_CAR_SIGN_WRAP='0'
+
+# Git
+export GBT_CAR_GIT_FORMAT=' {{ Icon }} {{ Head }} {{ Status }}{{ Ahead }}{{ Behind }} '
+export GBT_CAR_GIT_AHEAD_FG='yellow'
+export GBT_CAR_GIT_BG='250'
+
+# Kubectl
+export GBT_CAR_KUBECTL_FORMAT=' {{ Icon }} {{ Context }} {{ Namespace }} '
+export GBT_CAR_KUBECTL_NAMESPACE_FG='white'
+export GBT_CAR_GIT_AHEAD_FG='yellow'
+
+# Reactiveops
+export GBT_CAR_CUSTOMRO_FORMAT='🚀 {{ Text }} '
+export GBT_CAR_CUSTOMRO_TEXT_CMD="echo ${PROJECT}-${INVENTORY}"
+export GBT_CAR_CUSTOMRO_BG='red'
+export GBT_CAR_CUSTOMRO_DISPLAY_CMD="[[ ! -z ${PROJECT} ]] && echo YES"
+

@@ -6,6 +6,7 @@ Lots of gems here, I will try to list some of them.
 * fzf - https://github.com/junegunn/fzf
 * tmux - https://github.com/tmux/tmux
 * homeschick - https://github.com/andsens/homeshick
+* gbt - https://github.com/jtyr/gbt
 
 
 ## Getting Started
