@@ -13,6 +13,14 @@ helmversion ()
   export TILLER_NAMESPACE=$(kubectl get deploy --all-namespaces | grep tiller | awk {'print $1}')
   export TILLER_IMAGE=$(kubectl get deploy tiller-deploy -oyaml -n "$TILLER_NAMESPACE" | yq r - spec.template.spec.containers[0].image)
   export TILLER_VERSION=$(cut -d ":" -f 2 <<< "$TILLER_IMAGE" | sed 's/v//g')
-  brew switch kubernetes-helm $TILLER_VERSION
+  echo "Tiller Version is: $TILLER_VERSION"
+  rm ~/bin/helm > /dev/null 2>&1
+  if [ -f ~/bin/helm-$TILLER_VERSION ]; then
+    ln -s ~/bin/helm-$TILLER_VERSION ~/bin/helm
+    helm version
+  else
+    echo "Could not find helm-$TILLER_VERSION locally"
+    echo "See https://github.com/helm/helm/releases"
+  fi
 }
 
