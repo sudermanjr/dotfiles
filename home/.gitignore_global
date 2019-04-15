@@ -11,3 +11,4 @@ golint-report.out
 govet-report.out
 cover-report.html
 sonarlint.json
+.envrc
