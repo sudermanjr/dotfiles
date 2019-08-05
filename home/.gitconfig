@@ -6,3 +6,5 @@
 	gpgsign = true
 [core]
 	excludesfile = /Users/asuderma/.gitignore_global
+[diff "sopsdiffer"]
+	textconv = sops -d

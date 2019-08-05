@@ -70,9 +70,15 @@ kdebugclean ()
   kubectl delete ns sudermanjr-debug
 }
 
-export KUBECONFIG=~/.kube/config
-
 castatus() {
   ca_ns=$(kubectl get cm --all-namespaces | grep cluster-autoscaler-status | awk '{print $1}')
   kubectl get cm cluster-autoscaler-status -ojsonpath='{.data.status}' -n $ca_ns
 }
+
+kroll() {
+  deployment="$1"
+  kubectl patch deployment ${deployment} -p \
+    "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
+}
+
+alias kmetrics='kubectl get --raw "/apis/metrics.k8s.io/v1beta1/nodes" | jq .'
