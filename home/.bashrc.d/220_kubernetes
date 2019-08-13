@@ -82,3 +82,5 @@ kroll() {
 }
 
 alias kmetrics='kubectl get --raw "/apis/metrics.k8s.io/v1beta1/nodes" | jq .'
+
+alias kdash='wtfutil -c=~/.config/wtf/config-kube.yml'
