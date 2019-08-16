@@ -81,6 +81,16 @@ kroll() {
     "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
 }
 
+nsroll() {
+  namespace="$1"
+  echo "Rolling all deployments in ns: $namespace"
+  deployments=$(kubectl -n $namespace get deployments --no-headers | awk '{print $1}')
+  for deploy in $deployments; do
+    kubectl -n $namespace patch deployment ${deploy} -p \
+      "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
+  done
+}
+
 alias kmetrics='kubectl get --raw "/apis/metrics.k8s.io/v1beta1/nodes" | jq .'
 
 alias kdash='wtfutil -c=~/.config/wtf/config-kube.yml'
