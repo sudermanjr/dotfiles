@@ -1,10 +1,6 @@
 export CUDDLEFISH_VENV="$HOME/.cuddlefish/cuddle"
 export CUDDLEFISH_INSTALL_CHANNEL=stable
-<<<<<<< HEAD
-source /Users/asuderma/.cuddlefish/config
-=======
 source ~/.cuddlefish/config
->>>>>>> 8403d16... Cloudshell updates
 source ${CUDDLEFISH_VENV}/bin/__cuddlectl_complete.bash
 
 alias ccenv=". ${CUDDLEFISH_VENV}/bin/activate"

@@ -44,4 +44,5 @@ if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
     export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 fi
 
-eval "$(ssh-agent)"
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
+
