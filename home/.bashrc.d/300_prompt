@@ -1,5 +1,7 @@
 # https://github.com/jtyr/gbt
 
+source ~/repos/jtyr/gbt/sources/exectime/bash.sh
+
 # Main config
 export PS1='$(gbt $?)'
 export TERM='xterm-256color'
@@ -11,9 +13,6 @@ export GBT_CARS='Dir, Git, CustomRO,  Kubectl, PyVirtEnv, Status, Sign'
 # Prompt sign
 export GBT_CAR_SIGN_WRAP='1'
 export GBT_CAR_SIGN_FORMAT="└─ "
-
-# Dir
-export GBT_CAR_DIR_DEPTH='2'
 
 # Git
 export GBT_CAR_GIT_FORMAT=' {{ Icon }} {{ Head }} {{ Status }}{{ Ahead }}{{ Behind }} '
@@ -31,7 +30,23 @@ export GBT_CAR_CUSTOMRO_TEXT_CMD="echo ${PROJECT} ${INVENTORY}"
 export GBT_CAR_CUSTOMRO_BG='red'
 export GBT_CAR_CUSTOMRO_DISPLAY_CMD="[[ ! -z ${PROJECT} ]] && echo YES"
 
-# ExecTime
-source /Users/asuderma/go/src/github.com/jtyr/gbt/sources/exectime/bash.sh
-export GBT__SOURCE_DATE_ARG='+%s'
+# Set Theme for Cloud Shell
+if [ -f "/google/devshell/bashrc.google" ]; then
+  source ~/repos/jtyr/gbt/themes/square_brackets_multiline.sh
 
+  # Prompt sign
+  export GBT_CAR_SIGN_WRAP='1'
+  export GBT_CAR_SIGN_FORMAT="└─> "
+
+  # Git
+  export GBT_CAR_GIT_FORMAT=' {{ Head }} {{ Status }}{{ Ahead }}{{ Behind }} '
+  export GBT_CAR_GIT_BG=''
+
+
+  # Kubectl
+  export GBT_CAR_KUBECTL_FORMAT=' {{ Context }} {{ Namespace }} '
+  export GBT_CAR_KUBECTL_NAMESPACE_FG='white'
+  export GBT_CAR_GIT_AHEAD_FG='yellow'
+
+  export GBT_CAR_PYVIRTENV_FORMAT='  {{ Name }} '
+fi

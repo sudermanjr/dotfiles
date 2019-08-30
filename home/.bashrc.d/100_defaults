@@ -33,13 +33,15 @@ export COLOREDLOGS_LOG_FORMAT='%(asctime)s  %(name)s[%(process)d] %(levelname)8s
 export COLOREDLOGS_FIELD_STYLES='asctime=green;levelname=250;programname=cyan;name=blue'
 export COLOREDLOGS_LEVEL_STYLES='spam=22;debug=28;verbose=34;notice=220;warning=202;success=118,bold;error=124;critical=background=red'
 
+# Add local python bin path
+export PATH=~/.local/bin:$PATH
+
 # Add a special bin path
-export PATH=$PATH:~/bin
+export PATH=~/bin:$PATH
 
 # Add linuxbrew if it's there
 if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
     export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 fi
 
-# Use direnv
-eval "$(direnv hook bash)"
+eval "$(ssh-agent)"
