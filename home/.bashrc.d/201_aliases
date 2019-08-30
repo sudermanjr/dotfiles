@@ -82,7 +82,7 @@ precommitinit() {
 
 genload() {
   echo "Loading $TARGET"
-  k6 run ~/load.js --vus=10 --max=100 --duration=0
+  k6 run ~/load.js --vus=10 --max=500 --duration=0
 }
 
 alias ds_store_clean="find . -name '.DS_Store' -type f -delete"
