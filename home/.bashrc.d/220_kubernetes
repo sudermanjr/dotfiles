@@ -1,3 +1,4 @@
+KUBECONFIG=~/.kube/config
 source <(kubectl completion bash)
 alias k=kubectl
 complete -o default -F __start_kubectl k
@@ -84,13 +85,19 @@ kroll() {
 nsroll() {
   namespace="$1"
   echo "Rolling all deployments in ns: $namespace"
-  deployments=$(kubectl -n $namespace get deployments --no-headers | awk '{print $1}')
+  deployments=$(kubectl -n $namespace get deployments --no-headers -oname)
   for deploy in $deployments; do
-    kubectl -n $namespace patch deployment ${deploy} -p \
+    kubectl -n $namespace patch ${deploy} -p \
       "{\"spec\":{\"template\":{\"metadata\":{\"labels\":{\"date\":\"`date +'%s'`\"}}}}}"
   done
 }
 
-alias kmetrics='kubectl get --raw "/apis/metrics.k8s.io/v1beta1/nodes" | jq .'
+alias kmetrics='kubectl get --raw "/apis/metrics.k8s.io/v1beta1/nodes" | jq ".items[] | .metadata.name, .usage"'
 
 alias kdash='wtfutil -c=~/.config/wtf/config-kube.yml'
+
+alias kview='docker run -it -p 8080:8080 -u $(id -u) -v $KUBECONFIG:/.kube hjacobs/kube-web-view'
+
+linkerd-namespaces(){
+  kubectl get ns -ojson | jq -r '.items[] | select(.metadata.annotations["linkerd.io/inject"] == "enabled") .metadata.name'
+}

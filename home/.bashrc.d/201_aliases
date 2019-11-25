@@ -6,6 +6,13 @@ eval "$(hub alias -s)"
 alias g=git
 __git_complete g _git
 alias gitci="git ci-status -v"
+waitci(){
+  until git ci-status -v; do
+    echo "------------------------------------------------"
+    sleep 5
+  done
+  echo "Finished."
+}
 
 # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 alias watch='watch -xc '
@@ -52,14 +59,10 @@ get_colors() {
 }
 
 # Git stuff
-alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse | tail"
+alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse | tail; echo"
 
 # Flush DNS Cache on OSX
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
-
-# Asciicast2gif
-# https://github.com/asciinema/asciicast2gif
-alias asciicast2gif='docker run --env DEBUG=1 --rm -v $PWD:/data asciinema/asciicast2gif'
 
 # Weather
 alias weather="curl wttr.in/80814"
@@ -101,3 +104,14 @@ newenv() {
 alias google='googler -n5 --np'
 
 alias tf=terraform
+
+# Asciicast2gif
+# https://github.com/asciinema/asciicast2gif
+# Pass the ID of an asciinema link to it, and it will output a gif
+asciicast2gif() {
+  docker run --env DEBUG=1 --rm -v $(pwd):/data asciinema/asciicast2gif https://asciinema.org/a/$1.json /data/$1.gif
+}
+
+gitclean(){
+  git fetch --prune origin
+}

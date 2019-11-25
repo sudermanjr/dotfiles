@@ -6,7 +6,7 @@ export TERM='xterm-256color'
 export VIRTUAL_ENV_DISABLE_PROMPT='1'
 
 # List of cars
-export GBT_CARS='Dir, Git, CustomRO,  Kubectl, PyVirtEnv, Status, Sign'
+export GBT_CARS='Dir, Git, CustomRO, PyVirtEnv, Status, CustomKUBE, Sign'
 
 # Prompt sign
 export GBT_CAR_SIGN_WRAP='1'
@@ -23,7 +23,6 @@ export GBT_CAR_GIT_BG='250'
 # Kubectl
 export GBT_CAR_KUBECTL_FORMAT=' {{ Icon }} {{ Context }} {{ Namespace }} '
 export GBT_CAR_KUBECTL_NAMESPACE_FG='white'
-export GBT_CAR_GIT_AHEAD_FG='yellow'
 
 # Reactiveops
 export GBT_CAR_CUSTOMRO_FORMAT='🚀 {{ Text }} '
@@ -35,3 +34,8 @@ export GBT_CAR_CUSTOMRO_DISPLAY_CMD="[[ ! -z ${PROJECT} ]] && echo YES"
 source /Users/asuderma/go/src/github.com/jtyr/gbt/sources/exectime/bash.sh
 export GBT__SOURCE_DATE_ARG='+%s'
 
+# Custom Kube
+export GBT_CAR_CUSTOMKUBE_FORMAT=' ⎈  {{ Text }} '
+export GBT_CAR_CUSTOMKUBE_TEXT_CMD="yq r $KUBECONFIG -j | jq -r '.[\"current-context\"]'"
+export GBT_CAR_CUSTOMKUBE_BG='21'
+export GBT_CAR_CUSTOMKUBE_DISPLAY_CMD="[[ -f ${KUBECONFIG} ]] && echo YES"

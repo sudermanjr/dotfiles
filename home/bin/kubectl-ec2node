@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# kubectl-ec2node - return the kubernetes node nname from an EC2 instance ID.
+
+if [ $# -lt 1 ] ; then
+  echo "Usage: $0 <EC2 instance ID>"
+  echo
+  echo "This script returns the name of the Kubernetes node that matches the EC2 instance ID."
+  exit 1
+fi
+
+kubectl get no -o json \
+  | jq -r ".items[] | .metadata.name as \$name | select(.spec.providerID | contains(\"${1}\")) | \$name"

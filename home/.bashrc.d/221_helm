@@ -2,8 +2,8 @@ helminit() {
   kubectl create ns helm-system || true
 
   export TILLER_NAMESPACE=helm-system
-  kubectl -n "${TILLER_NAMESPACE:-kube-system}" create sa tiller --dry-run -o yaml --save-config | kubectl apply -f -;
-  kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount="${TILLER_NAMESPACE:-kube-system}":tiller --serviceaccount=kube-system:tiller -o yaml --dry-run | kubectl -n "${TILLER_NAMESPACE:-kube-system}" apply -f -
+  kubectl -n "${TILLER_NAMESPACE:-helm-system}" create sa tiller --dry-run -o yaml --save-config | kubectl apply -f -;
+  kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount="${TILLER_NAMESPACE:-helm-system}":tiller -o yaml --dry-run | kubectl -n "${TILLER_NAMESPACE:-helm-system}" apply -f -
 
   helm init --wait --upgrade --service-account tiller
 }

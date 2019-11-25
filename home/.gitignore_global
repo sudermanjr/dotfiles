@@ -1,7 +1,6 @@
 .scannerwork/
 .coverage
 *.idea
-.pre-commit-config.yaml
 *.swp
 .vscode
 sonar-project.properties
@@ -12,3 +11,5 @@ govet-report.out
 cover-report.html
 sonarlint.json
 .envrc
+.DS_Store
+.tool-versions
