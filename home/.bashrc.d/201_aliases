@@ -60,6 +60,15 @@ get_colors() {
 
 # Git stuff
 alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse | tail; echo"
+gitreleaselog() {
+  CURRENT=$(git rev-parse HEAD)
+  LAST_TAG=$(git describe --tags --abbrev=0 ${CURRENT}^)
+  CHANGELOG=$(git log --pretty='format:%h %s' --reverse $LAST_TAG..HEAD)
+  printf "\nChanges since $LAST_TAG:\n\n"
+  echo "$CHANGELOG"
+}
+
+
 
 # Flush DNS Cache on OSX
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"

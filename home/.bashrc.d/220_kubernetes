@@ -100,3 +100,7 @@ alias kview='docker run -it -p 8080:8080 -u $(id -u) -v $KUBECONFIG:/.kube hjaco
 linkerd-namespaces(){
   kubectl get ns -ojson | jq -r '.items[] | select(.metadata.annotations["linkerd.io/inject"] == "enabled") .metadata.name'
 }
+
+ktaints(){
+  kubectl get nodes -o go-template='{{printf "%-50s %-12s\n" "Node" "Taint"}}{{- range .items}}{{- if $taint := (index .spec "taints") }}{{- .metadata.name }}{{ "\t" }}{{- range $taint }}{{- .key }}={{ .value }}:{{ .effect }}{{ "\t" }}{{- end }}{{- "\n" }}{{- end}}{{- end}}'
+}

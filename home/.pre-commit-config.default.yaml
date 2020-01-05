@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v2.4.0
     hooks:
      - id: check-yaml
        args: ['--allow-multiple-documents']
@@ -32,7 +32,7 @@ repos:
     hooks:
       - id: go-fmt
       - id: go-vet
-      - id: go-lint
+      - id: golangci-lint
       - id: go-unit-tests
       - id: go-build
   - repo: https://github.com/kintoandar/pre-commit.git
@@ -40,3 +40,8 @@ repos:
     hooks:
       - id: terraform_fmt
       - id: terraform_validate
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.0.9
+    hooks:
+      - id: helmlint
+
