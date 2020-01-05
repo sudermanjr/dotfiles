@@ -35,8 +35,8 @@ source /Users/asuderma/go/src/github.com/jtyr/gbt/sources/exectime/bash.sh
 export GBT__SOURCE_DATE_ARG='+%s'
 
 # Custom Kube
-KUBECONFIG_DEFAULT=~/.kube/config
+export KUBECONFIG_DEFAULT=~/.kube/config
 export GBT_CAR_CUSTOMKUBE_FORMAT=' ⎈  {{ Text }} '
-export GBT_CAR_CUSTOMKUBE_TEXT_CMD="kcx=\$(yq r \${KUBECONFIG:-$KUBECONFIG_DEFAULT} -j | jq -jr '.[\"current-context\"]'); kns=\$(yq r \${KUBECONFIG:-$KUBECONFIG_DEFAULT} -j | jq -jr --arg cx \"\$kcx\" '.contexts[] | select(.name == \$cx) | .context.namespace'); printf '%s %s' \"\$kcx\" \"\$kns\""
+export GBT_CAR_CUSTOMKUBE_TEXT_CMD="kcx=\$(yq r \${KUBECONFIG} -j | jq -jr '.[\"current-context\"]'); kns=\$(yq r \${KUBECONFIG} -j | jq -jr --arg cx \"\$kcx\" '.contexts[] | select(.name == \$cx) | .context.namespace'); printf '%s %s' \"\$kcx\" \"\$kns\""
 export GBT_CAR_CUSTOMKUBE_BG='21'
 export GBT_CAR_CUSTOMKUBE_DISPLAY_CMD="[[ -f ${KUBECONFIG} ]] && echo YES"
