@@ -8,3 +8,5 @@
 	excludesfile = /Users/asuderma/.gitignore_global
 [diff "sopsdiffer"]
 	textconv = sops -d
+[hub]
+	protocol = ssh

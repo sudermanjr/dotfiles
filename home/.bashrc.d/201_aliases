@@ -3,8 +3,6 @@ alias d=docker
 complete -F _docker d
 
 eval "$(hub alias -s)"
-alias g=git
-__git_complete g _git
 alias gitci="git ci-status -v"
 waitci(){
   until git ci-status -v; do
