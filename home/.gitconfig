@@ -10,3 +10,5 @@
 	textconv = sops -d
 [hub]
 	protocol = ssh
+[alias]
+	pushf = push --force-with-lease

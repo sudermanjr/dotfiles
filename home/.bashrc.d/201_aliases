@@ -122,3 +122,9 @@ asciicast2gif() {
 gitclean(){
   git fetch --prune origin
 }
+
+jupyter(){
+  docker run --name jupyter -itd -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v /Users/asuderma/jupyter:/home/jovyan/work jupyter/datascience-notebook:7a0c7325e470 start.sh jupyter lab
+  sleep 5
+  docker logs jupyter
+}
