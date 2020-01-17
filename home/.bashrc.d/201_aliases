@@ -124,7 +124,7 @@ gitclean(){
 }
 
 jupyter(){
-  if [ $(docker inspect jupyter | jq .[].State.Running) == "false" ]; then
+  if [ $(docker inspect jupyter | jq '.[].State.Running) == "false"') ]; then
     docker start jupyter
     return 0
   fi
