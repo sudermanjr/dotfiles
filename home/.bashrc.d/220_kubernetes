@@ -100,3 +100,16 @@ linkerd-namespaces(){
 ktaints(){
   kubectl get nodes -o go-template='{{printf "%-50s %-12s\n" "Node" "Taint"}}{{- range .items}}{{- if $taint := (index .spec "taints") }}{{- .metadata.name }}{{ "\t" }}{{- range $taint }}{{- .key }}={{ .value }}:{{ .effect }}{{ "\t" }}{{- end }}{{- "\n" }}{{- end}}{{- end}}'
 }
+
+kubebench(){
+  kubectl create ns kube-bench || true
+  kubectl -n kube-bench delete job kube-bench || true
+  kubectl -n kube-bench apply -f https://raw.githubusercontent.com/aquasecurity/kube-bench/master/job.yaml
+  kubectl -n kube-bench get po -oname | xargs -L1 kubectl -n kube-bench logs
+}
+
+kforcedeletens(){
+  kubectl get namespace "$1" -o json \
+            | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/" \
+            | kubectl replace --raw /api/v1/namespaces/stucked-namespace/finalize -f -
+}
