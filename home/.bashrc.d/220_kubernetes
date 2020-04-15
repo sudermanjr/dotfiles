@@ -2,10 +2,12 @@ source <(kubectl completion bash)
 alias k=kubectl
 complete -o default -F __start_kubectl k
 
+alias kb="kustomize build"
+
 alias kns=kubens
 alias kx=kubectx
 
-alias kgetns="kubectl config get-contexts | grep $(kubectl config current-context) | awk '{print \$5}' | tr -d '\n'"
+alias kgetns="kubectl config get-contexts | grep $(kubectl config current-context 2>/dev/null) | awk '{print \$5}' | tr -d '\n'"
 
 alias kwatch="watch kubectl get ds,deploy,hpa,po,svc,ing,cm"
 alias kwatchistio="watch kubectl get ds,deploy,po,svc,ing,cm,pvc,secret,cronjob,routerule"

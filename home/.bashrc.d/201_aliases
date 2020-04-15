@@ -66,8 +66,6 @@ gitreleaselog() {
   echo "$CHANGELOG"
 }
 
-
-
 # Flush DNS Cache on OSX
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 
