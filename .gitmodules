@@ -19,3 +19,6 @@
 [submodule "home/.vim/bundle/emmet-vim"]
 	path = home/.vim/bundle/emmet-vim
 	url = git@github.com:mattn/emmet-vim.git
+[submodule "home/.vim/bundle/vim-wakatime"]
+	path = home/.vim/bundle/vim-wakatime
+	url = git://github.com/wakatime/vim-wakatime.git

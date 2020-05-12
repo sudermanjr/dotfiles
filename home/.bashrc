@@ -3,6 +3,7 @@ if [ -f "/google/devshell/bashrc.google" ]; then
 fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
 if [[ -d ${HOME}/.bashrc.d ]]; then
   while read dotd; do
     source "${dotd}"

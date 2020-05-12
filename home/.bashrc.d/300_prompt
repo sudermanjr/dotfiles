@@ -30,12 +30,8 @@ export GBT_CAR_CUSTOMRO_TEXT_CMD="echo ${PROJECT} ${INVENTORY}"
 export GBT_CAR_CUSTOMRO_BG='red'
 export GBT_CAR_CUSTOMRO_DISPLAY_CMD="[[ ! -z ${PROJECT} ]] && echo YES"
 
-# ExecTime
-source /Users/asuderma/go/src/github.com/jtyr/gbt/sources/exectime/bash.sh
-export GBT__SOURCE_DATE_ARG='+%s'
-
 # Custom Kube
 export GBT_CAR_CUSTOMKUBE_FORMAT=' ⎈  {{ Text }} '
-export GBT_CAR_CUSTOMKUBE_TEXT_CMD="kcx=\$(yq r \${KUBECONFIG} -j | jq -jr '.[\"current-context\"]'); kns=\$(yq r \${KUBECONFIG} -j | jq -jr --arg cx \"\$kcx\" '.contexts[] | select(.name == \$cx) | .context.namespace'); printf '%s %s' \"\$kcx\" \"\$kns\""
+export GBT_CAR_CUSTOMKUBE_TEXT_CMD="kcx=\$(yq r \${KUBECONFIG:-~/.kube/config} -j | jq -jr '.[\"current-context\"]'); kns=\$(yq r \${KUBECONFIG:-~/.kube/config} -j | jq -jr --arg cx \"\$kcx\" '.contexts[] | select(.name == \$cx) | .context.namespace'); printf '%s %s' \"\$kcx\" \"\$kns\""
 export GBT_CAR_CUSTOMKUBE_BG='21'
-export GBT_CAR_CUSTOMKUBE_DISPLAY_CMD="[[ -f ${KUBECONFIG} ]] && echo YES"
+export GBT_CAR_CUSTOMKUBE_DISPLAY_CMD="echo YES"
