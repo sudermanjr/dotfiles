@@ -12,3 +12,4 @@ cover-report.html
 sonarlint.json
 .envrc
 .DS_Store
+__pycache__

@@ -115,3 +115,8 @@ kforcedeletens(){
             | tr -d "\n" | sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/" \
             | kubectl replace --raw /api/v1/namespaces/stucked-namespace/finalize -f -
 }
+
+kindmetrics(){
+    kubectl get ns metrics-server 2>/dev/null || kubectl create ns metrics-server
+    helm -n metrics-server upgrade --install metrics-server bitnami/metrics-server --set apiService.create=true --set extraArgs.kubelet-insecure-tls=true
+}

@@ -1,8 +1,11 @@
-export CUDDLEFISH_VENV="$HOME/.cuddlefish/cuddle"
-export CUDDLEFISH_INSTALL_CHANNEL=stable
-source /Users/asuderma/.cuddlefish/config
-source ${CUDDLEFISH_VENV}/bin/__cuddlectl_complete.bash
+export CUDDLEFISH_HOME="$HOME/.cthulhu"
+export CUDDLEFISH_VENV="$HOME/.cthulhu/cuddle"
+export CUDDLEFISH_INSTALL_CHANNEL=docker
+source /Users/asuderma/.cthulhu/config
+source $HOME/repos/fairwindsops/cuddlefish/workstation/bin/__cuddlectl_complete.bash
 
 alias ccenv=". ${CUDDLEFISH_VENV}/bin/activate"
 
 alias ugit="unset GIT_SSH_COMMAND"
+
+export BE_ANNOYING=true
