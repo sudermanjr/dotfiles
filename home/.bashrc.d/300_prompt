@@ -17,7 +17,7 @@ export GBT_CAR_DIR_DEPTH='2'
 
 # Git
 export GBT_CAR_GIT_FORMAT=' {{ Icon }} {{ Head }} {{ Status }}{{ Ahead }}{{ Behind }} '
-export GBT_CAR_GIT_AHEAD_FG='yellow'
+#export GBT_CAR_GIT_AHEAD_FG='yellow'
 export GBT_CAR_GIT_BG='250'
 
 # Kubectl
