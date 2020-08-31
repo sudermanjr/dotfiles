@@ -5,15 +5,10 @@ scan_timeout = 10
 prompt_order = [
     "python",
     "directory",
-    "docker_context",
-    "package",
     "golang",
     "ruby",
     "rust",
     "memory_usage",
-    "env_var",
-    "crystal",
-    "cmd_duration",
     "custom.fairwinds",
     "kubernetes",
     "git_branch",
@@ -22,7 +17,7 @@ prompt_order = [
     "git_status",
     "line_break",
     "jobs",
-    "time",
+    "cmd_duration",
     "character",
 ]
 
@@ -57,5 +52,8 @@ when = """ test "$INVENTORY" != "" """
 prefix = " "
 style = "bold red"
 
+[jobs]
+symbol = "& "
+style = "yellow"
 [git_status]
 modified = "±"
