@@ -27,6 +27,7 @@ prompt_order = [
 error_symbol = "$? ▶"
 symbol = "▶"
 style = "green"
+style_failure = "dimmed bold red"
 use_symbol_for_status = true
 
 [directory]
