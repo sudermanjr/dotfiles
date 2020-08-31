@@ -1,0 +1,58 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+prompt_order = [
+    "python",
+    "directory",
+    "docker_context",
+    "package",
+    "golang",
+    "ruby",
+    "rust",
+    "memory_usage",
+    "env_var",
+    "crystal",
+    "cmd_duration",
+    "custom.fairwinds",
+    "kubernetes",
+    "git_branch",
+    "git_commit",
+    "git_state",
+    "git_status",
+    "line_break",
+    "jobs",
+    "time",
+    "character",
+]
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]      # The name of the module we are configuring is "character"
+use_symbol_for_status = true
+
+[aws]
+style = "dimmed yellow"
+symbol = "🅰 "
+displayed_items = "profile, region"
+[aws.region_aliases]
+ap-southeast-2 = "au"
+us-east-1 = "va"
+us-east-2 = "ohio"
+
+[kubernetes]
+symbol = "☸ "
+prefix = " "
+style = "bold blue"
+disabled = false
+[kubernetes.context_aliases]
+"dev.local.cluster.k8s" = "dev"
+
+[terraform]
+disabled = "true"
+
+[custom.fairwinds]
+symbol = "🚀 "
+command = "echo $PROJECT:$INVENTORY"
+when = """ test "$INVENTORY" != "" """
+prefix = " "
+style = "bold red"

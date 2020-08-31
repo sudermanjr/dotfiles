@@ -1,37 +1,40 @@
-# https://github.com/jtyr/gbt
-
-# Main config
-export PS1='$(gbt $?)'
-export TERM='xterm-256color'
-export VIRTUAL_ENV_DISABLE_PROMPT='1'
-
-# List of cars
-export GBT_CARS='Dir, Git, CustomRO, CustomKUBE, PyVirtEnv, Status, Sign'
-
-# Prompt sign
-export GBT_CAR_SIGN_WRAP='1'
-export GBT_CAR_SIGN_FORMAT="└─ "
-
-# Dir
-export GBT_CAR_DIR_DEPTH='2'
-
-# Git
-export GBT_CAR_GIT_FORMAT=' {{ Icon }} {{ Head }} {{ Status }}{{ Ahead }}{{ Behind }} '
-export GBT_CAR_GIT_AHEAD_FG='bright yellow'
-export GBT_CAR_GIT_BG='250'
-
-# Kubectl
-export GBT_CAR_KUBECTL_FORMAT=' {{ Icon }} {{ Context }} {{ Namespace }} '
-export GBT_CAR_KUBECTL_NAMESPACE_FG='white'
-
-# Reactiveops
-export GBT_CAR_CUSTOMRO_FORMAT='🚀 {{ Text }} '
-export GBT_CAR_CUSTOMRO_TEXT_CMD="echo ${PROJECT} ${INVENTORY}"
-export GBT_CAR_CUSTOMRO_BG='red'
-export GBT_CAR_CUSTOMRO_DISPLAY_CMD="[[ ! -z ${PROJECT} ]] && echo YES"
-
-# Custom Kube
-export GBT_CAR_CUSTOMKUBE_FORMAT=' ⎈  {{ Text }} '
-export GBT_CAR_CUSTOMKUBE_TEXT_CMD="kcx=\$(yq r \${KUBECONFIG:-~/.kube/config} -j | jq -jr '.[\"current-context\"]'); kns=\$(yq r \${KUBECONFIG:-~/.kube/config} -j | jq -jr --arg cx \"\$kcx\" '.contexts[] | select(.name == \$cx) | .context.namespace'); printf '%s %s' \"\$kcx\" \"\$kns\""
-export GBT_CAR_CUSTOMKUBE_BG='21'
-export GBT_CAR_CUSTOMKUBE_DISPLAY_CMD="echo YES"
+## https://github.com/jtyr/gbt
+#
+## Main config
+#export PS1='$(gbt $?)'
+#export TERM='xterm-256color'
+#export VIRTUAL_ENV_DISABLE_PROMPT='1'
+#
+## List of cars
+#export GBT_CARS='Dir, Git, CustomRO, CustomKUBE, PyVirtEnv, Status, Sign'
+#
+## Prompt sign
+#export GBT_CAR_SIGN_WRAP='1'
+#export GBT_CAR_SIGN_FORMAT="└─ "
+#
+## Dir
+#export GBT_CAR_DIR_DEPTH='2'
+#
+## Git
+#export GBT_CAR_GIT_FORMAT=' {{ Icon }} {{ Head }} {{ Status }}{{ Ahead }}{{ Behind }} '
+#export GBT_CAR_GIT_AHEAD_FG='bright yellow'
+#export GBT_CAR_GIT_BG='250'
+#
+## Kubectl
+#export GBT_CAR_KUBECTL_FORMAT=' {{ Icon }} {{ Context }} {{ Namespace }} '
+#export GBT_CAR_KUBECTL_NAMESPACE_FG='white'
+#
+## Reactiveops
+#export GBT_CAR_CUSTOMRO_FORMAT='🚀 {{ Text }} '
+#export GBT_CAR_CUSTOMRO_TEXT_CMD="echo ${PROJECT} ${INVENTORY}"
+#export GBT_CAR_CUSTOMRO_BG='red'
+#export GBT_CAR_CUSTOMRO_DISPLAY_CMD="[[ ! -z ${PROJECT} ]] && echo YES"
+#
+## Custom Kube
+#export GBT_CAR_CUSTOMKUBE_FORMAT=' ⎈  {{ Text }} '
+#export GBT_CAR_CUSTOMKUBE_TEXT_CMD="kcx=\$(yq r \${KUBECONFIG:-~/.kube/config} -j | jq -jr '.[\"current-context\"]'); kns=\$(yq r \${KUBECONFIG:-~/.kube/config} -j | jq -jr --arg cx \"\$kcx\" '.contexts[] | select(.name == \$cx) | .context.namespace'); printf '%s %s' \"\$kcx\" \"\$kns\""
+#export GBT_CAR_CUSTOMKUBE_BG='21'
+#export GBT_CAR_CUSTOMKUBE_DISPLAY_CMD="echo YES"
+#
+#
+eval "$(starship init bash)"
