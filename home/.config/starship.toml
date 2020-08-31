@@ -23,6 +23,9 @@ prompt_order = [
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]      # The name of the module we are configuring is "character"
+error_symbol = "$? ▶"
+symbol = "▶"
+style = "green"
 use_symbol_for_status = true
 
 [directory]
