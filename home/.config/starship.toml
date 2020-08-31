@@ -8,9 +8,9 @@ prompt_order = [
     "golang",
     "ruby",
     "rust",
-    "memory_usage",
     "custom.fairwinds",
     "kubernetes",
+    "aws",
     "git_branch",
     "git_commit",
     "git_state",
@@ -33,22 +33,20 @@ truncation_length = 8
 
 
 [aws]
+disabled = true
 style = "dimmed yellow"
-displayed_items = "profile, region"
+displayed_items = "all"
+symbol = "  "
 [aws.region_aliases]
 ap-southeast-2 = "au"
-us-east-1 = "va"
-us-east-2 = "ohio"
-symbol = " "
+us-east-1 = "use1"
+us-east-2 = "use2"
 
 [kubernetes]
 symbol = "⚓"
 prefix = " "
 style = "bright-blue"
 disabled = false
-
-[terraform]
-disabled = "true"
 
 [custom.fairwinds]
 symbol = "🚀 "
