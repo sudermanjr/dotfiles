@@ -78,6 +78,7 @@ symbol = " "
 
 [cmd_duration]
 min_time = 3000
+prefix = ""
 
 [custom.weather]
 command = 'curl wttr.in/80814?format="%t%20%w\n"'
