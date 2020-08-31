@@ -25,6 +25,10 @@ prompt_order = [
 [character]      # The name of the module we are configuring is "character"
 use_symbol_for_status = true
 
+[directory]
+style = "green"
+truncation_length = 8
+
 [aws]
 style = "dimmed yellow"
 displayed_items = "profile, region"
@@ -35,12 +39,10 @@ us-east-2 = "ohio"
 symbol = " "
 
 [kubernetes]
-symbol = "☸ "
+symbol = "⚓"
 prefix = " "
-style = "bold blue"
+style = "bright-blue"
 disabled = false
-[kubernetes.context_aliases]
-"dev.local.cluster.k8s" = "dev"
 
 [terraform]
 disabled = "true"
