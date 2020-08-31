@@ -28,6 +28,9 @@ use_symbol_for_status = true
 [directory]
 style = "green"
 truncation_length = 8
+[directory.substitutions]
+"~" = "home"
+
 
 [aws]
 style = "dimmed yellow"
