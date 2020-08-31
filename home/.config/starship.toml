@@ -15,6 +15,7 @@ prompt_order = [
     "git_commit",
     "git_state",
     "git_status",
+    "custom.weather",
     "line_break",
     "jobs",
     "cmd_duration",
@@ -76,3 +77,10 @@ symbol = " "
 
 [cmd_duration]
 min_time = 3000
+
+[custom.weather]
+command = "curl wttr.in/80814?format=1"
+disabled = false
+when = """ true """
+style = "white"
+prefix = ""
