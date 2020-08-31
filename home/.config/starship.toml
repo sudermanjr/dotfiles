@@ -79,8 +79,8 @@ symbol = " "
 min_time = 3000
 
 [custom.weather]
-command = "curl wttr.in/80814?format=1"
-disabled = false
+command = 'curl wttr.in/80814?format="%t%20%w\n"'
+disabled = true
 when = """ true """
 style = "white"
 prefix = ""
