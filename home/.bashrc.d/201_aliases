@@ -71,6 +71,7 @@ alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper
 
 # Weather
 alias weather="curl wttr.in/80814"
+alias weather2="curl wttr.in/80814?format=v2"
 
 # Gist the current dir
 alias gist_dir='gist --skip-empty $(ls ./)'
