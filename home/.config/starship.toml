@@ -56,3 +56,6 @@ command = "echo $PROJECT:$INVENTORY"
 when = """ test "$INVENTORY" != "" """
 prefix = " "
 style = "bold red"
+
+[git_status]
+modified = "±"
