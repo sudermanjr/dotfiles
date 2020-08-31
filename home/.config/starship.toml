@@ -3,8 +3,8 @@ add_newline = false
 # Wait 10 milliseconds for starship to check files under the current directory.
 scan_timeout = 10
 prompt_order = [
-    "python",
     "directory",
+    "python",
     "golang",
     "ruby",
     "rust",
@@ -66,3 +66,6 @@ modified = "±"
 
 [golang]
 symbol = " "
+
+[python]
+symbol = " "
