@@ -73,3 +73,6 @@ symbol = " "
 
 [python]
 symbol = " "
+
+[cmd_duration]
+min_time = 3000
