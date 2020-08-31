@@ -27,12 +27,12 @@ use_symbol_for_status = true
 
 [aws]
 style = "dimmed yellow"
-symbol = "🅰 "
 displayed_items = "profile, region"
 [aws.region_aliases]
 ap-southeast-2 = "au"
 us-east-1 = "va"
 us-east-2 = "ohio"
+symbol = " "
 
 [kubernetes]
 symbol = "☸ "
@@ -55,5 +55,12 @@ style = "bold red"
 [jobs]
 symbol = "& "
 style = "yellow"
+
+[git_branch]
+symbol = " "
+
 [git_status]
 modified = "±"
+
+[golang]
+symbol = " "
