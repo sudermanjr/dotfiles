@@ -60,7 +60,7 @@ prefix = " "
 style = "bold red"
 
 [jobs]
-symbol = "& "
+symbol = "&"
 style = "yellow"
 
 [git_branch]
