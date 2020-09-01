@@ -1,33 +1,24 @@
-# Don't print a new line at the start of the prompt
 add_newline = false
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
-prompt_order = [
-    "directory",
-    "python",
-    "golang",
-    "ruby",
-    "rust",
-    "custom.fairwinds",
-    "kubernetes",
-    "aws",
-    "git_branch",
-    "git_commit",
-    "git_state",
-    "git_status",
-    "custom.weather",
-    "line_break",
-    "jobs",
-    "cmd_duration",
-    "character",
-]
+format = """$directory\
+    $python\
+    $golang\
+    $ruby\
+    $rust\
+    ${custom.fairwinds}\
+    $aws\
+    $kubernetes\
+    $git_branch\
+    $git_commit\
+    $git_state\
+    $git_status\
+    $line_break\
+    $jobs\
+    $cmd_duration\
+    $character"""
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]      # The name of the module we are configuring is "character"
-error_symbol = "$? ▶"
-symbol = "▶"
-style = "green"
-style_failure = "bold bright-red"
+[character]      
+error_symbol = "[✗](bold bright-red)"
+success_symbol = "[▶](bold green)"
 use_symbol_for_status = true
 
 [directory]
@@ -41,48 +32,53 @@ disabled = true
 style = "dimmed yellow"
 displayed_items = "all"
 symbol = "  "
-[aws.region_aliases]
-ap-southeast-2 = "au"
-us-east-1 = "use1"
-us-east-2 = "use2"
+format = "[$symbol$profile(\\($region\\))]($style) "
 
 [kubernetes]
 symbol = "⚓"
+format = "[$symbol$context( \\($namespace\\))]($style) "
 prefix = " "
 style = "bright-blue"
 disabled = false
 
 [custom.fairwinds]
-symbol = "🚀 "
+symbol = "🚀"
 command = "echo $PROJECT:$INVENTORY"
 when = """ test "$INVENTORY" != "" """
 prefix = " "
 style = "bold red"
 
 [jobs]
+disabled = false
 symbol = "&"
 style = "yellow"
 
 [git_branch]
+disabled = false
+format = "[$symbol$branch]($style) "
 symbol = " "
 
 [git_status]
+disabled = false
 modified = "±"
 style = "yellow"
 
 [golang]
 symbol = " "
+style = "bright-cyan"
+format = "[$symbol$version]($style) "
 
 [python]
 symbol = " "
+format = "[${symbol}${version}( \\($virtualenv\\))]($style) "
 
 [cmd_duration]
 min_time = 3000
-prefix = ""
+format = "[$duration]($style) "
 
-[custom.weather]
-command = 'curl wttr.in/80814?format="%t%20%w\n"'
-disabled = true
-when = """ true """
-style = "white"
-prefix = ""
+[line_break]
+disabled = false
+
+[rust]
+format = "[$symbol$version]($style) "
+symbol = " "
