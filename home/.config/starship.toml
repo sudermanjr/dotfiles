@@ -1,11 +1,15 @@
 add_newline = false
-format = """$directory\
+format = """\
+    $shlvl\
+    $directory\
     $python\
     $golang\
     $ruby\
     $rust\
     ${custom.fairwinds}\
     $aws\
+    $gcloud \
+    $helm\
     $kubernetes\
     $git_branch\
     $git_commit\
@@ -16,7 +20,14 @@ format = """$directory\
     $cmd_duration\
     $character"""
 
-[character]      
+[shlvl]
+disabled = true
+format = '[\($shlvl\)]($style)'
+symbol = "↕️ "
+style = "green"
+threshold = 2
+
+[character]
 error_symbol = "[✗](bold bright-red)"
 success_symbol = "[▶](bold green)"
 use_symbol_for_status = true
@@ -34,8 +45,12 @@ displayed_items = "all"
 symbol = "  "
 format = "[$symbol$profile(\\($region\\))]($style) "
 
+[gcloud]
+disabled = true
+symbol = " "
+
 [kubernetes]
-symbol = "⚓"
+symbol = "⎈ "
 format = "[$symbol$context( \\($namespace\\))]($style) "
 prefix = " "
 style = "bright-blue"
@@ -43,7 +58,7 @@ disabled = false
 
 [custom.fairwinds]
 symbol = "🚀"
-command = "echo $PROJECT:$INVENTORY"
+command = "echo $PROJECT|$INVENTORY"
 when = """ test "$INVENTORY" != "" """
 prefix = " "
 style = "bold red"
@@ -82,3 +97,7 @@ disabled = false
 [rust]
 format = "[$symbol$version]($style) "
 symbol = " "
+
+[helm]
+disabled = true
+format = "[⎈ $version](bold white) "
