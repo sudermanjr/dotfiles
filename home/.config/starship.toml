@@ -58,7 +58,7 @@ disabled = false
 
 [custom.fairwinds]
 symbol = "🚀"
-command = "echo $PROJECT|$INVENTORY"
+command = "echo $PROJECT:$INVENTORY"
 when = """ test "$INVENTORY" != "" """
 prefix = " "
 style = "bold red"

@@ -70,7 +70,7 @@ gitreleaselog() {
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
 
 # Weather
-alias weather="curl wttr.in/80814"
+alias weather="curl wttr.in/80814?u"
 alias weather2="curl wttr.in/80814?format=v2"
 
 # Gist the current dir
