@@ -12,3 +12,5 @@
 	protocol = ssh
 [alias]
 	pushf = push --force-with-lease
+[pull]
+	ff = only
