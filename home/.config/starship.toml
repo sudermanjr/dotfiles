@@ -7,6 +7,7 @@ format = """\
     $ruby\
     $rust\
     ${custom.fairwinds}\
+    ${custom.awsduration}\
     $aws\
     $gcloud \
     $helm\
@@ -52,7 +53,6 @@ symbol = " "
 [kubernetes]
 symbol = "⎈ "
 format = "[$symbol$context( \\($namespace\\))]($style) "
-prefix = " "
 style = "bright-blue"
 disabled = false
 
@@ -60,7 +60,12 @@ disabled = false
 symbol = "🚀"
 command = "echo $PROJECT:$INVENTORY"
 when = """ test "$INVENTORY" != "" """
-prefix = " "
+style = "bold red"
+
+[custom.awsduration]
+symbol = ""
+command = "echo $((x=$AWS_SESSION_START,y=AWS_SESSION_DURATION,z=$(date +%s),u=x+y-z))s"
+when = """ test "$USE_HASHICORP_VAULT_FOR_AWS_CREDS" != "" """
 style = "bold red"
 
 [jobs]

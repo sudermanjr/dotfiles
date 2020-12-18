@@ -7,3 +7,7 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 if [ -f '/Users/asuderma/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/asuderma/google-cloud-sdk/completion.bash.inc'; fi
 
 source <(cthulhucuddle completion-bash)
+
+if command -v flux &> /dev/null; then
+  . <(flux completion bash)
+fi
