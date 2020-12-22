@@ -99,7 +99,7 @@ EOF
 
   # Values
   values=$(yq r course.yml charts["$release"].values -P)
-  if [! -z $values ]; then
+  if [ ! -z "$values" ]; then
     OLD_IFS="$IFS"
     IFS=
     while read line; do echo "    ${line}" >> "helm-flux/releases/$release.yaml"; done <<< "$values"
