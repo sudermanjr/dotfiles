@@ -1,0 +1,107 @@
+#!/bin/bash
+
+####################
+### REPOSITORIES ###
+####################
+repoNames=($(yq r course.yml repositories -j | jq '. | keys[] ' -r))
+repoURLs=($(yq r course.yml repositories -j | jq '.[].url ' -r))
+
+mkdir -p helm-flux
+mkdir -p helm-flux/repositories
+
+cat <<EOF > "helm-flux/sync.yaml"
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: fairwinds-helm-releases
+    namespace: flux-system
+    spec:
+      interval: 10m0s
+        path: ./inventory/c0zj81ta-kops/clusters/lrng48mx-kops/resources/helm-flux
+          prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  timeout: 5m
+  healthChecks:
+EOF
+
+cat <<EOF > "helm-flux/kustomization.yaml"
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+EOF
+
+index=0
+for repo in ${repoNames[@]}; do
+  repoName=${repoNames[$index]}
+  repoURL=${repoURLs[$index]}
+
+  cat <<EOF > "helm-flux/repositories/$repoName.yaml"
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: $repoName
+  namespace: flux-system
+spec:
+  url: $repoURL
+  interval: 10m
+EOF
+
+echo "- repositories/$repoName.yaml" >> "helm-flux/kustomization.yaml"
+
+  index=$((index+1))
+done
+
+
+#################
+### RELEASES ####
+#################
+mkdir -p "helm-flux/releases"
+
+defaultNamespace=$(yq r course.yml namespace)
+defaultRepository=$(yq r course.yml repository)
+releaseNames=($(yq r course.yml charts -j | jq '. | keys[]' -r))
+
+for release in ${releaseNames[@]}; do
+
+  releaseNamespace=$(yq r course.yml charts["$release"].namespace)
+  chartVersion=$(yq r course.yml charts["$release"].version)
+  repository=$(yq r course.yml charts["$release"].repository)
+
+  repository=${repository:-$defaultRepository}
+  releaseNamespace=${releaseNamespace:$defaultNamespace}
+
+  echo "repo: $repository ver: $chartVersion ns: $releaseNamespace"
+
+  cat <<EOF > "helm-flux/releases/$release.yaml"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: $release
+  namespace: $releaseNamespace
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: $releaseChart
+      version: '$chartVersion'
+      sourceRef:
+        kind: HelmRepository
+        name: $repository
+        namespace: $releaseNamespace
+      interval: 1m
+  test:
+    enable: true
+  values: TODO
+EOF
+
+  cat <<EOF >> "helm-flux/sync.yaml"
+    - apiVersion: helm.toolkit.fluxcd.io/v1beta1
+      kind: HelmRelease
+      name: $release
+      namespace: $releaseNamespace
+EOF
+
+  echo "- releases/$release.yaml" >> "helm-flux/kustomization.yaml"
+done
