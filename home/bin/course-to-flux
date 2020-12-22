@@ -68,11 +68,12 @@ for release in ${releaseNames[@]}; do
   releaseNamespace=$(yq r course.yml charts["$release"].namespace)
   chartVersion=$(yq r course.yml charts["$release"].version)
   repository=$(yq r course.yml charts["$release"].repository)
+  releaseChart=$(yq r course.yml charts["$release"].chart)
 
   repository=${repository:-$defaultRepository}
-  releaseNamespace=${releaseNamespace:$defaultNamespace}
+  releaseNamespace=${releaseNamespace:-$defaultNamespace}
 
-  echo "repo: $repository ver: $chartVersion ns: $releaseNamespace"
+  echo "repo:$repository ver:$chartVersion ns:$releaseNamespace chart:$releaseChart"
 
   cat <<EOF > "helm-flux/releases/$release.yaml"
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
@@ -93,8 +94,15 @@ spec:
       interval: 1m
   test:
     enable: true
-  values: TODO
+  values:
 EOF
+
+  values=$(yq r course.yml charts["$release"].values -P)
+  OLD_IFS="$IFS"
+  IFS=
+  while read line; do echo "    ${line}" >> "helm-flux/releases/$release.yaml"; done <<< "$values"
+  IFS="$OLD_IFS"
+
 
   cat <<EOF >> "helm-flux/sync.yaml"
     - apiVersion: helm.toolkit.fluxcd.io/v1beta1
