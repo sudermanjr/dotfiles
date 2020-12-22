@@ -90,7 +90,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: $repository
-        namespace: $releaseNamespace
+        namespace: flux-system
       interval: 1m
   test:
     enable: true
