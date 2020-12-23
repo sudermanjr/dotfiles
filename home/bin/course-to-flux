@@ -33,11 +33,17 @@ resources:
 - sync.yaml
 EOF
 
+echo "-------------------"
+echo "Adding Repositories"
+echo "-------------------"
+printf "%-50s %-50s\n" "REPOSITORY" "URL"
+
 index=0
 for repo in ${repoNames[@]}; do
   repoName=${repoNames[$index]}
   repoURL=${repoURLs[$index]}
 
+  printf "%-50s %-50s\n" $repoName $repoURL
   cat <<EOF > "helm-flux/repositories/$repoName.yaml"
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
@@ -64,6 +70,11 @@ defaultNamespace=$(yq r course.yml namespace)
 defaultRepository=$(yq r course.yml repository)
 releaseNames=($(yq r course.yml charts -j | jq '. | keys[]' -r))
 
+printf "\n-------------\n"
+printf "Adding Charts"
+printf "\n-------------\n"
+printf "%-50s %-50s %-50s %-50s\n" "CHART" "REPOSITORY" "VERSION" "NAMESPACE"
+
 for release in ${releaseNames[@]}; do
 
   releaseNamespace=$(yq r course.yml charts["$release"].namespace)
@@ -74,7 +85,7 @@ for release in ${releaseNames[@]}; do
   repository=${repository:-$defaultRepository}
   releaseNamespace=${releaseNamespace:-$defaultNamespace}
 
-  echo "repo:$repository ver:$chartVersion ns:$releaseNamespace chart:$releaseChart"
+  printf "%-50s %-50s %-50s %-50s\n" $releaseChart $repository $chartVersion $releaseNamespace
 
   cat <<EOF > "helm-flux/releases/$release.yaml"
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
