@@ -17,6 +17,7 @@ kubectl 1.19.2
 kubectx 0.9.0
 kustomize 3.5.4
 linkerd 2.8.1
+nova 2.2.0
 operator-sdk 1.2.0
 pluto 3.5.2
 postgres 12.3
