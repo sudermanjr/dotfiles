@@ -5,12 +5,13 @@ bazel 3.1.0
 conftest v0.22.0
 doctl 1.41.0
 github-cli 1.0.0
-golang 1.15.6
-golangci-lint 1.32.0
+golang 1.15.7
+golangci-lint 1.35.2
 helm 3.3.4
 helm-docs 1.4.0
+insights-cli 0.3.0
 k6 0.27.1
-kind 0.9.0
+kind 0.10.0
 kops v1.17.2
 kube-capacity 0.3.3
 kubectl 1.19.2

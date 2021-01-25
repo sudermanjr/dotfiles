@@ -1,6 +1,7 @@
 export CUDDLEFISH_HOME="$HOME/.cthulhu"
 export CUDDLEFISH_VENV="$HOME/.cthulhu/cuddle"
 export CUDDLEFISH_INSTALL_CHANNEL=docker
+export CUDDLEFISH_PREFER_SSH_GIT=true
 source /Users/asuderma/.cthulhu/config
 source $HOME/repos/fairwindsops/cuddlefish/workstation/bin/__cuddlectl_complete.bash
 
