@@ -3,11 +3,12 @@ argo 2.8.0
 aws-vault 6.2.0
 bazel 3.1.0
 conftest v0.22.0
-doctl 1.41.0
+doctl 1.55.0
 github-cli 1.0.0
-golang 1.15.7
-golangci-lint 1.35.2
-helm 3.3.4
+golang 1.15.8
+golangci-lint 1.36.0
+goreleaser 0.155.2
+helm 3.5.2
 helm-docs 1.4.0
 insights-cli 0.3.0
 k6 0.27.1
@@ -17,7 +18,7 @@ kube-capacity 0.3.3
 kubectl 1.19.2
 kubectx 0.9.0
 kustomize 3.5.4
-linkerd 2.8.1
+linkerd 2.9.4
 nova 2.2.0
 operator-sdk 1.2.0
 pluto 3.5.2
@@ -28,7 +29,7 @@ reckoner 4.3.2
 redskyctl 1.3.1
 ruby 2.7.1
 shellcheck 0.7.0
-terraform 0.12.29
+terraform 0.13.6
 terraform-docs v0.10.1
 tp 2.1.1
 vault 1.5.5
