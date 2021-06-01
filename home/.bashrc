@@ -10,3 +10,5 @@ if [[ -d ${HOME}/.bashrc.d ]]; then
   done < <(find ${HOME}/.bashrc.d -follow -type f -not -name '*.disabled')
   unset dotd
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

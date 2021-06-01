@@ -1,3 +1,4 @@
+command_timeout = 700
 add_newline = false
 format = """\
     $shlvl\
@@ -31,7 +32,6 @@ threshold = 2
 [character]
 error_symbol = "[✗](bold bright-red)"
 success_symbol = "[▶](bold green)"
-use_symbol_for_status = true
 
 [directory]
 style = "green"

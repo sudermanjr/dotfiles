@@ -2,15 +2,19 @@ export CUDDLEFISH_HOME="$HOME/.cthulhu"
 export CUDDLEFISH_VENV="$HOME/.cthulhu/cuddle"
 export CUDDLEFISH_INSTALL_CHANNEL=docker
 export CUDDLEFISH_PREFER_SSH_GIT=true
-source /Users/asuderma/.cthulhu/config
-source $HOME/repos/fairwindsops/cuddlefish/workstation/bin/__cuddlectl_complete.bash
 
-alias ccenv=". ${CUDDLEFISH_VENV}/bin/activate"
+if [ -d $CUDDLEFISH_HOME ]; then
+  source /Users/asuderma/.cthulhu/config
+  source $HOME/repos/fairwindsops/cuddlefish/workstation/bin/__cuddlectl_complete.bash
 
-alias ugit="unset GIT_SSH_COMMAND"
+  alias ccenv=". ${CUDDLEFISH_VENV}/bin/activate"
 
-export BE_ANNOYING=true
+  alias ugit="unset GIT_SSH_COMMAND"
 
+  export BE_ANNOYING=true
+
+  source <(cthulhucuddle completion-bash)
+fi
 kepler_details(){
   argo list --no-headers | awk '{print $1}' | xargs -L1 -I{} argo get {} | grep Output\ Param -A6
 }

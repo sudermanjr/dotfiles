@@ -41,10 +41,6 @@ if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
     export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 fi
 
-# asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-
 # Disable OSX warning about bash
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
@@ -53,3 +49,6 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 
 # Update PATH for the Google Cloud SDK.
 if [ -f '/Users/asuderma/google-cloud-sdk/path.bash.inc' ]; then . '/Users/asuderma/google-cloud-sdk/path.bash.inc'; fi
+
+# Enable pyenv
+eval "$(pyenv init -)"
