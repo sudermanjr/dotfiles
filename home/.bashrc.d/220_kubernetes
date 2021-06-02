@@ -119,3 +119,5 @@ kforcedeletens(){
 kindmetrics(){
     helm -n metrics-server upgrade --install metrics-server bitnami/metrics-server --set apiService.create=true --set extraArgs.kubelet-insecure-tls=true --create-namespace
 }
+
+alias lens='open /Applications/Lens.app'

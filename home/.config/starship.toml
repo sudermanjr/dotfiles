@@ -9,6 +9,7 @@ format = """\
     $rust\
     ${custom.fairwinds}\
     ${custom.awsduration}\
+    ${custom.cf_vpns} \
     $aws\
     $gcloud \
     $helm\
@@ -66,6 +67,12 @@ style = "bold red"
 symbol = ""
 command = "echo $((x=$AWS_SESSION_START,y=AWS_SESSION_DURATION,z=$(date +%s),u=x+y-z))s"
 when = """ test "$USE_HASHICORP_VAULT_FOR_AWS_CREDS" != "" """
+style = "bold red"
+
+[custom.cf_vpns]
+symbol = "🚇"
+command = "echo $(prompt_cuddlefish_vpns_connected)"
+when = """ test "$(prompt_cuddlefish_vpns_connected)" != "" """
 style = "bold red"
 
 [jobs]

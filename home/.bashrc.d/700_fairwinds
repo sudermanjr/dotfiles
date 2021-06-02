@@ -1,6 +1,5 @@
 export CUDDLEFISH_HOME="$HOME/.cthulhu"
 export CUDDLEFISH_VENV="$HOME/.cthulhu/cuddle"
-export CUDDLEFISH_INSTALL_CHANNEL=docker
 export CUDDLEFISH_PREFER_SSH_GIT=true
 
 if [ -d $CUDDLEFISH_HOME ]; then
@@ -14,7 +13,23 @@ if [ -d $CUDDLEFISH_HOME ]; then
   export BE_ANNOYING=true
 
   source <(cthulhucuddle completion-bash)
+  export BASTION_USERNAME=sudermanjr
 fi
 kepler_details(){
   argo list --no-headers | awk '{print $1}' | xargs -L1 -I{} argo get {} | grep Output\ Param -A6
+}
+
+prompt_cuddlefish_vpns_connected () {
+    local out
+    local num_cuddlefish_vpns="$(find $CUDDLEFISH_HOME/.tmp/vpn -name '*.pid' 2> /dev/null | wc -l | tr -d ' ')"
+    if [ -n "$PROJECT" -a -n "$INVENTORY" ]; then
+        local num_project_vpns="$(find $CUDDLEFISH_HOME/.tmp/vpn/$PROJECT/$INVENTORY -name '*.pid' 2> /dev/null | wc -l | tr -d ' ')"
+    fi
+    if [ 0 -lt "$num_cuddlefish_vpns" ]; then
+        out=" $num_cuddlefish_vpns"
+    fi
+    if [ 0 -lt "$num_project_vpns" ]; then
+        out="$out:$num_project_vpns"
+    fi
+    echo -n "$out"
 }

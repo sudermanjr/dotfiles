@@ -120,6 +120,7 @@ asciicast2gif() {
 
 gitclean(){
   git fetch --prune origin
+  git remote prune origin
 }
 
 jupyter(){
