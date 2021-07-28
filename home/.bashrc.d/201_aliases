@@ -132,3 +132,7 @@ jupyter(){
   sleep 5
   docker logs jupyter
 }
+
+function grepfzf () {
+    rg $1 | fzf
+}
