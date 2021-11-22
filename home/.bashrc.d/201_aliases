@@ -134,5 +134,10 @@ jupyter(){
 }
 
 function grepfzf () {
-    rg $1 | fzf
+    rg -S $1 | fzf
 }
+
+lowercase_filenames() {
+  for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done
+}
+
