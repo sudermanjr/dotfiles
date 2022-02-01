@@ -91,7 +91,7 @@ precommitinit() {
 
 genload() {
   echo "Loading $TARGET"
-  k6 run ~/load.js --vus=10 --max=500 --duration=0
+  k6 run ~/load.js --vus=10 --duration=30m
 }
 
 alias ds_store_clean="find . -name '.DS_Store' -type f -delete"
@@ -138,6 +138,6 @@ function grepfzf () {
 }
 
 lowercase_filenames() {
-  for i in *; do mv $i `echo $i | tr [:upper:] [:lower:]`; done
+  for i in *; do git mv $i `echo $i | tr [:upper:] [:lower:]` --force; done
 }
 
