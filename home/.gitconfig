@@ -1,7 +1,7 @@
 [user]
 	name = Andrew Suderman
 	email = andrew@sudermanjr.com
-	signingkey = 9C9CAE7EC2133DB7
+	signingkey = E1D41017481B1ED9E3B77AF59C9CAE7EC2133DB7
 [commit]
 	gpgsign = true
 [core]
@@ -14,5 +14,12 @@
 	pushf = push --force-with-lease
 [pull]
 	ff = only
+[gpg]
+	program = gpg2
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

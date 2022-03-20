@@ -91,7 +91,11 @@ precommitinit() {
 
 genload() {
   echo "Loading $TARGET"
+<<<<<<< Updated upstream
   k6 run ~/load.js --vus=10 --duration=30m
+=======
+  k6 run ~/load.js -d 60m --vus 10
+>>>>>>> Stashed changes
 }
 
 alias ds_store_clean="find . -name '.DS_Store' -type f -delete"
@@ -141,3 +145,13 @@ lowercase_filenames() {
   for i in *; do git mv $i `echo $i | tr [:upper:] [:lower:]` --force; done
 }
 
+# Get Yubikey MFA
+mfa() {
+  if command -v ykman &> /dev/null; then
+    if [ -z "$1" ]; then
+      ykman oath accounts code
+    else
+      ykman oath accounts code | grep -i $1
+    fi
+  fi
+}
