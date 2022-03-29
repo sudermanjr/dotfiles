@@ -13,7 +13,7 @@ fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "$FZF_ROOT/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source "$FZF_ROOT/.fzf.bash" 2> /dev/null
 
 # Key bindings
 # ------------

@@ -3,7 +3,6 @@
 *.idea
 *.swp
 .vscode
-sonar-project.properties
 coverage.xml
 pytest-report.xml
 golint-report.out

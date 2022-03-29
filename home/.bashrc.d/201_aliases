@@ -151,3 +151,7 @@ mfa() {
     fi
   fi
 }
+
+# Golicense https://github.com/mitchellh/golicense
+alias golicense='golicense ~/.license.hcl'
+
