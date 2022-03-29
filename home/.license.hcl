@@ -55,6 +55,7 @@ override = {
    "github.com/xeipuuv/gojsonschema"    = "Apache-2.0",
    "github.com/xeipuuv/gojsonreference" = "Apache-2.0",
    "github.com/xeipuuv/gojsonpointer"   = "Apache-2.0",
+   "gopkg.in/square/go-jose.v2"         = "Apache-2.0",
    "github.com/pelletier/go-toml"       = "MIT",
    "sigs.k8s.io/yaml"                   = "MIT",
    "github.com/ghodss/yaml"             = "MIT",
