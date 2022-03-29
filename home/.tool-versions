@@ -41,7 +41,7 @@ shellcheck 0.7.2
 sops 3.7.1
 starship 1.5.4
 syft 0.42.4
-terraform 1.1.5
+terraform 1.1.7
 terraform-docs v0.16.0
 tfsec 0.39.6
 tp 2.1.1
