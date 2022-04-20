@@ -41,7 +41,7 @@ au BufReadPost Jenkinsfile set filetype=groovy
 
 execute pathogen#infect()
 
-map <leader>b :Gblame<cr>
+map <leader>b :Git blame<cr>
 map <leader>d :Gdiff<cr>
 map <leader>t :NERDTreeToggle<cr>
 
