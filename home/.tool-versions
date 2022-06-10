@@ -11,8 +11,8 @@ eksctl 0.43.0
 gcloud 366.0.0
 github-cli 1.0.0
 gohugo 0.81.0
-golang 1.17.3
-golangci-lint 1.44.0
+golang 1.18
+golangci-lint 1.46.2
 goreleaser 1.5.0
 hadolint v1.23.0
 helm 3.8.2
