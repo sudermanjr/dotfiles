@@ -1,6 +1,6 @@
 [user]
-	name = Andrew Suderman
-	email = andrew@sudermanjr.com
+	name = Andy Suderman
+	email = andy@suderman.dev
 	signingkey = E1D41017481B1ED9E3B77AF59C9CAE7EC2133DB7
 [commit]
 	gpgsign = true
