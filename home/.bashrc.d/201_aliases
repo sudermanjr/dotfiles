@@ -156,3 +156,7 @@ mfa() {
 alias golicense='golicense ~/.license.hcl'
 
 alias swagger='docker run --rm -it  --user $(id -u):$(id -g) -e GOPATH=$(go env GOPATH):/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger'
+
+triageparty() {
+  docker run -it --rm -e GITHUB_TOKEN -v "$HOME/triage-party-config.yaml:/app/config/config.yaml" -v $HOME/.triage-party-cache:/app/pcache -e PERSIST_BACKEND=disk -e PERSIST_PATH=/app/pcache -p 8080:8080 tp
+}

@@ -12,7 +12,7 @@ gcloud 366.0.0
 github-cli 1.0.0
 gohugo 0.81.0
 golang 1.18.3
-golangci-lint 1.48.0
+golangci-lint 1.49.0
 goreleaser 1.5.0
 hadolint v1.23.0
 helm 3.9.4
