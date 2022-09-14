@@ -16,7 +16,7 @@ if [ -d $CUDDLEFISH_HOME ]; then
   export BASTION_USERNAME=sudermanjr
 
 aws-login-ro-prime() {
-  eval $(cthulhucuddle vault refresh-aws -p catbox -r admin)
+  eval $(cthulhucuddle vault refresh-aws -p aws-ro-prime -r admin)
 }
 fi
 kepler_details(){

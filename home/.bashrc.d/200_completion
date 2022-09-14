@@ -20,3 +20,7 @@ if [ -f '/Users/asuderma/google-cloud-sdk/completion.bash.inc' ]; then . '/Users
 if command -v flux &> /dev/null; then
   . <(flux completion bash)
 fi
+
+if command -v kpt &> /dev/null; then
+  . <(kpt completion bash)
+fi
