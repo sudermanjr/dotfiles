@@ -1,51 +1,51 @@
-settings:
-  name: OSS Triage
-
-fairwinds-repos: &fairwinds-repos
-  - https://github.com/fairwindsops/pluto
-  - https://github.com/fairwindsops/goldilocks
-  - https://github.com/fairwindsops/rbac-manager
-  - https://github.com/fairwindsops/rbac-lookup
-  - https://github.com/fairwindsops/nova
-  - https://github.com/fairwindsops/polaris
-
+---
 helm-repos: &helm-repos
   - https://github.com/helm/helm
   - https://github.com/helm/community
 
+fairwinds-oss: &fairwinds-stable-oss-repos
+  - https://github.com/fairwindsops/pluto
+  - https://github.com/fairwindsops/nova
+  - https://github.com/fairwindsops/polaris
+  - https://github.com/fairwindsops/goldilocks
+
+settings:
+  name: Fairwinds
+  min_similarity: 0.8
+
 collections:
-  - id: helm
-    name: Helm
+  - id: helmpr
+    category: helm
+    name: Helm PRs To Review
+    dedup: true
+    description: >
+      Helm PRs that might be good to review
     rules:
-      - pr-unreviewed
+      - pr-reviewable
     repos: *helm-repos
-  - id: fairwinds
-    name: Fairwinds
-    rules:
-      - pr-unreviewed
-      - issue-triage
-    repos: *fairwinds-repos
-  - id: fairwinds-dependabot
-    name: FW Dependabot
+
+  - id: fw-dependabot
+    category: fairwinds
+    name: Fairwinds Dependabot PRs
+    dedup: true
+    description: >
+      Fairwinds Dependabot PRs
     rules:
       - dependabot
-    repos: *fairwinds-repos
+    repos: *fairwinds-stable-oss-repos
 
 rules:
-  pr-unreviewed:
-    name: "Un-Reviewed"
+  # Don't leave code reviews hanging
+  pr-reviewable:
+    name: "Pull Requests: Review Ready"
+    resolution: "Review requests or mark them as do-not-merge/work-in-progress"
     type: pull_request
     filters:
       - title: "!.*(WIP|wip).*"
-      - tag: "!draft"
-      - label: "!dependencies"
-      - tag: "unreviewed"
-  issue-triage:
-    name: "Issue Triage"
-    type: issue
-    filters:
-      - label: "!dependencies"
-      - label: "triage"
+      - label: "!do-not-merge.*"
+      - label: "!needs-rebase"
+      - tag: "!changes-requested"
+      - tag: "!approved"
   dependabot:
     name: "Dependabot"
     type: pull_request
