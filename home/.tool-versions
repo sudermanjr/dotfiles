@@ -35,14 +35,14 @@ operator-sdk 1.2.0
 pluto 5.10.2
 polaris 7.0.1
 postgres 12.3
-pulumi 3.38.0
+pulumi 3.39.2
 rbac-lookup 0.6.1
 redskyctl 1.3.1
 ripgrep 13.0.0
 ruby 2.7.1
 shellcheck 0.7.2
 sops 3.7.1
-starship 1.10.1
+starship 1.10.3
 syft 0.42.4
 terraform 1.1.7
 terraform-docs v0.16.0
