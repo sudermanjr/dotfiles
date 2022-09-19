@@ -1,0 +1,101 @@
+{
+    "go.coverOnSave": true,
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "terminal.integrated.fontFamily": "JetBrains Mono NL, Hack Nerd Font, FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "todo-tree.highlights.enabled": true,
+    "cSpell.userWords": [
+        "argoproj",
+        "fairwinds",
+        "infof",
+        "klog",
+        "kops",
+        "kube",
+        "kubernetes",
+        "linkerd",
+        "ojson",
+        "printf",
+        "pydoc",
+        "reactiveops",
+        "semver",
+        "sudermanjr",
+        "tfvars"
+    ],
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "git-commit",
+        "handlebars",
+        "haskell",
+        "html",
+        "jade",
+        "java",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "jsonc",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "pug",
+        "python",
+        "restructuredtext",
+        "rust",
+        "scala",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yaml",
+        "yml"
+    ],
+    "todo-tree.tree.showScanModeButton": false,
+    "terraform.indexing": {
+        "enabled": false,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+    },
+    "terraform.languageServer": {
+        "external": true,
+        "args": [
+            "serve"
+        ]
+    },
+    "go.testFlags": [
+        "-test.v"
+    ],
+    "workbench.sideBar.location": "right",
+    "diffEditor.renderSideBySide": false,
+    "python.pythonPath": "/Users/asuderma/.cthulhu/cuddle/bin/python",
+    "python.languageServer": "Pylance",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "editor.fontFamily": "JetBrains Mono NL, Hack Nerd Font, FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "peacock.affectActivityBar": false,
+    "redhat.telemetry.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "python.defaultInterpreterPath": "/Users/asuderma/.cthulhu/cuddle/bin/python",
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": false,
+        "markdown": false
+    },
+    "go.lintTool": "golangci-lint",
+    "workbench.colorTheme": "Rosé Pine Moon",
+    "editor.fontLigatures": false,
+    "editor.renderWhitespace": "none",
+    "settingsSync.ignoredExtensions": [],
+    "window.zoomLevel": 1
+}

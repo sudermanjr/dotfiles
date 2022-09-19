@@ -44,8 +44,10 @@ fi
 # Disable OSX warning about bash
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# VSCode
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# VSCodium Settings
+if [ ! -f "$HOME/Library/Application Support/VSCodium/User/settings.json" ]; then
+  ln -s "$HOME/.vscode-settings.json" "$HOME/Library/Application Support/VSCodium/User/settings.json"
+fi
 
 # Update PATH for the Google Cloud SDK.
 if [ -f '/Users/asuderma/google-cloud-sdk/path.bash.inc' ]; then . '/Users/asuderma/google-cloud-sdk/path.bash.inc'; fi
