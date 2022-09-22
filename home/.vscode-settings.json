@@ -2,7 +2,7 @@
     "go.coverOnSave": true,
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
-    "terminal.integrated.fontFamily": "JetBrains Mono NL, Hack Nerd Font, FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
     "todo-tree.highlights.enabled": true,
     "cSpell.userWords": [
         "argoproj",
@@ -81,7 +81,7 @@
         "*.ipynb": "jupyter.notebook.ipynb"
     },
     "go.toolsManagement.autoUpdate": true,
-    "editor.fontFamily": "JetBrains Mono NL, Hack Nerd Font, FiraCode Nerd Font, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "JetBrainsMono Nerd Font, Menlo, Monaco, 'Courier New', monospace",
     "peacock.affectActivityBar": false,
     "redhat.telemetry.enabled": false,
     "editor.inlineSuggest.enabled": true,

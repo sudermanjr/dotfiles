@@ -52,7 +52,7 @@ disabled = true
 symbol = " "
 
 [kubernetes]
-symbol = "⎈ "
+symbol = "☸ "
 format = "[$symbol$context( \\($namespace\\))]($style) "
 style = "bright-blue"
 disabled = false
