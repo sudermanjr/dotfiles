@@ -8,9 +8,11 @@ fairwinds-oss: &fairwinds-stable-oss-repos
   - https://github.com/fairwindsops/nova
   - https://github.com/fairwindsops/polaris
   - https://github.com/fairwindsops/goldilocks
+  - https://github.com/fairwindsops/rbac-manager
+  - https://github.com/fairwindsops/reckoner
 
 settings:
-  name: Fairwinds
+  name: Andy's Triage
   min_similarity: 0.8
 
 collections:
@@ -25,7 +27,7 @@ collections:
     repos: *helm-repos
 
   - id: fw-dependabot
-    category: fairwinds
+    category: fairwinds-stable
     name: Fairwinds Dependabot PRs
     dedup: true
     description: >
@@ -34,6 +36,15 @@ collections:
       - dependabot
     repos: *fairwinds-stable-oss-repos
 
+  - id: fw-prs
+    category: fairwinds-stable
+    name: Fairwinds PRs to Review
+    dedup: true
+    description: >
+      Fairwinds PRs that might be good to review
+    rules:
+      - pr-reviewable
+    repos: *fairwinds-stable-oss-repos
 rules:
   # Don't leave code reviews hanging
   pr-reviewable:
@@ -44,8 +55,10 @@ rules:
       - title: "!.*(WIP|wip).*"
       - label: "!do-not-merge.*"
       - label: "!needs-rebase"
+      - label: "!dependencies"
       - tag: "!changes-requested"
       - tag: "!approved"
+      - tag: "!reviewed-with-comment"
   dependabot:
     name: "Dependabot"
     type: pull_request
