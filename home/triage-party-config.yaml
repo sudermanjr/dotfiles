@@ -45,6 +45,15 @@ collections:
     rules:
       - pr-reviewable
     repos: *fairwinds-stable-oss-repos
+
+  - id: fw-issues
+    category: fairwinds-stable
+    name: Fairwinds Issues Triage
+    description: >
+      Fairwinds Issues w/ Triage Label
+    rules:
+      - triage-issues
+    repos: *fairwinds-stable-oss-repos
 rules:
   # Don't leave code reviews hanging
   pr-reviewable:
@@ -64,3 +73,8 @@ rules:
     type: pull_request
     filters:
       - label: "dependencies"
+  triage-issues:
+    name: "Triage Issues"
+    type: issue
+    filters:
+      - label: triage
