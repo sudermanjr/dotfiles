@@ -60,7 +60,11 @@ get_colors() {
 alias gitlog="git log --pretty='format:%H %G? %GS %GK %aN  %s' --reverse | tail; echo"
 gitreleaselog() {
   CURRENT=$(git rev-parse HEAD)
-  LAST_TAG=$(git describe --tags --abbrev=0 ${CURRENT}^)
+  if [ -z "$1" ]; then
+    LAST_TAG=$(git describe --tags --abbrev=0 ${CURRENT}^)
+  else
+    LAST_TAG=$1
+  fi
   CHANGELOG=$(git log --pretty='format:%h %s' --reverse $LAST_TAG..HEAD)
   printf "\nChanges since $LAST_TAG:\n\n"
   echo "$CHANGELOG"
