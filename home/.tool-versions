@@ -1,6 +1,6 @@
 agones-allocator-client 0.2.0
 argo 3.2.4
-argocd 2.2.5
+argocd 2.5.3
 awscli 2.8.2
 aws-vault 6.6.0
 bazel 3.1.0
