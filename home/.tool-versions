@@ -15,7 +15,7 @@ golang 1.19.3
 golangci-lint 1.50.1
 goreleaser 1.5.0
 hadolint v1.23.0
-helm 3.10.0
+helm 3.10.2
 helm-docs 1.11.0
 hub v2.14.2
 insights-cli 1.0.2
@@ -38,7 +38,7 @@ polaris 7.2.0
 postgres 12.3
 pulumi 3.48.0
 rbac-lookup 0.6.1
-reckoner 6.0.0
+reckoner 6.1.0-rc.3
 redskyctl 1.3.1
 ripgrep 13.0.0
 ruby 2.7.1
@@ -54,3 +54,5 @@ tp 2.1.1
 vault 1.10.0
 yq v4.9.3
 reckoner 6.0.0
+reckoner 6.1.0-rc.1
+reckoner 6.1.0-rc.3
