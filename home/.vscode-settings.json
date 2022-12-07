@@ -93,9 +93,8 @@
         "markdown": false
     },
     "go.lintTool": "golangci-lint",
-    "workbench.colorTheme": "Rosé Pine Moon",
     "editor.fontLigatures": false,
     "editor.renderWhitespace": "none",
     "settingsSync.ignoredExtensions": [],
-    "window.zoomLevel": 3
+    "window.zoomLevel": 1
 }
