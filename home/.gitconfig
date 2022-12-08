@@ -15,7 +15,7 @@
 [pull]
 	ff = only
 [gpg]
-	program = gpg
+	program = gpg2
 [init]
 	defaultBranch = main
 [filter "lfs"]
