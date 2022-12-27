@@ -1,8 +1,4 @@
-source <(kubectl completion bash)
-alias k=kubectl
 alias kevents="kubectl get events --sort-by=.metadata.creationTimestamp"
-complete -o default -F __start_kubectl k
-
 alias kb="kustomize build"
 
 alias kns=kubens

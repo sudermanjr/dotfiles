@@ -4,7 +4,7 @@ export CUDDLEFISH_PREFER_SSH_GIT=true
 
 if [ -d $CUDDLEFISH_HOME ]; then
   source /Users/asuderma/.cthulhu/config
-  source $HOME/repos/fairwindsops/cuddlefish/workstation/bin/__cuddlectl_complete.bash
+  source $HOME/repos/github.com/fairwindsops/cuddlefish/workstation/bin/__cuddlectl_complete.bash
 
   alias ccenv=". ${CUDDLEFISH_VENV}/bin/activate"
 

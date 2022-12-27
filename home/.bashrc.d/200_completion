@@ -24,3 +24,9 @@ fi
 if command -v kpt &> /dev/null; then
   . <(kpt completion bash)
 fi
+
+if type kubectl &> /dev/null; then
+  source <(kubectl completion bash)
+  alias k=kubectl
+  complete -o default -F __start_kubectl k
+fi
