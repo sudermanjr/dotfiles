@@ -8,6 +8,7 @@ format = """\
     $ruby\
     $rust\
     ${custom.fairwinds}\
+    ${custom.awsaccount}\
     ${custom.awsduration}\
     ${custom.cf_vpns} \
     $aws\
@@ -44,7 +45,7 @@ truncation_length = 8
 disabled = true
 style = "dimmed yellow"
 displayed_items = "all"
-symbol = "  "
+symbol = " "
 format = "[$symbol$profile(\\($region\\))]($style) "
 
 [gcloud]
@@ -66,8 +67,15 @@ style = "bold red"
 [custom.awsduration]
 symbol = ""
 command = "echo $((x=$AWS_SESSION_START,y=AWS_SESSION_DURATION,z=$(date +%s),u=x+y-z))s"
-when = """ test "$AWS_ACCESS_KEY_ID" != "" """
-style = "bold red"
+when = """ test "$AWS_SESSION_DURATION" != "" """
+style = "dimmed yellow"
+
+[custom.awsaccount]
+symbol = " "
+command = "echo $AWS_ACCOUNT_ALIAS"
+when = """ test "$AWS_ACCOUNT_ALIAS" != "" """
+ignore_timeout = true
+style = "dimmed yellow"
 
 [custom.cf_vpns]
 symbol = "🚇"
