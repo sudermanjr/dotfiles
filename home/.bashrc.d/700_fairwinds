@@ -37,3 +37,10 @@ prompt_cuddlefish_vpns_connected () {
     fi
     echo -n "$out"
 }
+
+insights_run () {
+  for cj in $(kubectl -n insights-agent get cj --no-headers | awk '{print $1}'); do
+    kubectl -n insights-agent delete job "$cj-manual"
+    kubectl -n insights-agent create job "$cj-manual" --from=cj/$cj
+  done
+}
