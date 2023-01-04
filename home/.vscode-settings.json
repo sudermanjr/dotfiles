@@ -96,5 +96,8 @@
     "editor.fontLigatures": false,
     "editor.renderWhitespace": "none",
     "settingsSync.ignoredExtensions": [],
-    "window.zoomLevel": 1
+    "window.zoomLevel": 3,
+    "files.associations": {
+        "*.gohtml": "html"
+    }
 }
