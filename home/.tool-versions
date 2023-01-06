@@ -9,6 +9,7 @@ doctl 1.72.0
 eksctl 0.43.0
 gcloud 366.0.0
 github-cli 2.14.7
+glooctl v1.13.1
 gohugo 0.108.0
 golang 1.19.3
 golangci-lint 1.50.1
