@@ -10,6 +10,7 @@ fairwinds-oss: &fairwinds-stable-oss-repos
   - https://github.com/fairwindsops/goldilocks
   - https://github.com/fairwindsops/rbac-manager
   - https://github.com/fairwindsops/reckoner
+  - https://github.com/fairwindsops/charts
 
 settings:
   name: Andy's Triage

@@ -96,8 +96,28 @@
     "editor.fontLigatures": false,
     "editor.renderWhitespace": "none",
     "settingsSync.ignoredExtensions": [],
-    "window.zoomLevel": 3,
     "files.associations": {
         "*.gohtml": "html"
-    }
+    },
+    "sqltools.useNodeRuntime": null,
+    "sqltools.connections": [
+        {
+            "name": "local docker",
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "port": 5432,
+            "database": "postgres",
+            "username": "postgres",
+            "askForPassword": false,
+            "password": "postgres",
+            "connectionTimeout": 15
+          }
+          
+    ],
+    "sqltools.format": {
+    "reservedWordCase": "lower",
+    "language": "sql",
+    "linesBetweenQueries": 2,
+    },
+    "window.zoomLevel": 2
 }
