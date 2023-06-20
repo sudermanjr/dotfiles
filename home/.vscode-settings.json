@@ -119,5 +119,7 @@
     "language": "sql",
     "linesBetweenQueries": 2,
     },
-    "window.zoomLevel": 2
+    "window.zoomLevel": 1,
+    "svelte.enable-ts-plugin": true,
+    "debug.allowBreakpointsEverywhere": true
 }
