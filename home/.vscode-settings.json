@@ -97,7 +97,8 @@
     "editor.renderWhitespace": "none",
     "settingsSync.ignoredExtensions": [],
     "files.associations": {
-        "*.gohtml": "html"
+        "*.gohtml": "html",
+        "*.tftpl": "lua"
     },
     "sqltools.useNodeRuntime": null,
     "sqltools.connections": [
@@ -117,9 +118,13 @@
     "sqltools.format": {
     "reservedWordCase": "lower",
     "language": "sql",
-    "linesBetweenQueries": 2,
+    "linesBetweenQueries": 2
     },
     "window.zoomLevel": 1,
     "svelte.enable-ts-plugin": true,
-    "debug.allowBreakpointsEverywhere": true
+    "debug.allowBreakpointsEverywhere": true,
+    "vim.commandLineModeKeyBindings": [],
+    "workbench.colorTheme": "Rosé Pine",
+    "assorted-biscuits.annotationPrefix": "🔚 ",
+    "assorted-biscuits.annotationColor": "#49231b"
 }

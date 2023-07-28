@@ -1,81 +1,137 @@
----
-helm-repos: &helm-repos
-  - https://github.com/helm/helm
-  - https://github.com/helm/community
-
 fairwinds-oss: &fairwinds-stable-oss-repos
   - https://github.com/fairwindsops/pluto
   - https://github.com/fairwindsops/nova
   - https://github.com/fairwindsops/polaris
   - https://github.com/fairwindsops/goldilocks
+  - https://github.com/fairwindsops/rbac-lookup
   - https://github.com/fairwindsops/rbac-manager
   - https://github.com/fairwindsops/reckoner
   - https://github.com/fairwindsops/charts
-
+  - https://github.com/fairwindsops/insights-plugins
+  - https://github.com/fairwindsops/rok8s-scripts
 settings:
-  name: Andy's Triage
+  name: Fairwinds Triage
   min_similarity: 0.8
 
 collections:
-  - id: helmpr
-    category: helm
-    name: Helm PRs To Review
-    dedup: true
-    description: >
-      Helm PRs that might be good to review
-    rules:
-      - pr-reviewable
-    repos: *helm-repos
-
   - id: fw-dependabot
     category: fairwinds-stable
-    name: Fairwinds Dependabot PRs
+    name: Dependabot
     dedup: true
     description: >
-      Fairwinds Dependabot PRs
+      Fairwinds Dependabot Pull Requests (PRs)
     rules:
-      - dependabot
+      - dependabot-docker
+      - dependabot-go
+      - dependabot-other
     repos: *fairwinds-stable-oss-repos
-
   - id: fw-prs
     category: fairwinds-stable
-    name: Fairwinds PRs to Review
+    name: Pull Requests (PRs)
     dedup: true
     description: >
-      Fairwinds PRs that might be good to review
+      Fairwinds PRs that might be good to review/merge
     rules:
       - pr-reviewable
+      - pr-mergeable
     repos: *fairwinds-stable-oss-repos
-
-  - id: fw-issues
+  - id: fw-triage-issues
     category: fairwinds-stable
-    name: Fairwinds Issues Triage
+    name: Issue Triage
     description: >
       Fairwinds Issues w/ Triage Label
     rules:
-      - triage-issues
+      - triage-bugs
+      - triage-enhancements
+      - triage-other
+    repos: *fairwinds-stable-oss-repos
+  - id: fw-all-issues
+    category: fairwinds-stable
+    name: All Issues
+    description: >
+      Fairwinds Issues (all minus dependabot)
+    rules:
+      - fw-bugs
+      - fw-enhancements
+      - fw-issues-other
     repos: *fairwinds-stable-oss-repos
 rules:
-  # Don't leave code reviews hanging
   pr-reviewable:
     name: "Pull Requests: Review Ready"
     resolution: "Review requests or mark them as do-not-merge/work-in-progress"
     type: pull_request
     filters:
       - title: "!.*(WIP|wip).*"
-      - label: "!do-not-merge.*"
+      - label: "!Don't Merge!!"
       - label: "!needs-rebase"
       - label: "!dependencies"
-      - tag: "!changes-requested"
       - tag: "!approved"
-      - tag: "!reviewed-with-comment"
-  dependabot:
-    name: "Dependabot"
+  pr-mergeable:
+    name: "PRs to Merge"
+    resolution: "Merge the PR"
     type: pull_request
     filters:
-      - label: "dependencies"
-  triage-issues:
-    name: "Triage Issues"
+      - title: "!Don't Merge!!"
+      - tag: "approved"
+  dependabot-docker:
+    name: "Dependabot Docker"
+    type: pull_request
+    resolution: Review, approve, and merge the PR
+    filters:
+      - label: dependencies
+      - label: docker
+  dependabot-go:
+    name: "Dependabot Golang"
+    type: pull_request
+    resolution: Review, approve, and merge the PR
+    filters:
+      - label: dependencies
+      - label: go
+  dependabot-other:
+    name: "Dependabot All Others"
+    type: pull_request
+    resolution: Review, approve, and merge the PR
+    filters:
+      - label: dependencies
+      - label: "!docker"
+      - label: "!go"
+  triage-bugs:
+    name: "Triage Bugs"
+    resolution: |
+      Review the issue and respond appropriately. Remove the triage label and add any other necessary labels.
     type: issue
     filters:
       - label: triage
+      - label: bug
+  triage-enhancements:
+    name: "Triage Enhancements"
+    resolution: |
+      Review the issue and respond appropriately. Remove the triage label and add any other necessary labels.
+    type: issue
+    filters:
+      - label: triage
+      - label: enhancement
+  triage-other:
+    name: "Triage All Others"
+    type: issue
+    filters:
+      - label: triage
+      - label: "!enhancement"
+      - label: "!bug"
+  fw-bugs:
+    name: All Bugs
+    type: issue
+    filters:
+      - label: bug
+  fw-enhancements:
+    name: All Enhancements
+    type: issue
+    filters:
+      - label: enhancement
+  fw-issues-other:
+    name: Other Issues
+    type: issue
+    filters:
+      - label: "!bug"
+      - label: "!enhancement"
+

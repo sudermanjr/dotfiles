@@ -163,5 +163,5 @@ alias swagger='docker run --rm -it  --user $(id -u):$(id -g) -e GOPATH=$(go env 
 
 triageparty() {
   if [ -d $HOME/.triage-party-cache ]; then mkdir $HOME/.triage-party-cache; fi
-  docker run -it --rm -e GITHUB_TOKEN -v "$HOME/triage-party-config.yaml:/app/config/config.yaml" -p 8080:8080 -e PERSIST_PATH=/cache -v "$HOME/.triage-party-cache:/cache" triageparty:2aa4bbf390691abfbd6f239de10c1603cd716368
+  docker run -it --rm -e GITHUB_TOKEN -v "$HOME/triage-party-config.yaml:/app/config/config.yaml" -p 8080:8080 -e PERSIST_PATH=/cache -v "$HOME/.triage-party-cache:/cache" quay.io/fairwinds/triage-party:2aa4bbf390691abfbd6f239de10c1603cd716368
 }
