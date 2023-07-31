@@ -55,4 +55,3 @@ trivy 0.36.1
 vault 1.13.2
 vcluster 0.13.0
 yq 4.30.5
-reckoner 6.0.0
