@@ -1,15 +1,15 @@
-argocd 2.5.3
-awscli 2.8.2
+argocd 2.6.6
+awscli 2.13.5
 aws-vault 6.6.2
 azure-cli 2.44.1
 bazel 5.3.2
-cmctl 1.6.1
+cmctl 1.11.4
 conftest v0.22.0
 doctl 1.92.0
 cosign 2.0.0
 eksctl 0.43.0
 github-cli 2.14.7
-glooctl v1.13.1
+glooctl v1.14.5
 gohugo 0.108.0
 golang 1.20
 golangci-lint 1.52.2
@@ -22,7 +22,7 @@ hub v2.14.2
 insights-cli 1.0.4
 k3d 5.4.6
 k6 0.45.0
-k9s 0.25.18
+k9s 0.27.4
 kind 0.17.0
 kops v1.25.3
 kpt v1.0.0-beta.20
@@ -33,7 +33,7 @@ kustomize 4.5.7
 linkerd 2.13.5
 nova 3.6.3
 operator-sdk 1.2.0
-pluto 5.18.1
+pluto 5.18.2
 polaris 7.2.0
 postgres 15.1
 pulumi 3.67.0

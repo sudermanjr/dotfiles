@@ -120,11 +120,11 @@
     "language": "sql",
     "linesBetweenQueries": 2
     },
-    "window.zoomLevel": 1,
     "svelte.enable-ts-plugin": true,
     "debug.allowBreakpointsEverywhere": true,
     "vim.commandLineModeKeyBindings": [],
     "workbench.colorTheme": "Rosé Pine",
     "assorted-biscuits.annotationPrefix": "🔚 ",
-    "assorted-biscuits.annotationColor": "#49231b"
+    "assorted-biscuits.annotationColor": "#49231b",
+    "window.zoomLevel": 1
 }

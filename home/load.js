@@ -8,15 +8,6 @@ export const options = {
         http_req_duration: ['p(95)<200'], // 95% of requests should be below 200ms
     },
     scenarios: {
-      //ramping_vu_scenario: {
-      //  executor: "ramping-vus",
-      //  startVUs: 1,
-      //  stages: [
-      //    { duration: '3m', target: 20 },
-      //    { duration: '1m', target: 2 },
-      //  ],
-      //  gracefulRampDown: '10s',
-      //},
       ramping_arrival_scenario: {
         executor: 'ramping-arrival-rate',
         // Start iterations per `timeUnit`
