@@ -126,47 +126,51 @@ font:
 
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
+#
+#
+
 colors:
   primary:
-    background: "0x191724"
+    background: "0x232136"
     foreground: "0xe0def4"
   cursor:
     text: "0xe0def4"
-    cursor: "0x524f67"
+    cursor: "0x56526e"
   vi_mode_cursor:
     text: "0xe0def4"
-    cursor: "0x524f67"
+    cursor: "0x56526e"
   line_indicator:
     foreground: None
     background: None
   selection:
     text: "0xe0def4"
-    background: "0x403d52"
+    background: "0x44415a"
   normal:
-    black: "0x26233a"
+    black: "0x747185"
     red: "0xeb6f92"
-    green: "0x31748f"
+    green: "0x3e8fb0"
     yellow: "0xf6c177"
     blue: "0x9ccfd8"
     magenta: "0xc4a7e7"
-    cyan: "0xebbcba"
+    cyan: "0xea9a97"
     white: "0xe0def4"
   bright:
     black: "0x6e6a86"
     red: "0xeb6f92"
-    green: "0x31748f"
+    green: "0x3e8fb0"
     yellow: "0xf6c177"
     blue: "0x9ccfd8"
     magenta: "0xc4a7e7"
-    cyan: "0xebbcba"
+    cyan: "0xea9a97"
     white: "0xe0def4"
   hints:
     start:
       foreground: "#908caa"
-      background: "#1f1d2e"
+      background: "#2a273f"
     end:
       foreground: "#6e6a86"
-      background: "#1f1d2e"
+      background: "#2a273f"
+
 # Bell
 #
 # The bell is rung every time the BEL control character is received.
