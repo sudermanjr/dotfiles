@@ -1,7 +1,7 @@
 # set aliases
 
-## bat
 alias cat='bat --paging=never'
+alias ll='exa -l --git --no-permissions -h'
 
 alias d=docker
 complete -F _docker d
