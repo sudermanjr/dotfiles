@@ -57,6 +57,9 @@ symbol = "☸ "
 format = "[$symbol$context( \\($namespace\\))]($style) "
 style = "bright-blue"
 disabled = false
+[kubernetes.context_aliases]
+'arn:aws:eks:(?P<var_region>[\w-]+):(?P<var_accountid>[\w-]+):cluster/(?P<var_cluster>[\w-]+)' = '[eks] $var_cluster'
+'gke_.*_(?P<var_cluster>[\w-]+)' = '[gke] $var_cluster'
 
 [custom.fairwinds]
 symbol = "🚀"
@@ -77,12 +80,6 @@ command = "echo $AWS_ACCOUNT_ALIAS"
 when = """ test "$AWS_ACCOUNT_ALIAS" != "" """
 ignore_timeout = true
 style = "dimmed yellow"
-
-[custom.cf_vpns]
-symbol = "🚇"
-command = "echo $(prompt_cuddlefish_vpns_connected)"
-when = """ test "$(prompt_cuddlefish_vpns_connected)" != "" """
-style = "bold red"
 
 [jobs]
 disabled = false
