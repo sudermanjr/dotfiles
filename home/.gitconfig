@@ -6,6 +6,7 @@
 	gpgsign = true
 [core]
 	excludesfile = /Users/asuderma/.gitignore_global
+	hooksPath = /Users/asuderma/.git/hooks
 [diff "sopsdiffer"]
 	textconv = sops -d
 [hub]
@@ -18,6 +19,7 @@
 	program = gpg2
 [init]
 	defaultBranch = main
+	templateDir = /Users/asuderma/.git-template
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

@@ -146,7 +146,7 @@ colors:
     text: "0xe0def4"
     background: "0x44415a"
   normal:
-    black: "0x747185"
+    black: "0x3d3b46"
     red: "0xeb6f92"
     green: "0x3e8fb0"
     yellow: "0xf6c177"
