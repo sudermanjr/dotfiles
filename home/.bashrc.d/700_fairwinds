@@ -34,7 +34,10 @@ if [ -d $CUDDLEFISH_HOME ]; then
   }
 
   export PROMPT_COMMAND="__refresh_vault_aws"
-
+  switch_role () {
+    export VAULT_AWS_ROLE=$1
+    unset AWS_SESSION_START
+  }
 fi
 
 insights_run () {
