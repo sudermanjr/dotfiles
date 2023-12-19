@@ -14,6 +14,20 @@ if [ -d $CUDDLEFISH_HOME ]; then
 
   source <(cthulhucuddle completion-bash)
   export BASTION_USERNAME=sudermanjr
+
+  function __refresh_vault_aws() {
+      if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: enter __refresh_vault_aws"; fi
+      if [ -n "${VAULT_AWS_ROLE}" ] && [ -n "${VAULT_AWS_ACCOUNT}" ]; then
+          if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: checking AWS_SESSION_START duration"; fi
+          if [ -z "${AWS_SESSION_START}" ] || [ "$(date +%s)" -gt "$((AWS_SESSION_START + 3600))" ]; then
+              if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: refreshing AWS credentials"; fi
+              eval "$(cthulhucuddle vault refresh-aws)"
+          fi
+      fi
+  }
+  
+  export PROMPT_COMMAND="__refresh_vault_aws"
+
 fi
 
 kepler_details(){
