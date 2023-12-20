@@ -10,10 +10,6 @@ format = """\
     ${custom.fairwinds}\
     ${custom.awsaccount}\
     ${custom.awsduration}\
-    ${custom.cf_vpns} \
-    $aws\
-    $gcloud \
-    $helm\
     $kubernetes\
     $git_branch\
     $git_commit\
@@ -25,7 +21,7 @@ format = """\
     $character"""
 
 [shlvl]
-disabled = true
+disabled = false
 format = '[\($shlvl\)]($style)'
 symbol = "↕️ "
 style = "green"
@@ -53,13 +49,13 @@ disabled = true
 symbol = " "
 
 [kubernetes]
-symbol = "☸ "
+symbol = "⎈ "
 format = "[$symbol$context( \\($namespace\\))]($style) "
 style = "bright-blue"
 disabled = false
 [kubernetes.context_aliases]
-'arn:aws:eks:(?P<var_region>[\w-]+):(?P<var_accountid>[\w-]+):cluster/(?P<var_cluster>[\w-]+)' = '[eks] $var_cluster'
-'gke_.*_(?P<var_cluster>[\w-]+)' = '[gke] $var_cluster'
+'arn:aws:eks:(?P<var_region>[\w-]+):(?P<var_accountid>[\w-]+):cluster/(?P<var_cluster>[\w-]+)' = '[eks]$var_cluster'
+'gke_.*_(?P<var_cluster>[\w-]+)' = '[gke]$var_cluster'
 
 [custom.fairwinds]
 symbol = "🚀"
@@ -76,6 +72,7 @@ style = "dimmed yellow"
 
 [custom.awsaccount]
 symbol = " "
+disabled = true
 command = "echo $AWS_ACCOUNT_ALIAS"
 when = """ test "$AWS_ACCOUNT_ALIAS" != "" """
 ignore_timeout = true
