@@ -126,5 +126,6 @@
     "workbench.colorTheme": "Rosé Pine",
     "assorted-biscuits.annotationPrefix": "🔚 ",
     "assorted-biscuits.annotationColor": "#49231b",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "window.zoomLevel": 1
 }
