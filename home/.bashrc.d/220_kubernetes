@@ -100,7 +100,7 @@ ktaints(){
   kubectl get nodes -o go-template='{{printf "%-50s %-12s\n" "Node" "Taint"}}{{- range .items}}{{- if $taint := (index .spec "taints") }}{{- .metadata.name }}{{ "\t" }}{{- range $taint }}{{- .key }}={{ .value }}:{{ .effect }}{{ "\t" }}{{- end }}{{- "\n" }}{{- end}}{{- end}}'
 }
 
-alias knodes='kubectl get nodes -L node.kubernetes.io/instance-type  -L karpenter.sh/provisioner-name -L topology.kubernetes.io/zone'
+alias knodes='kubectl get nodes -L node.kubernetes.io/instance-type  -L karpenter.sh/provisioner-name -L topology.kubernetes.io/zone -L karpenter.sh/nodepool'
 
 kubebench(){
   kubectl create ns kube-bench || true

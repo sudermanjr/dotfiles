@@ -31,14 +31,14 @@ if [ -d $CUDDLEFISH_HOME ]; then
       else
           if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: unsetting any aws variables since no role or account is set"; fi
           if [ -n "$AWS_SESSION_VAULT_LEASE_ID" ]; then
-              vault lease revoke $AWS_SESSION_VAULT_LEASE_ID
+              vault lease revoke $AWS_SESSION_VAULT_LEASE_ID > /dev/null
+              unset AWS_SESSION_VAULT_LEASE_ID
           fi
-          unset AWS_SESSION_VAULT_LEASE_ID
-          unset AWS_SESSION_START
-          unset AWS_ACCESS_KEY_ID
-          unset AWS_SECRET_ACCESS_KEY
-          unset AWS_SESSION_TOKEN
-          unset AWS_SECURITY_TOKEN
+          #unset AWS_SESSION_START
+          #unset AWS_ACCESS_KEY_ID
+          #unset AWS_SECRET_ACCESS_KEY
+          #unset AWS_SESSION_TOKEN
+          #unset AWS_SECURITY_TOKEN
       fi
   }
 
