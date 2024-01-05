@@ -34,11 +34,11 @@ if [ -d $CUDDLEFISH_HOME ]; then
               vault lease revoke $AWS_SESSION_VAULT_LEASE_ID > /dev/null
               unset AWS_SESSION_VAULT_LEASE_ID
           fi
-          #unset AWS_SESSION_START
-          #unset AWS_ACCESS_KEY_ID
-          #unset AWS_SECRET_ACCESS_KEY
-          #unset AWS_SESSION_TOKEN
-          #unset AWS_SECURITY_TOKEN
+          unset AWS_SESSION_START
+          unset AWS_ACCESS_KEY_ID
+          unset AWS_SECRET_ACCESS_KEY
+          unset AWS_SESSION_TOKEN
+          unset AWS_SECURITY_TOKEN
       fi
   }
 
