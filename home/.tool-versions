@@ -10,7 +10,7 @@ conftest v0.22.0
 doctl 1.92.0
 cosign 2.0.0
 eksctl 0.43.0
-github-cli 2.14.7
+github-cli 2.42.1
 glooctl v1.14.5
 gohugo 0.108.0
 golang 1.21.3
@@ -29,7 +29,7 @@ kind 0.17.0
 kops v1.25.4
 kpt v1.0.0-beta.20
 kube-capacity 0.3.3
-kubectl 1.25.7
+kubectl 1.26.11
 kubectx 0.9.0
 kustomize 4.5.7
 linkerd 2.14.1
