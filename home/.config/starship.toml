@@ -21,7 +21,7 @@ format = """\
     $character"""
 
 [shlvl]
-disabled = false
+disabled = true
 format = '[\($shlvl\)]($style)'
 symbol = "↕️ "
 style = "green"
