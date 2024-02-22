@@ -113,7 +113,7 @@
             "password": "postgres",
             "connectionTimeout": 15
           }
-          
+
     ],
     "sqltools.format": {
     "reservedWordCase": "lower",
@@ -133,5 +133,13 @@
             "disableNotifications": true
         }
     ],
-    "sonarlint.disableTelemetry": true
+    "sonarlint.disableTelemetry": true,
+    "workbench.iconTheme": "catppuccin-latte",
+    "catppuccin.accentColor": "rosewater",
+    "editor.semanticHighlighting.enabled": true,
+    "terminal.integrated.minimumContrastRatio": 1,
+    "window.titleBarStyle": "custom",
+    "gopls": {
+        "ui.semanticTokens": true
+    }
 }
