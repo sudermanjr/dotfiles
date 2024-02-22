@@ -122,10 +122,16 @@
     },
     "svelte.enable-ts-plugin": true,
     "debug.allowBreakpointsEverywhere": true,
-    "vim.commandLineModeKeyBindings": [],
     "workbench.colorTheme": "Rosé Pine",
-    "assorted-biscuits.annotationPrefix": "🔚 ",
-    "assorted-biscuits.annotationColor": "#49231b",
-    "workbench.startupEditor": "none",
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "sonarlint.connectedMode.connections.sonarcloud": [],
+    "sonarlint.ls.javaHome": "/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home",
+    "sonarlint.connectedMode.connections.sonarqube": [
+        {
+            "connectionId": "Local Docker",
+            "serverUrl": "http://localhost:9000",
+            "disableNotifications": true
+        }
+    ],
+    "sonarlint.disableTelemetry": true
 }
