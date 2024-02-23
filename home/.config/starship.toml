@@ -3,6 +3,7 @@ add_newline = false
 format = """\
     $shlvl\
     $directory\
+    $direnv\
     $python\
     $golang\
     $ruby\
@@ -15,6 +16,8 @@ format = """\
     $git_commit\
     $git_state\
     $git_status\
+    $fossil_branch\
+    $fossil_metrics\
     $line_break\
     $jobs\
     $cmd_duration\
@@ -23,7 +26,6 @@ format = """\
 [shlvl]
 disabled = true
 format = '[\($shlvl\)]($style)'
-symbol = "↕️ "
 style = "green"
 threshold = 2
 
@@ -117,3 +119,17 @@ symbol = " "
 [helm]
 disabled = true
 format = "[⎈ $version](bold white) "
+
+[fossil_branch]
+disabled = false
+
+[fossil_metrics]
+disabled = false
+
+[direnv]
+disabled = false
+loaded_msg = '☑'
+unloaded_msg = '✖'
+symbol = ''
+style = '204'
+format = '[$loaded]($style) '
