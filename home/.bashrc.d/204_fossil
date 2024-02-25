@@ -1,0 +1,4 @@
+alias fsl=fossil
+
+alias fslenablegpg='fossil setting --global clearsign on'
+
