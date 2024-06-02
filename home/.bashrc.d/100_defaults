@@ -58,3 +58,5 @@ eval "$(pyenv init -)"
 # GPG
 gpg-connect-agent updatestartuptty /bye > /dev/null
 export XDG_CONFIG_HOME=~/Library/Preferences
+
+export EDITOR=vim

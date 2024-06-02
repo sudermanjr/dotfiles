@@ -1,6 +1,6 @@
 argo 3.5.2
 argocd 2.6.6
-awscli 2.13.5
+awscli 2.15.62
 aws-vault 6.6.2
 azure-cli 2.44.1
 bazel 5.3.2
