@@ -122,7 +122,7 @@
     },
     "svelte.enable-ts-plugin": true,
     "debug.allowBreakpointsEverywhere": true,
-    "workbench.colorTheme": "Rosé Pine",
+    "workbench.colorTheme": "Catppuccin Latte",
     "window.zoomLevel": 1,
     "sonarlint.connectedMode.connections.sonarcloud": [],
     "sonarlint.ls.javaHome": "/opt/homebrew/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home",
@@ -141,5 +141,6 @@
     "window.titleBarStyle": "custom",
     "gopls": {
         "ui.semanticTokens": true
-    }
+    },
+    "markdown.marp.enableHtml": true
 }

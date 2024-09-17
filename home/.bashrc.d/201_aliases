@@ -131,16 +131,6 @@ gitclean(){
   git remote prune origin
 }
 
-jupyter(){
-  if [ $(docker inspect jupyter | jq '.[].State.Running) == "false"') ]; then
-    docker start jupyter
-    return 0
-  fi
-  docker run --name jupyter -itd -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v /Users/asuderma/jupyter:/home/jovyan/work jupyter/datascience-notebook:7a0c7325e470 start.sh jupyter lab
-  sleep 5
-  docker logs jupyter
-}
-
 function grepfzf () {
     rg -S $1 | fzf
 }
@@ -173,3 +163,7 @@ triageparty() {
 gitratelimit() {
   curl -L   -H "Accept: application/vnd.github+json"   -H "Authorization: Bearer $GITHUB_TOKEN"   -H "X-GitHub-Api-Version: 2022-11-28"   https://api.github.com/rate_limit
 }
+
+alias fsl=fossil
+
+alias fixecr="aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws"
