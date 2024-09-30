@@ -71,7 +71,7 @@ style = "bold red"
 command = "echo [$FLOX_PROMPT_ENVIRONMENTS]"
 symbol = ""
 when = true
-style = "yellow"
+style = "cyan"
 
 [custom.awsduration]
 disabled = false

@@ -1,5 +1,10 @@
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 
+export FLOX_DISABLE_METRICS=false
+if [ -x '/usr/local/bin/flox' ];then
+    eval "$(flox activate --dir ~)"
+fi
+
 if [[ -d ${HOME}/.bashrc.d ]]; then
   while read dotd; do
     source "${dotd}"
