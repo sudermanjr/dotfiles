@@ -1,3 +1,4 @@
+export FLOX_DISABLE_METRICS=false
 if [ -x '/usr/local/bin/flox' ];then
   eval "$(flox activate --dir ~)"
 fi

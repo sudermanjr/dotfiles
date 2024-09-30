@@ -4,6 +4,7 @@ format = """\
     $shlvl\
     $directory\
     $direnv\
+    ${custom.flox} \
     $python\
     $golang\
     $ruby\
@@ -65,6 +66,12 @@ symbol = "🚀"
 command = "echo $PROJECT:$INVENTORY"
 when = """ test "$INVENTORY" != "" """
 style = "bold red"
+
+[custom.flox]
+command = "echo [$FLOX_PROMPT_ENVIRONMENTS]"
+symbol = ""
+when = true
+style = "yellow"
 
 [custom.awsduration]
 disabled = false
