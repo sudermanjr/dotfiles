@@ -55,9 +55,10 @@ symbol = "⎈ "
 format = "[$symbol$context( \\($namespace\\))]($style) "
 style = "bright-blue"
 disabled = false
-[kubernetes.context_aliases]
-'arn:aws:eks:(?P<var_region>[\w-]+):(?P<var_accountid>[\w-]+):cluster/(?P<var_cluster>[\w-]+)' = '[eks]$var_cluster'
-'gke_.*_(?P<var_cluster>[\w-]+)' = '[gke]$var_cluster'
+contexts = [
+  { context_pattern = 'arn:aws:eks:(?P<var_region>[\w-]+):(?P<var_accountid>[\w-]+):cluster/(?P<var_cluster>[\w-]+)', context_alias = '[eks]$var_cluster' },
+  { context_pattern = 'gke_.*_(?P<var_cluster>[\w-]+)', symbol = "" , context_alias = '[gke]$var_cluster' }
+]
 
 [custom.fairwinds]
 symbol = "🚀"
