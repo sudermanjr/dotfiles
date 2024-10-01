@@ -5,7 +5,7 @@ export CUDDLEFISH_PREFER_SSH_GIT=true
 export CUDDLEFISH_PROJECTS_DIR=$HOME/workspace/projects
 export VAULT_ADDR=https://vault.ops.fairwinds.com:8200
 
-if [ -d $CUDDLEFISH_HOME ]; then
+if [ -f $CUDDLEFISH_HOME/config ]; then
   source $CUDDLEFISH_HOME/config
   source $HOME/repos/github.com/fairwindsops/cuddlefish/workstation/bin/__cuddlectl_complete.bash
   alias ccenv=". ${CUDDLEFISH_VENV}/bin/activate"
