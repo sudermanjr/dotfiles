@@ -6,6 +6,7 @@ alias ll='exa -l --git --no-permissions -h'
 alias d=docker
 complete -F _docker d
 
+# Git
 eval "$(hub alias -s)"
 alias gitci="git ci-status -v"
 waitci(){
@@ -14,6 +15,12 @@ waitci(){
     sleep 5
   done
   echo "Finished."
+}
+
+alias gitfix="git remote set-head origin --auto"
+
+gitratelimit() {
+  curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $GITHUB_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/rate_limit
 }
 
 # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
@@ -74,27 +81,27 @@ gitreleaselog() {
   echo "$CHANGELOG"
 }
 
+gitclean(){
+  git fetch --prune origin
+  git remote prune origin
+}
+
+precommitinit() {
+  cp ~/.pre-commit-config.default.yaml $(git rev-parse --show-toplevel)/.pre-commit-config.yaml
+  pre-commit install -f
+}
+
 # Flush DNS Cache on OSX
 alias flushdns="sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache"
-
-# Weather
-alias weather="curl wttr.in/80814?u"
-alias weather2="curl wttr.in/80814?format=v2"
 
 # Gist the current dir
 alias gist_dir='gist --skip-empty $(ls ./)'
 
 # Get cert info
 getCert() {
-
-echo | \
-    openssl s_client -servername $1 -connect $1:$2 2>/dev/null | \
-    openssl x509 -text
-}
-
-precommitinit() {
-  cp ~/.pre-commit-config.default.yaml $(git rev-parse --show-toplevel)/.pre-commit-config.yaml
-  pre-commit install -f
+ echo | \
+   openssl s_client -servername $1 -connect $1:$2 2>/dev/null | \
+   openssl x509 -text
 }
 
 genload() {
@@ -103,19 +110,10 @@ genload() {
 }
 
 alias ds_store_clean="find . -name '.DS_Store' -type f -delete"
-alias testenv=". ~/.venv/test/bin/activate"
 
 random_word() {
   perl -e '$dict = "/usr/share/dict/words"; $bytes= -s $dict; open IN, $dict;seek(IN,rand($bytes-11),0);$_=<IN>;$_=<IN>;print'
 }
-
-newenv() {
-  name=$(random_word)
-  virtualenv ~/.venv/"$name"
-  . ~/.venv/"$name"/bin/activate
-}
-
-alias google='googler -n5 --np'
 
 alias tf=terraform
 
@@ -126,13 +124,8 @@ asciicast2gif() {
   docker run --env DEBUG=1 --rm -v $(pwd):/data asciinema/asciicast2gif https://asciinema.org/a/$1.json /data/$1.gif
 }
 
-gitclean(){
-  git fetch --prune origin
-  git remote prune origin
-}
-
 function grepfzf () {
-    rg -S $1 | fzf
+  rg -S $1 | fzf
 }
 
 lowercase_filenames() {
@@ -158,10 +151,6 @@ alias swagger='docker run --rm -it  --user $(id -u):$(id -g) -e GOPATH=$(go env 
 triageparty() {
   if [ -d $HOME/.triage-party-cache ]; then mkdir $HOME/.triage-party-cache; fi
   docker run -it --rm -e GITHUB_TOKEN -v "$HOME/triage-party-config.yaml:/app/config/config.yaml" -p 8080:8080 -e PERSIST_PATH=/cache -v "$HOME/.triage-party-cache:/cache" quay.io/fairwinds/triage-party:9c9d800d13cf3743e677b9a2df04e89da07fb3f0
-}
-
-gitratelimit() {
-  curl -L   -H "Accept: application/vnd.github+json"   -H "Authorization: Bearer $GITHUB_TOKEN"   -H "X-GitHub-Api-Version: 2022-11-28"   https://api.github.com/rate_limit
 }
 
 alias fsl=fossil
