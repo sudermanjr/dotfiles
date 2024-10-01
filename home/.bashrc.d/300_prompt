@@ -37,4 +37,3 @@
 #export GBT_CAR_CUSTOMKUBE_DISPLAY_CMD="echo YES"
 #
 #
-eval "$(starship init bash)"

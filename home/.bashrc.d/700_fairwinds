@@ -1,6 +1,9 @@
+export runner_file=$HOME/repos/github.com/fairwindsops/cuddlefish/workstation/runner/runnerfile.sh
 export CUDDLEFISH_HOME="$HOME/.cthulhu"
 export CUDDLEFISH_VENV="$HOME/.cthulhu/cuddle"
 export CUDDLEFISH_PREFER_SSH_GIT=true
+export CUDDLEFISH_PROJECTS_DIR=$HOME/workspace/projects
+export VAULT_ADDR=https://vault.ops.fairwinds.com:8200
 
 if [ -d $CUDDLEFISH_HOME ]; then
   source $CUDDLEFISH_HOME/config
@@ -30,7 +33,6 @@ function __refresh_aws() {
         fi
     fi
 }
-export PROMPT_COMMAND="__refresh_aws"
 
 function awslogout() {
   if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: unsetting any aws variables since no role or account is set"; fi

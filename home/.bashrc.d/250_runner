@@ -1,0 +1,3 @@
+# https://github.com/stylemistake/runner?tab=readme-ov-file#installation
+export PATH="$PATH:$HOME/repos/github.com/stylemistake/runner/bin"
+eval $(runner --completion=bash)
