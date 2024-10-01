@@ -15,39 +15,45 @@ if [ -d $CUDDLEFISH_HOME ]; then
   source <(cthulhucuddle completion-bash)
   export BASTION_USERNAME=sudermanjr
 
-  function __refresh_aws() {
-      if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: enter __refresh_vault_aws"; fi
-      if [ -n "${VAULT_AWS_ROLE}" ] && [ -n "${VAULT_AWS_ACCOUNT}" ]; then
-          if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: checking AWS_SESSION_START duration"; fi
-          if [ -z "${AWS_SESSION_START}" ] || [ "$(date +%s)" -gt "$((AWS_SESSION_START + 3600))" ]; then
-              if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: refreshing AWS credentials"; fi
-              if vault token lookup > /dev/null; then
-                  if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: valid vault token found"; fi
-              else
-                  vault login -method=oidc 1>/dev/null
-              fi
-              eval "$(cthulhucuddle vault refresh-aws)"
-          fi
-      else
-          if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: unsetting any aws variables since no role or account is set"; fi
-          #if [ -n "$AWS_SESSION_VAULT_LEASE_ID" ]; then
-          #    vault lease revoke $AWS_SESSION_VAULT_LEASE_ID > /dev/null
-          #    unset AWS_SESSION_VAULT_LEASE_ID
-          #fi
-          #unset AWS_SESSION_START
-          #unset AWS_ACCESS_KEY_ID
-          #unset AWS_SECRET_ACCESS_KEY
-          #unset AWS_SESSION_TOKEN
-          #unset AWS_SECURITY_TOKEN
-      fi
-  }
-
   export PROMPT_COMMAND="__refresh_aws"
   switch_role () {
     export VAULT_AWS_ROLE=$1
     unset AWS_SESSION_START
   }
 fi
+
+function __refresh_aws() {
+    if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: enter __refresh_vault_aws"; fi
+    if [ -n "${VAULT_AWS_ROLE}" ] && [ -n "${VAULT_AWS_ACCOUNT}" ]; then
+        if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: checking AWS_SESSION_START duration"; fi
+        if [ -z "${AWS_SESSION_START}" ] || [ "$(date +%s)" -gt "$((AWS_SESSION_START + 3600))" ]; then
+            if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: refreshing AWS credentials"; fi
+            if vault token lookup > /dev/null; then
+                if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: valid vault token found"; fi
+            else
+                vault login -method=oidc 1>/dev/null
+            fi
+            eval "$(cthulhucuddle vault refresh-aws)"
+        fi
+    else
+        if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: unsetting any aws variables since no role or account is set"; fi
+        #if [ -n "$AWS_SESSION_VAULT_LEASE_ID" ]; then
+        #    vault lease revoke $AWS_SESSION_VAULT_LEASE_ID > /dev/null
+        #    unset AWS_SESSION_VAULT_LEASE_ID
+        #fi
+        #unset AWS_SESSION_START
+        #unset AWS_ACCESS_KEY_ID
+        #unset AWS_SECRET_ACCESS_KEY
+        #unset AWS_SESSION_TOKEN
+        #unset AWS_SECURITY_TOKEN
+    fi
+}
+
+export PROMPT_COMMAND="__refresh_aws"
+switch_role () {
+  export VAULT_AWS_ROLE=$1
+  unset AWS_SESSION_START
+}
 
 insights_run () {
   for cj in $(kubectl -n insights-agent get cj --no-headers | awk '{print $1}'); do

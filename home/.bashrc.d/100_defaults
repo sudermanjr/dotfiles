@@ -27,12 +27,6 @@ fi
 # Add the go bin path to my path
 export PATH="$PATH:$HOME/go/bin"
 
-# Python colored logs config
-export COLOREDLOGS_LOG_LEVEL=INFO
-export COLOREDLOGS_LOG_FORMAT='%(asctime)s  %(name)s[%(process)d] %(levelname)8s  %(message)s'
-export COLOREDLOGS_FIELD_STYLES='asctime=green;levelname=250;programname=cyan;name=blue'
-export COLOREDLOGS_LEVEL_STYLES='spam=22;debug=28;verbose=34;notice=220;warning=202;success=118,bold;error=124;critical=background=red'
-
 # Add a special bin path
 export PATH=$PATH:~/bin
 
@@ -51,9 +45,6 @@ fi
 
 # Update PATH for the Google Cloud SDK.
 if [ -f '/Users/asuderma/google-cloud-sdk/path.bash.inc' ]; then . '/Users/asuderma/google-cloud-sdk/path.bash.inc'; fi
-
-# Enable pyenv
-eval "$(pyenv init -)"
 
 # GPG
 gpg-connect-agent updatestartuptty /bye > /dev/null
