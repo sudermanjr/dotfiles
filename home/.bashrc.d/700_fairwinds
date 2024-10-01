@@ -3,24 +3,18 @@ export CUDDLEFISH_VENV="$HOME/.cthulhu/cuddle"
 export CUDDLEFISH_PREFER_SSH_GIT=true
 
 if [ -d $CUDDLEFISH_HOME ]; then
-  source /Users/asuderma/.cthulhu/config
+  source $CUDDLEFISH_HOME/config
   source $HOME/repos/github.com/fairwindsops/cuddlefish/workstation/bin/__cuddlectl_complete.bash
-
   alias ccenv=". ${CUDDLEFISH_VENV}/bin/activate"
-
-  alias ugit="unset GIT_SSH_COMMAND"
-
   export BE_ANNOYING=true
-
-  source <(cthulhucuddle completion-bash)
   export BASTION_USERNAME=sudermanjr
-
-  export PROMPT_COMMAND="__refresh_aws"
-  switch_role () {
-    export VAULT_AWS_ROLE=$1
-    unset AWS_SESSION_START
-  }
 fi
+
+if command -v cthulhucuddle 2>&1 >/dev/null
+then
+  source <(cthulhucuddle completion-bash)
+fi
+
 
 function __refresh_aws() {
     if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: enter __refresh_vault_aws"; fi
@@ -37,6 +31,7 @@ function __refresh_aws() {
         fi
     else
         if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: unsetting any aws variables since no role or account is set"; fi
+        # This is commented because it doesn't currently play nicely with cuddlefish, but we can probably change that soonish
         #if [ -n "$AWS_SESSION_VAULT_LEASE_ID" ]; then
         #    vault lease revoke $AWS_SESSION_VAULT_LEASE_ID > /dev/null
         #    unset AWS_SESSION_VAULT_LEASE_ID
@@ -48,9 +43,14 @@ function __refresh_aws() {
         #unset AWS_SECURITY_TOKEN
     fi
 }
-
 export PROMPT_COMMAND="__refresh_aws"
+
 switch_role () {
+  if [ $# -eq 0 ]
+    then
+      echo "please supply a role name argument"
+  fi
+
   export VAULT_AWS_ROLE=$1
   unset AWS_SESSION_START
 }

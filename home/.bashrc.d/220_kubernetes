@@ -1,13 +1,9 @@
 alias kevents="kubectl get events --sort-by=.metadata.creationTimestamp"
-alias kb="kustomize build"
 
 alias kns=kubens
 alias kx=kubectx
 
-alias kgetns="kubectl config get-contexts | grep $(kubectl config current-context 2>/dev/null) | awk '{print \$5}' | tr -d '\n'"
-
 alias kwatch="watch kubectl get ds,deploy,hpa,po,svc,ing,cm"
-alias kwatchistio="watch kubectl get ds,deploy,po,svc,ing,cm,pvc,secret,cronjob,routerule"
 alias kgetall="kubectl api-resources --verbs=list --namespaced -o name | xargs -L 1 -I {} kubectl get {} --show-kind --ignore-not-found"
 
 kc() {
@@ -42,21 +38,6 @@ generate_kubeconfig_from_sa() {
 
 ## Krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-# Kubesec
-kubesec ()
-{
-    local FILE="${1:-}";
-    [[ ! -f "${FILE}" ]] && {
-        echo "kubesec: ${FILE}: No such file" >&2;
-        return 1
-    };
-    curl --silent \
-      --compressed \
-      --connect-timeout 5 \
-      -F file=@"${FILE}" \
-      https://kubesec.io/
-}
 
 kdebug ()
 {
@@ -118,5 +99,3 @@ kforcedeletens(){
 kindmetrics(){
   helm upgrade --install metrics-server metrics-server/metrics-server -n metrics-server --create-namespace --set=args={'--kubelet-insecure-tls'}
 }
-
-alias lens='open /Applications/Lens.app'
