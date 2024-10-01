@@ -136,7 +136,7 @@ disabled = false
 
 [direnv]
 disabled = false
-loaded_msg = '☑'
+loaded_msg = ''
 unloaded_msg = '✖'
 symbol = ''
 style = '204'

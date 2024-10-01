@@ -60,18 +60,26 @@ switch_role () {
   unset AWS_SESSION_START
 }
 
-insights_run () {
+function vars_to_envrc() {
+  if [ -f "config/local/vars.yml" ]; then
+    result=${PWD%\/*}
+    result=${result%\/*}
+    result=${result##*/}
+    project=${result//-infrastructure/}
+
+    echo "source_up .envrc" > .envrc
+    echo "source_up .envrc" > ../.envrc
+    echo "export PROJECT=$project" > ../../.envrc
+    cat config/local/vars.yml | yq | jq -r 'to_entries|map("export \(.key)=\"\(.value|tostring)\"")|.[]' >> .envrc
+    echo "export KUBECONFIG=config/private/kubeconfig" >> .envrc
+  else
+    echo "No config/local/vars.yml found - are you in the inventory top directory?"
+  fi
+}
+
+function insights_run() {
   for cj in $(kubectl -n insights-agent get cj --no-headers | awk '{print $1}'); do
     kubectl -n insights-agent delete job "$cj-manual"
     kubectl -n insights-agent create job "$cj-manual" --from=cj/$cj
   done
-}
-
-vars_to_envrc () {
-  if [ -f "config/local/vars.yml" ]; then
-    cat config/local/vars.yml | yq e - -o=json | jq -r 'to_entries|map("export \(.key)=\"\(.value|tostring)\"")|.[]' > .envrc
-    echo "export KUBECONFIG=$(ls config/private/kubeconfig*)" >> .envrc
-  else
-    echo "No config/local/vars.yml found - are you in the inventory top directory?"
-  fi
 }
