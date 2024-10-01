@@ -15,7 +15,6 @@ then
   source <(cthulhucuddle completion-bash)
 fi
 
-
 function __refresh_aws() {
     if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: enter __refresh_vault_aws"; fi
     if [ -n "${VAULT_AWS_ROLE}" ] && [ -n "${VAULT_AWS_ACCOUNT}" ]; then
@@ -29,21 +28,25 @@ function __refresh_aws() {
             fi
             eval "$(cthulhucuddle vault refresh-aws)"
         fi
-    else
-        if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: unsetting any aws variables since no role or account is set"; fi
-        # This is commented because it doesn't currently play nicely with cuddlefish, but we can probably change that soonish
-        #if [ -n "$AWS_SESSION_VAULT_LEASE_ID" ]; then
-        #    vault lease revoke $AWS_SESSION_VAULT_LEASE_ID > /dev/null
-        #    unset AWS_SESSION_VAULT_LEASE_ID
-        #fi
-        #unset AWS_SESSION_START
-        #unset AWS_ACCESS_KEY_ID
-        #unset AWS_SECRET_ACCESS_KEY
-        #unset AWS_SESSION_TOKEN
-        #unset AWS_SECURITY_TOKEN
     fi
 }
 export PROMPT_COMMAND="__refresh_aws"
+
+function awslogout() {
+  if [ "${DOTFILES_LOGLEVEL}" = "debug" ]; then echo "DEBUG: unsetting any aws variables since no role or account is set"; fi
+  if [ -n "$AWS_SESSION_VAULT_LEASE_ID" ]; then
+      vault lease revoke $AWS_SESSION_VAULT_LEASE_ID > /dev/null
+      unset AWS_SESSION_VAULT_LEASE_ID
+  fi
+  unset AWS_SESSION_START
+  unset AWS_ACCESS_KEY_ID
+  unset AWS_SECRET_ACCESS_KEY
+  unset AWS_SESSION_TOKEN
+  unset AWS_SECURITY_TOKEN
+  unset AWS_SESSION_DURATION
+  unset VAULT_AWS_ACCOUNT
+  unset VAULT_AWS_ROLE
+}
 
 switch_role () {
   if [ $# -eq 0 ]
