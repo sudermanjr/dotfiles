@@ -83,3 +83,5 @@ function insights_run() {
     kubectl -n insights-agent create job "$cj-manual" --from=cj/$cj
   done
 }
+
+alias fwddns='export SSHUTTLE_FWD_DNS=true'
