@@ -14,7 +14,7 @@ set number
 
 "Show tabs
 set list
-set listchars=tab:>-
+set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 
 "Set tab to four spaces
 set shiftwidth=4
@@ -43,6 +43,9 @@ execute pathogen#infect()
 
 map <leader>b :Git blame<cr>
 map <leader>d :Gdiff<cr>
+
+" NERDTree
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 map <leader>t :NERDTreeToggle<cr>
 
 " Add spaces after comment delimiters by default
