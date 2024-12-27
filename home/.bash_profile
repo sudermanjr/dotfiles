@@ -1,5 +1,3 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 source /Users/asuderma/.bashrc
 
 # The next line updates PATH for the Google Cloud SDK.

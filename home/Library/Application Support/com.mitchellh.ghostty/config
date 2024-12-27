@@ -1,0 +1,30 @@
+theme = catppuccin-macchiato
+font-family = "JetBrainsMono Nerd Font"
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+font-size = 18
+shell-integration = none
+quit-after-last-window-closed = true
+
+#### tmux-like config
+## pane creation
+#keybind = ctrl+a>c=new_tab
+#keybind = ctrl+a>shift+\=new_split:right
+#keybind = ctrl+a>-=new_split:down
+#
+## pane navigation
+#keybind = ctrl+a>h=goto_split:left
+#keybind = ctrl+a>j=goto_split:bottom
+#keybind = ctrl+a>k=goto_split:top
+#keybind = ctrl+a>l=goto_split:right
+#
+## pane resizing
+#keybind = ctrl+a>shift+h=resize_split:left,30
+#keybind = ctrl+a>shift+j=resize_split:down,30
+#keybind = ctrl+a>shift+k=resize_split:up,30
+#keybind = ctrl+a>shift+l=resize_split:right,30
+#
+## goto tabs
+#keybind = ctrl+a>1=goto_tab:1
+#keybind = ctrl+a>2=goto_tab:2

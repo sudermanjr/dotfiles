@@ -4,8 +4,6 @@ syntax on
 "Highlight search
 set hlsearch
 
-set visualbell
-
 "Make the command window two rows
 set cmdheight=2
 
