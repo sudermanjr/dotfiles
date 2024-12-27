@@ -6,23 +6,6 @@ alias ll='exa -l --git --no-permissions -h'
 alias d=docker
 complete -F _docker d
 
-# Git
-eval "$(hub alias -s)"
-alias gitci="git ci-status -v"
-waitci(){
-  until git ci-status -v; do
-    echo "------------------------------------------------"
-    sleep 5
-  done
-  echo "Finished."
-}
-
-alias gitfix="git remote set-head origin --auto"
-
-gitratelimit() {
-  curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer $GITHUB_TOKEN" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/rate_limit
-}
-
 # https://unix.stackexchange.com/questions/25327/watch-command-alias-expansion
 alias watch='watch -xc '
 
