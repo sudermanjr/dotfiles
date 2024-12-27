@@ -24,19 +24,6 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# Add the go bin path to my path
-export PATH="$PATH:$HOME/go/bin"
-
-# Add a special bin path
-export PATH=$PATH:~/bin
-
-# Add linuxbrew if it's there
-if [ -d /home/linuxbrew/.linuxbrew/bin ]; then
-    export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
-fi
-
-# Disable OSX warning about bash
-export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # VSCodium Settings
 if [ ! -f "$HOME/Library/Application Support/VSCodium/User/settings.json" ]; then
@@ -49,5 +36,3 @@ if [ -f '/Users/asuderma/google-cloud-sdk/path.bash.inc' ]; then . '/Users/asude
 # GPG
 gpg-connect-agent updatestartuptty /bye > /dev/null
 export XDG_CONFIG_HOME=~/Library/Preferences
-
-export EDITOR=vim
