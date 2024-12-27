@@ -1,32 +1,18 @@
-## export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-#
-#if type brew &>/dev/null; then
-#  HOMEBREW_PREFIX="$(brew --prefix)"
-#  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
-#    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-#  else
-#    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-#      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-#    done
-#  fi
-#fi
-#
-## Bash Completion
-#[[ -f "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-#
-## Enable shell command completion for gcloud.
-#if [ -f '/Users/asuderma/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/asuderma/google-cloud-sdk/completion.bash.inc'; fi
-#
-#if command -v flux &> /dev/null; then
-#  . <(flux completion bash)
-#fi
-#
-#if command -v kpt &> /dev/null; then
-#  . <(kpt completion bash)
-#fi
-#
-#if type kubectl &> /dev/null; then
-#  source <(kubectl completion bash)
-#  alias k=kubectl
-#  complete -o default -F __start_kubectl k
-#fi
+# export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+
+if type brew &>/dev/null; then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
+      [[ -r "$COMPLETION" ]] && source "$COMPLETION"
+    done
+  fi
+fi
+
+if type kubectl &> /dev/null; then
+  source <(kubectl completion bash)
+  alias k=kubectl
+  complete -o default -F __start_kubectl k
+fi
