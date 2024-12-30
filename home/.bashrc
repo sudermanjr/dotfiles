@@ -8,3 +8,9 @@ export FLOX_DISABLE_METRICS=true
 if [ -x '/usr/local/bin/flox' ];then
     eval "$(flox activate --dir ~)"
 fi
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+  tmux
+fi

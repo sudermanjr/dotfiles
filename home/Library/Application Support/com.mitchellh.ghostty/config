@@ -13,6 +13,8 @@ window-width = 100
 window-padding-x = 8
 window-padding-y = 6
 
+fullscreen = true
+
 #### tmux-like config
 ## pane creation
 #keybind = ctrl+a>c=new_tab
