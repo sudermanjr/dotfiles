@@ -62,9 +62,9 @@ contexts = [
 ]
 
 [custom.fairwinds]
-symbol = " "
-command = "echo $PROJECT:$INVENTORY"
-when = """ test "$INVENTORY" != "" """
+symbol = " "
+command = "echo $PROJECT:${INVENTORY:-(none)}"
+when = """ test "$PROJECT" != "" """
 style = "red"
 
 [custom.flox]
