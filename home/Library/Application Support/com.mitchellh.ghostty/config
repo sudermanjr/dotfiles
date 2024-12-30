@@ -7,6 +7,12 @@ font-size = 18
 shell-integration = none
 quit-after-last-window-closed = true
 
+window-height = 40
+window-width = 100
+
+window-padding-x = 8
+window-padding-y = 6
+
 #### tmux-like config
 ## pane creation
 #keybind = ctrl+a>c=new_tab
