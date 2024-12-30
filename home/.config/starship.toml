@@ -52,7 +52,7 @@ disabled = true
 symbol = " "
 
 [kubernetes]
-symbol = "⎈"
+symbol = "󱃾 "
 format = "[$symbol$context( \\($namespace\\))]($style) "
 style = "bright-blue"
 disabled = false
@@ -62,14 +62,14 @@ contexts = [
 ]
 
 [custom.fairwinds]
-symbol = "🚀"
+symbol = " "
 command = "echo $PROJECT:$INVENTORY"
 when = """ test "$INVENTORY" != "" """
-style = "bold red"
+style = "red"
 
 [custom.flox]
-command = "echo [$FLOX_PROMPT_ENVIRONMENTS]"
-symbol = ""
+command = "echo $FLOX_PROMPT_ENVIRONMENTS"
+symbol = "󱄅 "
 when = """ test $FLOX_PROMPT_ENVIRONMENTS != "" """
 style = "cyan"
 
@@ -97,6 +97,7 @@ style = "yellow"
 disabled = false
 format = "[$symbol$branch]($style) "
 symbol = " "
+style = "purple"
 
 [git_status]
 disabled = false
@@ -136,8 +137,8 @@ disabled = false
 
 [direnv]
 disabled = false
-loaded_msg = ''
-unloaded_msg = '✖'
+loaded_msg = ' '
+unloaded_msg = '󱧵 '
 symbol = ''
-style = '204'
+style = 'green'
 format = '[$loaded]($style) '
