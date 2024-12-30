@@ -70,7 +70,7 @@ style = "red"
 [custom.flox]
 command = "echo $FLOX_PROMPT_ENVIRONMENTS"
 symbol = "󱄅 "
-when = """ test $FLOX_PROMPT_ENVIRONMENTS != "" """
+when = """ test "$FLOX_PROMPT_ENVIRONMENTS" != "" """
 style = "cyan"
 
 [custom.awsduration]
