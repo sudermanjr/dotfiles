@@ -12,5 +12,5 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  tmux
+  exec tmux
 fi
