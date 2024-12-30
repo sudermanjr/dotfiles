@@ -2,9 +2,9 @@ command_timeout = 700
 add_newline = false
 format = """\
     $shlvl\
+    ${custom.flox}\
     $directory\
     $direnv\
-    ${custom.flox} \
     $python\
     $golang\
     $ruby\
@@ -52,7 +52,7 @@ disabled = true
 symbol = " "
 
 [kubernetes]
-symbol = "⎈ "
+symbol = "⎈"
 format = "[$symbol$context( \\($namespace\\))]($style) "
 style = "bright-blue"
 disabled = false
