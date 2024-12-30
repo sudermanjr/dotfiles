@@ -12,6 +12,7 @@ format = """\
     ${custom.fairwinds}\
     ${custom.awsaccount}\
     ${custom.awsduration}\
+    $aws\
     $kubernetes\
     $git_branch\
     $git_commit\
@@ -41,9 +42,8 @@ truncation_length = 8
 "~" = "home"
 
 [aws]
-disabled = true
+disabled = false
 style = "dimmed yellow"
-displayed_items = "all"
 symbol = " "
 format = "[$symbol$profile(\\($region\\))]($style) "
 

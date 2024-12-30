@@ -31,7 +31,7 @@ function use_flox() {
         return 1
     fi
 
-    direnv_load flox activate -s "$@" -d . -- "$direnv" dump
+    direnv_load flox activate "$@" -- "$direnv" dump
 
     if [[ $# == 0 ]]; then
         watch_dir ".flox/env/"
