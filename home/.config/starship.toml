@@ -1,8 +1,9 @@
 command_timeout = 700
 add_newline = false
 format = """\
-    $shlvl\
+    $shlvl \
     ${custom.flox}\
+    ${custom.flox-services}\
     $directory\
     $direnv\
     $python\
@@ -12,6 +13,7 @@ format = """\
     ${custom.fairwinds}\
     ${custom.awsaccount}\
     ${custom.awsduration}\
+    ${custom.vault}\
     $aws\
     $kubernetes\
     $git_branch\
@@ -26,7 +28,7 @@ format = """\
     $character"""
 
 [shlvl]
-disabled = true
+disabled = false
 format = '[\($shlvl\)]($style)'
 style = "green"
 threshold = 2
@@ -73,12 +75,25 @@ symbol = "󱄅 "
 when = """ test "$FLOX_PROMPT_ENVIRONMENTS" != "" """
 style = "cyan"
 
+[custom.flox-services]
+command = """flox services status --json | jq '. | select(.status=="Running") | .name ' -r"""
+symbol = " "
+when = """test $(flox services status --json | jq '. | select(.status=="Running") | .name ' -r) != "" """
+style = "cyan"
+
 [custom.awsduration]
 disabled = false
 symbol = " "
 command = "echo $((x=$AWS_SESSION_START,y=AWS_SESSION_DURATION,z=$(date +%s),u=x+y-z))s $VAULT_AWS_ACCOUNT/$VAULT_AWS_ROLE"
 when = """ test "$AWS_SESSION_START" != "" """
 style = "dimmed yellow"
+
+[custom.vault]
+disabled=false
+symbol = " "
+command = "echo $VAULT_AWS_ROLE"
+when = """ test "$VAULT_AWS_ROLE" != "" """
+style = "yellow"
 
 [custom.awsaccount]
 symbol = " "
