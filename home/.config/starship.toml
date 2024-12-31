@@ -1,7 +1,7 @@
 command_timeout = 700
 add_newline = false
 format = """\
-    $shlvl \
+    $shlvl\
     ${custom.flox}\
     ${custom.flox-services}\
     $directory\
@@ -29,7 +29,7 @@ format = """\
 
 [shlvl]
 disabled = false
-format = '[\($shlvl\)]($style)'
+format = '[\($shlvl\)]($style) '
 style = "green"
 threshold = 2
 
