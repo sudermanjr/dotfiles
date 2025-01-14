@@ -13,8 +13,8 @@ format = """\
     ${custom.fairwinds}\
     ${custom.awsaccount}\
     ${custom.awsduration}\
-    ${custom.vault}\
     $aws\
+    ${custom.vault}\
     $kubernetes\
     $git_branch\
     $git_commit\
@@ -93,7 +93,7 @@ disabled=false
 symbol = " "
 command = "echo $VAULT_AWS_ROLE"
 when = """ test "$VAULT_AWS_ROLE" != "" """
-style = "yellow"
+style = "dimmed yellow"
 
 [custom.awsaccount]
 symbol = " "
