@@ -91,8 +91,8 @@ style = "dimmed yellow"
 [custom.vault]
 disabled=false
 symbol = " "
-command = "echo $VAULT_AWS_ROLE"
-when = """ test "$VAULT_AWS_ROLE" != "" """
+command = """ echo "${VAULT_AWS_ROLE:-$DEFAULT_VAULT_AWS_ROLE}" """
+when = """ test "$VAULT_AWS_ROLE" != "" || test "$DEFAULT_VAULT_AWS_ROLE" != "" """
 style = "dimmed yellow"
 
 [custom.awsaccount]
