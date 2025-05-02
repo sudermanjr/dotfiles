@@ -4,6 +4,10 @@ SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 mkdir -p $HOME/bin
 export PATH="$PATH:$HOME/bin"
 
+if type "direnv" 2>&1 >/dev/null; then
+  eval "$(direnv hook bash)"
+fi
+
 if type "starship" 2>&1 >/dev/null; then
   [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME init starship"
   eval "$(starship init bash)"
