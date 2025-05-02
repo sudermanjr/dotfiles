@@ -1,6 +1,9 @@
 SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
 
+mkdir -p $HOME/bin
+export PATH="$PATH:$HOME/bin"
+
 if type "starship" 2>&1 >/dev/null; then
   [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME init starship"
   eval "$(starship init bash)"
@@ -45,7 +48,6 @@ gpg-connect-agent updatestartuptty /bye > /dev/null
 export XDG_CONFIG_HOME=~/Library/Preferences
 
 # Custom stuff
-export PATH="$PATH:$HOME/bin"
 export EDITOR=vim
 
 if [ -f "$HOME/.cargo/env" ]; then
