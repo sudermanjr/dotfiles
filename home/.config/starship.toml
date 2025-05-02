@@ -31,7 +31,7 @@ format = """\
 disabled = false
 format = '[\($shlvl\)]($style) '
 style = "green"
-threshold = 2
+threshold = 3
 
 [character]
 error_symbol = "[✗](bold bright-red)"
