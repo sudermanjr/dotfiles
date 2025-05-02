@@ -3,8 +3,6 @@ export DEBUG_BASHRC=1
 SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
 
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-
 if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
    builtin source "${GHOSTTY_RESOURCES_DIR}/shell-integration/bash/ghostty.bash"
 fi

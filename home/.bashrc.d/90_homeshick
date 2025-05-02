@@ -1,0 +1,10 @@
+SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
+[ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
+
+# activate homeschick
+if [ -d "$HOME/.homesick/repos/homeshick" ]; then
+  [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME enabling homeschick"
+  source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+  source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+fi
+
