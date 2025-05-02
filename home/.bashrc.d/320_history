@@ -1,3 +1,6 @@
+SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
+[ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 

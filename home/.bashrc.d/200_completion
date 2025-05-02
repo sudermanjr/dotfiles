@@ -1,3 +1,6 @@
+SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
+[ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
+
 # export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 
 if type brew &>/dev/null; then
