@@ -1,9 +1,13 @@
 SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
 
+if type "fzf" 2>&1 >/dev/null; then
+  eval "$(fzf --bash)"
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+
 # Setup fzf
 # ---------
-
 if [ -f "/usr/local/opt/fzf" ]; then
   FZF_ROOT="/usr/local/opt/fzf"
 elif [ -f "~/.fzf" ]; then

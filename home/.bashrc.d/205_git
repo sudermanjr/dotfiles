@@ -1,6 +1,11 @@
 SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
 
+if type "hub" 2>&1 >/dev/null; then
+  [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME adding hub alias"
+  eval "$(hub alias -s)"
+fi
+
 # Git aliases and stuff
 alias gitci="git ci-status -v"
 waitci(){

@@ -3,6 +3,10 @@ SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 
 # set aliases
 
+if type "batcat" > /dev/null 2>&1; then
+  [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME found batcat, symlinking"
+  ln -s "$(which batcat)" ~/bin/bat
+fi
 alias cat='bat --paging=never'
 alias ll='exa -l --git --no-permissions -h'
 

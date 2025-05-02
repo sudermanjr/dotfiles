@@ -1,0 +1,13 @@
+SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
+[ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
+
+# Yubikey helper
+mfa() {
+  if command -v ykman &> /dev/null; then
+    if [ -z "$1" ]; then
+      ykman oath accounts code
+    else
+      ykman oath accounts code | grep -i $1
+    fi
+  fi
+}
