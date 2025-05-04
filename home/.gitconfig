@@ -3,8 +3,8 @@
 	email = andy@suderman.dev
 	signingkey = E1D41017481B1ED9E3B77AF59C9CAE7EC2133DB7
 [core]
-	excludesfile = /Users/asuderma/.gitignore_global
-	hooksPath = /Users/asuderma/.git/hooks
+	excludesfile = ~/.gitignore_global
+	hooksPath = ~/.git/hooks
 [diff "sopsdiffer"]
 	textconv = sops -d
 [hub]
@@ -17,7 +17,7 @@
 	program = gpg2
 [init]
 	defaultBranch = main
-	templateDir = /Users/asuderma/.git-template
+	templateDir = ~/.git-template
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

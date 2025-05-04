@@ -1,6 +1,8 @@
 SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
 
+export PATH=$PATH:$HOME/go/bin
+
 if type "hub" 2>&1 >/dev/null; then
   [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME adding hub alias"
   eval "$(hub alias -s)"

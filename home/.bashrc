@@ -1,4 +1,16 @@
-export DEBUG_BASHRC=1
+#export DEBUG_BASHRC=1
+
+[[ -f ~/.local/share/blesh/ble.sh ]] && source ~/.local/share/blesh/ble.sh
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+
+[[ -d "$HOME/.atuin/bin" ]] && source $HOME/.atuin/bin/env
+
+if type atuin &>/dev/null; then
+  [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME atuin init bash"
+  eval "$(atuin init bash)"
+fi
+
 
 SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
