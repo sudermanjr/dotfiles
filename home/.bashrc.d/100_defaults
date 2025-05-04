@@ -4,6 +4,8 @@ SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 mkdir -p $HOME/bin
 export PATH="$PATH:$HOME/bin"
 
+[[ -d "$HOME/venv" ]] && source "$HOME/venv/bin/activate"
+
 if type "direnv" 2>&1 >/dev/null; then
   eval "$(direnv hook bash)"
 fi
