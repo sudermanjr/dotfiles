@@ -30,7 +30,7 @@ bleopt complete_ambiguous=
 #bleopt prompt_eol_mark='⏎'
 #
 ## Disable error exit marker like "[ble: exit %d]"
-#bleopt exec_errexit_mark=
+bleopt exec_errexit_mark=
 ## Tip: you may instead specify another string:
 #bleopt exec_errexit_mark=$'\e[91m[error %d]\e[m'
 #
