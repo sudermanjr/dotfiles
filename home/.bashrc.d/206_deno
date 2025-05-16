@@ -1,0 +1,14 @@
+SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
+[ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
+
+deno () {
+  podman run \
+    --interactive \
+    --tty \
+    --rm \
+    --volume $PWD:/app \
+    --workdir /app \
+    -p 3000:3000 \
+    docker.io/denoland/deno:2.3.3 \
+    "$@"
+}
