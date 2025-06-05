@@ -1,6 +1,8 @@
 SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME start"
 
+alias k=kubectl
+
 alias kevents="kubectl get events --sort-by=.metadata.creationTimestamp"
 
 alias kns=kubens
@@ -100,5 +102,6 @@ kforcedeletens(){
 }
 
 kindmetrics(){
+  helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
   helm upgrade --install metrics-server metrics-server/metrics-server -n metrics-server --create-namespace --set=args={'--kubelet-insecure-tls'}
 }
