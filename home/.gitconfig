@@ -14,7 +14,7 @@
 [pull]
 	ff = only
 [gpg]
-	program = gpg2
+	program = qubes-gpg-client-wrapper
 [init]
 	defaultBranch = main
 	templateDir = ~/.git-template
@@ -25,3 +25,5 @@
 	smudge = git-lfs smudge -- %f
 [fetch]
 	prune = true
+[commit]
+	gpgsign = true
