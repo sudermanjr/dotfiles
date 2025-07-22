@@ -5,6 +5,8 @@ mkdir -p $HOME/bin
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
+export PATH=~/.npm-global/bin:$PATH
+
 [[ -d "$HOME/venv/bin" ]] && source "$HOME/venv/bin/activate"
 
 if type "direnv" 2>&1 >/dev/null; then
