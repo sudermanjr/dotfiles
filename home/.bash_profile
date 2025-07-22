@@ -1,4 +1,4 @@
-source /Users/asuderma/.bashrc
+source $HOME/.bashrc
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/asuderma/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/asuderma/Downloads/google-cloud-sdk/path.bash.inc'; fi
