@@ -48,4 +48,4 @@ bleopt exec_exit_mark=
 #bleopt edit_marker=
 #bleopt edit_marker_error=
 
-ble-face syntax_error='fg=gray'
+ble-face syntax_error='none'
