@@ -3,7 +3,7 @@ SCRIPT_NAME=$(basename ${BASH_SOURCE[0]})
 
 # set aliases
 
- alias browse='fzf --preview="bat --color=always {}"' # ctrl+t does this, not sure it's needed
+alias browse='fzf --preview="bat --color=always {}"' # ctrl+t does this, not sure it's needed
 
 if type "batcat" > /dev/null 2>&1; then
   [ $DEBUG_BASHRC ] && echo "$SCRIPT_NAME found batcat, symlinking"
@@ -153,3 +153,5 @@ alias fixecr="aws ecr-public get-login-password --region us-east-1 | docker logi
 alias argocd="argocd --core"
 alias argo_password="kubectl get secret -n fw-argocd argocd-initial-admin-secret -ojsonpath='{.data.password}' | base64 -d | pbcopy"
 alias argo_ui="argo_password && kubectl port-forward -n fw-argocd svc/fw-argocd-server 8080:80"
+
+alias ssh-add='ssh-add -t 6h'
