@@ -20,9 +20,9 @@ if [ -n "${GHOSTTY_RESOURCES_DIR}" ]; then
 fi
 
 export FLOX_DISABLE_METRICS=true
-#if [ -x '/usr/local/bin/flox' ] || [ -x '/usr/bin/flox' ];then
-#  eval "$(flox activate --dir ~)"
-#fi
+if [ -x '/usr/local/bin/flox' ] || [ -x '/usr/bin/flox' ];then
+  eval "$(flox activate --dir ~)"
+fi
 
 if [ -f '/opt/homebrew/bin/brew' ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
