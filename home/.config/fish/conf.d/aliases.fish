@@ -88,3 +88,18 @@ function mfa -a filter
     end
 end
 
+function fsl
+    fossil $argv
+end
+
+function ssh-add
+    command ssh-add -t 6h $argv
+end
+
+# ArgoCD
+alias argocd="argocd --core"
+alias argo_password="kubectl get secret -n fw-argocd argocd-initial-admin-secret -ojsonpath='{.data.password}' | base64 -d | pbcopy"
+alias argo_ui="argo_password && kubectl port-forward -n fw-argocd svc/fw-argocd-server 8080:80"
+
+
+alias fixecr="aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws"
