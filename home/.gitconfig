@@ -14,7 +14,7 @@
 [pull]
 	ff = only
 [gpg]
-	program = qubes-gpg-client-wrapper
+	program = gpg
 [init]
 	defaultBranch = main
 	templateDir = ~/.git-template

@@ -9,12 +9,15 @@ if status is-interactive
         eval "$(flox activate --dir ~)"
     end
 
+    if test -f /usr/local/go/bin/go
+        fish_add_path /usr/local/go/bin
+    end
+
     # The next line updates PATH for the Google Cloud SDK.
     if test -f $HOME/Downloads/google-cloud-sdk/path.fish.inc
-       source $HOME/Downloads/google-cloud-sdk/path.fish.inc
-   end
+        source $HOME/Downloads/google-cloud-sdk/path.fish.inc
+    end
 
-    set -gx XDG_CONFIG_HOME $HOME/Library/Preferences
     set -gx EDITOR vim
     if test -f $HOME/.cargo/env.fish
         source $HOME/.cargo/env.fish
