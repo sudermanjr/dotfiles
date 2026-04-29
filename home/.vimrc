@@ -37,7 +37,7 @@ set pastetoggle=<F2>
 au BufReadPost Jenkinsfile set syntax=groovy
 au BufReadPost Jenkinsfile set filetype=groovy
 
-execute pathogen#infect()
+"execute pathogen#infect()
 
 map <leader>b :Git blame<cr>
 map <leader>d :Gdiff<cr>

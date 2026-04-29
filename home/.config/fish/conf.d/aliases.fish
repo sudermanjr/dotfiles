@@ -6,7 +6,7 @@ function ll
 end
 
 function ls
-    eza
+    eza $argv
 end
 
 # Containers
