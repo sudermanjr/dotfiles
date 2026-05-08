@@ -44,7 +44,7 @@ truncation_length = 8
 "~" = "home"
 
 [aws]
-disabled = false
+disabled = true
 style = "dimmed yellow"
 symbol = " "
 format = "[$symbol$profile(\\($region\\))]($style) "
@@ -65,15 +65,16 @@ contexts = [
 
 [custom.fairwinds]
 symbol = " "
-command = "echo $PROJECT:${INVENTORY:-(none)}"
+command = "echo $PROJECT:$INVENTORY"
 when = """ test "$PROJECT" != "" """
 style = "red"
+disabled = true
 
 [custom.flox]
 command = "echo $FLOX_PROMPT_ENVIRONMENTS"
 symbol = "󱄅 "
 when = """ test "$FLOX_PROMPT_ENVIRONMENTS" != "" """
-style = "cyan"
+style = "red"
 
 [custom.flox-services]
 command = """flox services status --json | jq '. | select(.status=="Running") | .name ' -r"""
@@ -84,7 +85,7 @@ style = "cyan"
 [custom.vault]
 disabled=false
 symbol = " "
-command = """ echo "${VAULT_AWS_ROLE:-$DEFAULT_VAULT_AWS_ROLE}" """
+command = """bash -c 'echo ${VAULT_AWS_ROLE:-$DEFAULT_VAULT_AWS_ROLE}' """
 when = """ test "$VAULT_AWS_ROLE" != "" || test "$DEFAULT_VAULT_AWS_ROLE" != "" """
 style = "dimmed yellow"
 
