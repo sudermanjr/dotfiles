@@ -1,7 +1,6 @@
 command_timeout = 700
 add_newline = false
 format = """\
-    $shlvl\
     ${custom.flox}\
     ${custom.flox-services}\
     $directory\
@@ -25,29 +24,34 @@ format = """\
     $line_break\
     $jobs\
     $cmd_duration\
-    $character"""
+    $shlvl"""
 
 [shlvl]
 disabled = false
-format = '[\($shlvl\)]($style) '
-style = "green"
-threshold = 3
+#format = '[$shlvl]($style) '
+format = '[$symbol]($style) '
+style = "lightgrey"
+repeat = true
+symbol = '❯'
+repeat_offset = 1
 
 [character]
 error_symbol = "[✗](bold bright-red)"
-success_symbol = "[▶](bold green)"
+success_symbol = "[>](bold green)"
 
 [directory]
 style = "green"
-truncation_length = 8
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "-/"
 [directory.substitutions]
-"~" = "home"
+"-infrastructure" = ""
 
 [aws]
-disabled = true
+disabled = false
 style = "dimmed yellow"
 symbol = " "
-format = "[$symbol$profile(\\($region\\))]($style) "
+format = "[$symbol(\\($region\\))]($style) "
 
 [gcloud]
 disabled = true
