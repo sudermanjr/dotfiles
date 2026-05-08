@@ -81,13 +81,6 @@ symbol = " "
 when = """test $(flox services status --json | jq '. | select(.status=="Running") | .name ' -r) != "" """
 style = "cyan"
 
-[custom.awsduration]
-disabled = false
-symbol = " "
-command = "echo $((x=$AWS_SESSION_START,y=AWS_SESSION_DURATION,z=$(date +%s),u=x+y-z))s $VAULT_AWS_ACCOUNT/$VAULT_AWS_ROLE"
-when = """ test "$AWS_SESSION_START" != "" """
-style = "dimmed yellow"
-
 [custom.vault]
 disabled=false
 symbol = " "
